@@ -1,0 +1,1170 @@
+% !TEX root = ../thesis.tex
+
+%\documentclass[12pt]{article}
+%\usepackage{mathtools}
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage{hyperref}
+%\usepackage{braket}
+%\usepackage[margin=3cm]{geometry}
+%\usepackage{microtype}
+%\usepackage{amssymb}
+%\usepackage{dsfont}
+%\usepackage{mdframed}
+%\usepackage[inline,shortlabels]{enumitem}
+%\usepackage[square, numbers, sort&compress]{natbib}
+%\usepackage{comment}
+%\usepackage{fancyhdr}
+%\usepackage[font=small]{caption}
+%\usepackage{subfloat}
+%\usepackage{titlesec}
+%\usepackage[export]{adjustbox}
+%\usepackage{centernot}
+%\usepackage{pifont}
+%\usepackage{stackengine}
+%\newcommand{\cmark}{\text{\ding{51}}}%
+%\newcommand{\xmark}{\text{\ding{55}}}%
+%
+%% set up hyperref
+%\hypersetup{
+%    colorlinks = true,
+%    linkcolor  = blue,
+%    citecolor  = blue,
+%    urlcolor   = blue,
+%}
+%
+%% set up section heading formatting using titlesec
+%\titleformat*{\section}{\normalfont\sffamily\Large\bfseries}
+%\titleformat*{\subsection}{\normalfont\sffamily\large\bfseries}
+%\titleformat*{\subsubsection}{\normalfont\sffamily\normalsize\bfseries}
+%
+%
+%% place all diagrams in separate file for neatness
+%\input{tikzpics.tex}
+%
+%% shorthand commands
+%\def\U#1{\text{U}(#1)}
+%\def\Z#1{\mathbb{Z}_{#1}}
+%\newcommand{\mathds{1}}{\mathds{1}}
+%\renewcommand{\vec}[1]{\mathbf{#1}}
+%\renewcommand{\cal}{\mathcal}
+%\renewcommand{\L}{\mathcal{L}}
+%
+%% new math operators
+%\DeclareMathOperator{\Tr}{Tr}
+%\DeclareMathOperator{\poly}{poly}
+%
+%% new commands
+%\newcommand{\ketbra}[2]{\ket{#1}\!\bra{#2}}
+%
+%% notation for CZ gates and its derivatives
+%\newcommand{\CZ}{\mathsf{CZ}}
+%\newcommand{\CZp}{\mathsf{CZ}_p}
+%
+%% comments
+%% \newcommand{\CS}[1]{{\footnotesize\color{ForestGreen} CS:~#1}}
+%% \newcommand{\OH}[1]{{\footnotesize\color{RoyalBlue}OH:~#1}}
+%% \newcommand{\RN}[1]{{\footnotesize\color{Red}RN:~#1}}
+%
+%% fixes: bold math in section titles, but *not* in table of contents
+%\makeatletter
+%\g@addto@macro\bfseries{\boldmath}
+%\makeatother
+%
+%\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+%\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+%\makeatletter
+%\let\oldabs\abs
+%\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%%
+%\let\oldnorm\norm
+%\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+%\makeatother
+%
+%\renewenvironment{abstract}{%
+%\begin{quotation}\small
+%}{%
+%\end{quotation}
+%}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\title{Topologically stable ergodicity breaking from emergent higher-form symmetries in generalized quantum loop models}
+%\author{Charles Stahl$^\star$, Rahul Nandkishore and Oliver Hart$^\dagger$}
+%\date{% abuse the date command...
+%\normalsize {\it Department of Physics and Center for Theory of Quantum Matter,
+%University of Colorado Boulder, Boulder, Colorado 80309 USA}\\[0.5ex]
+%(Dated: April 10, 2023)\\[2ex]
+%{\small $^\star$\href{mailto:charles.stahl@colorado.edu}{\sf charles.stahl@colorado.edu}, $^\dagger$\href{mailto:oliver.hart-1@colorado.edu}{\sf oliver.hart-1@colorado.edu}}}
+%
+%% set up header
+%\fancyhead[L]{\nouppercase{\leftmark}}
+%\fancyhead[R]{\thepage}
+%\fancyfoot[C]{}
+%
+%\begin{document}
+%\setlength{\headheight}{15pt}
+%
+%\maketitle
+%
+%\begin{abstract}
+
+\chapter{Robust shattering}\label{chp:loops}
+
+
+We present a set of generalized quantum loop models which provably exhibit topologically stable ergodicity breaking. These results hold for both periodic and open boundary conditions, and derive from a one-form symmetry (notably not being restricted to sectors of extremal one-form charge). We identify simple models in which this one-form symmetry can be emergent, giving rise to the aforementioned ergodicity breaking as an exponentially long-lived prethermal phenomenon. We unveil a web of dualities that connects these models, in certain limits, to models that have previously been discussed in the literature. We also identify nonlocal conserved quantities in such models that correspond to a pattern of system-spanning domain walls, and which are robust to the addition of arbitrary $k$-local perturbations.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+\section{Introduction}
+
+When can many-body quantum systems fail to reach thermal equilibrium under their own dynamics, and thereby exhibit long-time behavior that lies fundamentally beyond equilibrium quantum statistical mechanics? The oldest answer to this question is ``when they are integrable''~\cite{Baxter2016Exactly}---integrable systems have extensively many explicit conservation laws, and do not thermalize to any conventional statistical mechanical ensemble. However, it is unclear to what extent (if at all) integrability is robust to generic perturbations, in the thermodynamic limit. A more recent answer is ``when they are many-body localized''~\cite{Nandkishore2015MBL, Abanin2019MBL}. Many-body localization by strong disorder involves extensively many emergent conservation laws, and does exhibit robustness to spatially local perturbations, although the proof of robustness is limited to one-dimensional spin chains~\cite{Imbrie2016MBL}, and moreover is subtle and has been questioned~\cite{Sels2021Obstruction}. Quantum many-body scars~\cite{Shiraishi2017ETH, Moudgalya2018AKLT, Turner2018Scarred, Chandran2023Scars} provide yet another example, without any conservation laws (but generically also without any notion of robustness). Still more recently, it was realized that the interplay of finitely many `multipolar' conservation laws could break ergodicity~\cite{Pai2019Localization}, a result that was explained in terms of a shattering (aka fragmentation) of Hilbert space~\cite{Khemani2020Localization, Sala2020Fragmentation, Moudgalya2022Thermalization}, whereby the unitary time evolution matrix block diagonalizes (within each symmetry sector) into exponentially many dynamically disconnected subsectors. This phenomenon has a simple proof of robustness~\cite{Khemani2020Localization} to arbitrary symmetric perturbations with strict spatial locality, and has stimulated a great deal of work into quantum dynamics with multipolar symmetries~\cite{Rakovszky2020SLIOM, Yang2020Confinement, Khudorozhkov2022Fragmentation, Moudgalya2022Commutant, Yoshinaga2022Ising, Hart2022Shattering, Bulmash2023Multipole, Gromov2020Fracton, Iaconis2019Subdiffusion, Glorioso2022Breakdown, RichterPal2022, Iaconis2021Multipole, Glorioso2021Nonabelian, Grosvenor2021Hydrodynamics, Osborne2021FractonFluids, Feldmeier2020Anomalous, Sala2022Modulated, Hart2022Quasiconservation, Qi2023FractonMHD, Guo2022Fracton, Glorioso2023Goldstone}. 
+
+Very recently, a new route to ergodicity breaking was identified~\cite{Stephen2022Robust} which exhibits {\it topological} stability in two spatial dimensions. For the first time, the ergodicity breaking is robust to spatially {\it nonlocal} perturbations, with the only requirement being that of {\it k-locality}, i.e., that the perturbation should act on no more than $k$ degrees of freedom (with $k/L \rightarrow 0$ in the thermodynamic limit, where $L$ is linear system size). This argument relied on a one-form symmetry, with the results being exact in the presence of arbitrary one-form-symmetric $k$-local perturbations. It was also explained how the one-form symmetry could be `emergent' in a simple model of spin-$1/2$ degrees of freedom, which we hereafter refer to as the $\CZ_p$ model, in which case the ergodicity breaking became prethermal, and robust to arbitrary $k$-local perturbations up to exponentially long timescales.  However, the results of Ref.~\cite{Stephen2022Robust} relied on a {\it dense packing of system winding loops}, such that the ergodicity breaking only arose in sectors of extremal one-form symmetry charge, and was `all or nothing' (i.e., either the one-form symmetry sector was shattered into fully frozen one-dimensional subblocks with no dynamics, or it was not fragmented at all). Moreover, the construction presented in Ref.~\cite{Stephen2022Robust} was limited to systems with periodic boundary conditions. 
+
+In this work, we drastically extend the results of Ref.~\cite{Stephen2022Robust} to a much broader class of quantum loop models, without the requirement of either dense packing or periodic boundary conditions. We present a family of simple models with emergent one-form symmetry~\cite{Nussinov2009Symmetry, Gaiotto2015Generalized, Lake2018Higher, McGreevy2022Generalized, Cordova2022Generalized} (up to an exponentially long prethermal timescale). This family of models includes, as its simplest member, the $\CZ_p$ model of Ref.~\cite{Stephen2022Robust}. We show how this family of models generically exhibits ergodicity breaking with topological stability, and how the results may be extended to systems with open boundary conditions. Moreover, the broader family includes models in which the ergodicity breaking occurs in all symmetry sectors, and is not `all or nothing' (i.e., symmetry sectors can block diagonalize into subblocks that are not one-dimensional). In this latter case, we identify certain nonlocal conserved quantities that robustly label the emergent subblocks. We also unveil a web of dualities that connects our results (in various limits) to higher-dimensional generalizations of several models previously considered in the literature, including the pair-flip model~\cite{Caha2018PairFlip, Moudgalya2022Commutant}, and which also make a connection with (quantum) square ice~\cite{Lieb1967Ice, Moessner2004Planar, Shannon2004SquareIce} and close-packed dimer models~\cite{Kasteleyn1961StatisticsI, Temperley1961Dimer, Kasteleyn1963Dimer, Fisher1963Statistical, Rokhsar1988Superconductivity, Henley1997Relaxation, Henley2004Classical, Moessner2010Quantum}. 
+
+The manuscript is structured as follows: We start with a review of the one-dimensional pair-flip model in Sec.~\ref{sec:1D-pair-flip}. 
+This discussion serves as a warm-up and emphasizes the aspects of the model that will be most useful in our two-dimensional generalization.
+Readers familiar with the physics of the one-dimensional pair-flip model can therefore skip to Sec.~\ref{sec:QF}, where we introduce a two-dimensional model that displays the aforementioned topological fragmentation. 
+Sec.~\ref{sub:summary} contains a summary of the two-dimensional model that is meant to be entirely self-contained, so that readers may understand all the physics of the topological fragmentation.
+The rest of that section is devoted to details of the model, including its boundaries, symmetries, robustness, and fragmentation. 
+In Sec.~\ref{sec:generalized} we provide connections to square ice, the $\CZp$ model~\cite{Stephen2022Robust} (via a Kramers-Wannier-like duality), and a three-dimensional generalization. 
+Finally, we discuss some open questions in Sec.~\ref{sec:conclusion}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Warm-up: One-dimensional pair-flip dynamics}
+\label{sec:1D-pair-flip}
+
+We start with a brief review of the dynamics of the one-dimensional (1D) pair-flip (PF) model~\cite{Caha2018PairFlip, Moudgalya2022Commutant}, which exhibits some properties that will be useful for understanding our generalized quantum loop models. Readers familiar with the pair-flip model may safely skip this section and begin reading Sec.~\ref{sec:QF}. 
+
+Consider a lattice composed of $L$ spin-$S$ degrees of freedom on the edges of a one-dimensional lattice.
+It will be convenient to work with the variable $m = 2S+1$ in place of $S$; each degree of freedom is then associated to an $m$-dimensional local Hilbert space. Let us introduce the following graphical representation of states,
+%
+%
+\begin{equation}
+    \ket{0} \equiv \dualRket \, , \, \ket{1} \equiv \dualGket \, , \, \ket{2} \equiv \dualBket
+    \, ,
+    \label{eqn:PF-Hilbert-space}
+\end{equation}
+%
+%
+where we have set $m=3$ for convenience of illustrations.
+
+Given projectors $\hat{\cal{P}}^\alpha_e = \ketbra{\alpha}{\alpha}_e$ that project the spin at edge $e$ onto state $\alpha$, we may define the symmetry charges
+%
+%
+\begin{equation}
+\hat{N}^{\alpha} = \sum_e(-1)^e \hat{\cal{P}}_e^\alpha \, ,
+\quad \alpha = 0, \dots, m-1 \, , \label{eqn:PF-symmetry}
+\end{equation}
+%
+%
+where $(-1)^e=1$ if $e$ is in the even sublattice and $(-1)^e=-1$ if $e$ is in the odd sublattice. While it may appear that there are $m$ different generators in~\eqref{eqn:PF-symmetry}, only $m-1$ of them are independent since the projectors obey $\sum_{\alpha=0}^{m-1} \hat{\cal{P}}_e^\alpha = \mathds{1}$ on every edge. The $\text{U}(1)^{m-1}$ symmetry~\eqref{eqn:PF-symmetry} breaks the $m^L$-dimensional Hilbert space into $\mathcal{O}(L^{m-1})$ symmetry sectors. However, as we will show, following the discussion in Ref.~\cite{Moudgalya2022Commutant}, nearest-neighbor, symmetry-respecting dynamics is not fully ergodic within these sectors.
+
+The most generic nearest-neighbor dynamics consistent with~\eqref{eqn:PF-symmetry} is as follows: If the spins on edges $e$ and $e+1$ are both in state $\alpha$, flip
+them both to state $\beta$, with $0 \le \alpha, \beta \le m-1$. These ``active'' pairs can be represented by pairing up the legs emanating from spins into ``dimers.''
+For example,
+%
+%
+\begin{equation}
+    \redpair \to \RedPairJoin 
+    \, ,
+    \label{eqn:dimer-joining}
+\end{equation}
+%
+%
+and with analogous notation for neighboring pairs of green and blue sites.
+Consider the following configurations:
+%
+%
+\begin{equation}
+    \left\lvert\kern1pt%
+    \begin{tikzpicture}%
+        \draw[BrickRed, thick, double] (0, 0)--(2.4ex, 0);%
+        \draw[ForestGreen, thick, double] (4.8ex, 0)--(7.2ex, 0);%
+        \fill[BrickRed] circle(0.6ex);%
+        \fill[BrickRed] (2.4ex, 0) circle(0.6ex);%
+        \fill[ForestGreen] (4.8ex, 0) circle(0.6ex);%
+        \fill[ForestGreen] (7.2ex, 0) circle(0.6ex);%
+    \end{tikzpicture}\kern1pt\right\rangle
+    \, ,
+    \qquad
+    \big\lvert\kern1pt%
+    \begin{tikzpicture}%
+        \draw[BrickRed, thick, double] ((2.4ex, 0)--(4.8ex, 0);%
+        \draw[ForestGreen, thick, double] (0, 0) to [bend left=40] (7.2ex, 0);%
+        \fill[ForestGreen] circle(0.6ex);%
+        \fill[BrickRed] (2.4ex, 0) circle(0.6ex);%
+        \fill[BrickRed] (4.8ex, 0) circle(0.6ex);%
+        \fill[ForestGreen] (7.2ex, 0) circle(0.6ex);%
+    \end{tikzpicture}\kern1pt\big\rangle
+    \, .
+\end{equation}
+%
+%
+The configuration on the left is evidently fully active. The configuration on the right is also fully active since the central active red pair can be permuted to green, allowing the green edge spins to become active.
+In this way, the two configurations are actually connected via local pair-flip moves. Indeed, since any contiguous region of $2n$ spins paired into $n$ noncrossing dimers can be connected via local moves to the all red state (say), \emph{any} configuration of $n$ noncrossing dimers can be generated via pair-flip moves.
+
+Suppose that the following procedure is performed: First, all neighboring pairs are grouped\footnote{While this grouping is not unique, the nonuniqueness does not affect the label that the procedure produces.} according to Eq.~\eqref{eqn:dimer-joining}. Next, all paired spins are removed from the string, and the pairing procedure is applied again to the remaining spins. This procedure is repeated until the there remains a configuration of unpaired spins that cannot be paired up without introducing crossings between dimers.
+
+Having completed this procedure, observe that unpaired spins are able to move past paired spin configurations.\footnote{The hopping process however preserves the sublattice of the unpaired spin. This leads to additional conservation laws for periodic boundaries and even $L$, described in Appendix~\ref{app:enumeration}.} The simplest example of this being
+%
+%
+\begin{equation}
+    \left\lvert\kern1pt%
+    \begin{tikzpicture}[x=1ex, y=1ex, baseline={(0,-0.12)}]%
+        \draw[ForestGreen, thick, double] (2.4ex, 0)--(4.8ex, 0);%
+        \dualRcirc{0}{0};
+        \fill[ForestGreen] (2.4ex, 0) circle(0.6ex);%
+        \fill[ForestGreen] (4.8ex, 0) circle(0.6ex);%
+    \end{tikzpicture}\kern1pt\right\rangle
+    \leftrightarrow 
+    \left\lvert\kern1pt%
+    \begin{tikzpicture}[x=1ex, y=1ex, baseline={(0,-0.12)}]%
+        \draw[BrickRed, thick, double] (2.4ex, 0)--(4.8ex, 0);%
+        \dualRcirc{0}{0};
+        \fill[BrickRed] (2.4ex, 0) circle(0.6ex);%
+        \fill[BrickRed] (4.8ex, 0) circle(0.6ex);%
+    \end{tikzpicture}\kern1pt\right\rangle
+    \leftrightarrow 
+    \left\lvert\kern1pt%
+    \begin{tikzpicture}[x=1ex, y=1ex, baseline={(0,-0.12)}]%
+        \draw[BrickRed, thick, double] (0, 0)--(2.4ex, 0);%
+        \fill[BrickRed] circle(0.6ex);%
+        \fill[BrickRed] (2.4ex, 0) circle(0.6ex);%
+        \dualRcirc{4.8}{0};
+    \end{tikzpicture}\kern1pt\right\rangle
+    \leftrightarrow 
+    \left\lvert\kern1pt%
+    \begin{tikzpicture}[x=1ex, y=1ex, baseline={(0,-0.12)}]%
+        \draw[ForestGreen, thick, double] (0, 0)--(2.4ex, 0);%
+        \fill[ForestGreen] circle(0.6ex);%
+        \fill[ForestGreen] (2.4ex, 0) circle(0.6ex);%
+        \dualRcirc{4.8}{0};
+    \end{tikzpicture}\kern1pt\right\rangle
+    \, .
+    \label{eqn:dot-past-dimer}
+\end{equation}
+%
+%
+However, since the color of the unpaired spin remains fixed, the ternary string corresponding to the unpaired dots (i.e., having removed all intervening paired spins) is conserved.
+As an explicit example, under the procedure just described,
+%
+%
+\begin{equation}
+    \big\lvert\kern1pt%
+    \begin{tikzpicture}[baseline={(0,-0.12)},x=1ex, y=1ex]%
+        \pgfmathsetmacro{\dx}{2.4};
+        \pgfmathsetmacro{\r}{0.6};
+        \coordinate (A) at (0, 0);
+        \coordinate (B) at ({\dx ex}, 0);
+        \coordinate (C) at ({2*\dx ex}, 0);
+        \coordinate (D) at ({3*\dx ex}, 0);
+        \coordinate (E) at ({4*\dx ex}, 0);
+        \coordinate (F) at ({5*\dx ex}, 0);
+        \coordinate (G) at ({6*\dx ex}, 0);
+        \coordinate (H) at ({7*\dx ex}, 0);
+        \draw[ForestGreen, thick, double] (C)--(D);%
+        \draw[RoyalBlue, thick, double] (B) to [bend left=40] (E);%
+        \draw[BrickRed, thick, double] (G)--(H);%
+        \draw[BrickRed, thick] ($ (A) + (0,1.2) $) -- ($ (A) + (0,-1.2) $);  
+        \draw[ForestGreen, thick] ($ (F) + (0,1.2) $) -- ($ (F) + (0,-1.2) $);  
+        \fill[BrickRed] (A) circle(\r ex);%
+        \fill[ForestGreen] (C) circle(\r ex);%
+        \fill[ForestGreen] (D) circle(\r ex);%
+        \fill[RoyalBlue] (B) circle(\r ex);%
+        \fill[RoyalBlue] (E) circle(\r ex);%
+        \fill[ForestGreen] (F) circle(\r ex);%
+        \fill[BrickRed] (G) circle(\r ex);%
+        \fill[BrickRed] (H) circle(\r ex);%
+    \end{tikzpicture}\kern1pt\big\rangle
+    \mapsto
+    \lvert\kern1pt%
+    \begin{tikzpicture}[baseline={(0,-0.12)},x=1ex, y=1ex]%
+        \pgfmathsetmacro{\dx}{2.4};
+        \pgfmathsetmacro{\r}{0.6};
+        \coordinate (A) at (0, 0);
+        \coordinate (B) at ({\dx ex}, 0);
+        \draw[BrickRed, thick] ($ (A) + (0,1.2) $) -- ($ (A) + (0,-1.2) $);  
+        \draw[ForestGreen, thick] ($ (B) + (0,1.2) $) -- ($ (B) + (0,-1.2) $);  
+        \fill[BrickRed] (A) circle(\r ex);%
+        \fill[ForestGreen] (B) circle(\r ex);%
+    \end{tikzpicture}\kern1pt\rangle
+    \, . \label{eqn:dual-patterns}
+\end{equation}
+%
+%
+The reduced pattern shown on the right-hand side is conserved under pair-flip dynamics. Note that we are assuming open boundaries for the purposes of this discussion.
+
+We call such a pattern of unpaired dots a \emph{label}; spin configurations associated to different labels cannot be connected via pair-flip dynamics and therefore belong to dynamically disconnected sectors known as {Krylov sectors}~\cite{Moudgalya2022Thermalization}.
+If our system has an even (odd) number of spins then the label must have an even (odd) length, but can otherwise be any length between 0 and $L$. For open boundary conditions, the first color in the label is arbitrary and no color may match its neighbor, so there are $m(m-1)^{j-1}$ labels of length $j$, except for the trivial label $(j=0)$ of which there is only one (and only exists if $L$ is even). In all, this allows for 
+\begin{align}
+    &\sum_{n = 0}^{\left\lceil L/2 \right\rceil - 1} m(m-1)^{L-2n -1} + (1 \text{ if $L$ is even}) %= \frac{(m-1)^{L+1}-1}{m-2}  
+    = \mathcal{O}[(m-1)^L] 
+    \label{eqn:unique-labels}
+\end{align}
+Krylov sectors. See Appendix~\ref{app:enumeration} for the sizes of the Krylov sectors, and for the slightly different counting of sectors in the presence of periodic boundaries. The exponential scaling of the number of Krylov sectors together with the polynomial scaling of the number of symmetry sectors means that the PF model must exhibit fragmentation~\cite{Moudgalya2022Commutant}. In particular, Krylov sectors with labels of length $L$ each consist of one fully frozen state with no allowed dynamics.
+
+Furthermore, fragmentation exists in generic symmetry sectors. Any symmetry sector has a minimal length $L_{\min}$ on which it exists. Take a representative spin pattern from that sector and an uncharged 
+motif such as $\left\lvert\kern1pt%
+\begin{tikzpicture}[baseline={(0,-0.12)},x=2.4ex, y=2.4ex]
+        \dualRcirc{0}{0};
+        \dualGcirc{1}{0};
+        \dualBcirc{2}{0};
+        \dualRcirc{3}{0};
+        \dualGcirc{4}{0};
+        \dualBcirc{5}{0};
+\end{tikzpicture}\kern1pt\right\rangle$. There are six motifs of size six (and no smaller motifs, as shown in Appendix~\ref{app:enumeration}) but only four have a first spin that does not match the last spin of our chosen pattern. Then for systems of size $L_{\min}+6n$, we have $n$ slots into which we can independently place four compatible patterns, which gives a lower bound of $4^{(L-L_\text{min})/6}$  different Krylov sectors within any fixed symmetry sector. A more detailed count of the number of Krylov sectors belonging to each symmetry sector is given in Appendix~\ref{app:enumeration}, but the argument here is enough to show that fragmentation is present in generic symmetry sectors.
+
+In the pair-flip model, and in most models in the literature, fragmentation depends strongly on strict locality. In our example, we can see this to be true by including next-nearest-neighbor dynamics. Any move that swaps the states of the spins on edges $e-1$ and $e+1$ is allowed by the symmetry~\eqref{eqn:PF-symmetry}. Under this dynamics, any two states within the same symmetry sector may be transformed into each other, regardless of their label as previously defined, completely melting the fragmentation. In the next section we will introduce a two-dimensional (2D) model with similar fragmentation properties, but where arbitrary $k$-local terms ($k<2L$) may be introduced while preserving the fragmentation---the extra dimension (and attendant one-form symmetry) endows the fragmentation with topological stability. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\section{The quad-flip model}
+\label{sec:QF}
+
+We now define the quad-flip model, a generalization of the PF model to 2D. Reference~\cite{Moudgalya2022Commutant} shows that the simplest generalization of PF dynamics to 2D, using a 0-form symmetry, results in fragmentation that is not robust to generic local perturbations. Reference~\cite{Stephen2022Robust} shows that 1-form symmetries can lead to robust fragmentation. This motivates our generalization of the PF model to 2D using a 1-form symmetry.
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+\subsection{Summary} \label{sub:summary}
+
+We will first present a general overview of how generalized 2D loop models can exhibit robust Hilbert space fragmentation without reference to any particular Hamiltonian realization. Explicit local Hamiltonians that give rise to the desired loop models prethermally, and a more technical discussion of their conventional symmetries and nonlocal conserved quantities, are presented from Sec.~\ref{sec:QF-Hamiltonian} onwards.
+
+Consider an $L \times L$ square lattice in two spatial dimensions with spin-$S$ degrees of freedom on the edges of the lattice.
+As in Sec.~\ref{sec:1D-pair-flip}, we introduce the variable $m=2S+1$ to parameterize the size of the local Hilbert space on each edge.
+The states on each edge are given the following graphical representation
+%
+%
+\begin{equation*}
+    \ket{0} \equiv \dualRket \, , \, \ket{1} \equiv \dualGket \, , \, \ket{2} \equiv \dualBket
+    \, , \, \dots
+    \tag{\ref{eqn:PF-Hilbert-space}}
+\end{equation*}
+%
+%
+where we have set $m = 3$ for convenience of illustrations.
+
+We can define a 1-form symmetry in 2D analogous to the symmetry from Sec.~\ref{sec:1D-pair-flip}. In general, $n$-form symmetries consist of operators defined on $(d-n)$-dimensional manifolds~\cite{Nussinov2009Symmetry, Gaiotto2015Generalized, Lake2018Higher, McGreevy2022Generalized, Cordova2022Generalized}. For any path $\mathcal{C}$ on the lattice (with a definite starting edge), define the one-form symmetry charges 
+\begin{align}
+    \hat{N}^\alpha_\mathcal{C} = \sum_{e_j \in \mathcal{C}}(-1)^j \hat{\mathcal{P}}^\alpha_{e_j}, \quad \alpha = 0,\dots, m-1,
+    \label{eqn:2d-charges}
+\end{align}
+where the edges $\{e_0, e_1, \dots\}$ in $\mathcal{C}$ are ordered so that $e_{j+1}$ follows $e_j$ when following the path. Changing the numbering on the edges may send $\hat{N}^\alpha_\mathcal{C}$ to $-\hat{N}^\alpha_\mathcal{C}$, but will otherwise leave the operator unchanged. For any $\mathcal{C}$ consisting of $|\cal{C}|$ edges,
+the operators are not all independent, obeying $\sum_{\alpha=0}^{m-1}\hat{N}^\alpha_\mathcal{C}=0$ for $|\cal{C}|$ even or $\mathds{1}$ for $|\cal{C}|$ odd. Any contractible path on the square lattice has $|\cal{C}|$ even.
+
+Let us restrict to states that are source free\footnote{Violations of this constraint are sources in a $\text{U}(1)$ lattice gauge theory interpretation of this model for $m=2$. We continue to use this language analogously for $m>2$. Within the source-free subspace the 1-form symmetry is topological~\cite{Qi2021Exotic} (a.k.a.~relativistic~\cite{Seiberg2020Field}).} so that $\hat{N}^\alpha_{\partial \mathcal{R}}=0$ for any region $\mathcal{R}$ of the lattice. In particular, the region may be chosen to be a single face, which only permits configurations of the form
+%
+%
+\begin{equation}
+    \RRsite, \:\: \RBsite , \:\: \BGsite ,
+    \label{eqn:allowed-faces}
+\end{equation}
+%
+%
+along with configurations related to these by interchanging colors. The graphical representation we have utilized makes it clear that spins of a given color must therefore form unbroken loops, and that loops of differing colors cannot intersect with one another. 
+The allowed Hilbert space does not have a tensor-product structure, but is still exponential in system volume $L^2$. Consequently, there is room for a properly extensive entropy, and it makes sense to talk about thermalization or lack thereof. 
+In Sec.~\ref{sec:QF-Hamiltonian} we show the constrained Hilbert space dimension grows as $\sim W_m^{L^2}$, with $W_m \gtrsim \max[(2m-1)/m, \sqrt{m}]$, in contrast to the $m^{2L^2}$ growth of the unconstrained Hilbert space.
+
+The nontrivial operators are those defined on noncontractible paths. These operators measure the symmetry charges. We will explore the compatibility constraints between the charges, and therefore the number of symmetry sectors, in Sec.~\ref{sub:fragmentation}. For now it is enough to say that this symmetry breaks the constrained Hilbert space into $\mathcal{O}(L^{m-1})$ symmetry sectors, as in the pair-flip model. However, as in the pair-flip model, dynamics within the constrained Hilbert space is not fully ergodic within these sectors, and this time the ergodicity breaking is topologically robust. 
+
+We now examine generic $k$-local dynamics compatible with the local constraint~\eqref{eqn:allowed-faces}.
+On a given face of the lattice, a minimum of two spins must be flipped to preserve the constraint. These two spins must have the same color, otherwise the constraint will be violated via the introduction of a forbidden loop crossing:
+%
+%
+\begin{equation}
+    \RBsite \stackrel{\cmark}{\longrightarrow} \GBsite
+    \, ,
+    \qquad 
+    \RBsite \stackrel{\xmark}{\longrightarrow} \RBRBsite
+    \, .
+    \label{eqn:minimal-face-update}
+\end{equation}
+%
+%
+Applying the left-hand transition in~\eqref{eqn:minimal-face-update} to the four faces around a vertex gives rise to the minimal update (i.e., acting on the fewest possible spins) to the system compatible with the constraint: the four spins on the edges surrounding a vertex can simultaneously be flipped only if their colors match:
+%
+%
+\begin{equation}
+    \RQuad \stackrel{\cmark}{\longrightarrow} \BQuadAlt
+    \, ,
+    \label{eqn:minimal-vertex-update}
+\end{equation}
+%
+%
+This update thereby modifies the color of the smallest closed loop configurations in the system, which are ``active" in the same sense as the active pairs in 1D. This minimal update is a natural two-dimensional extension of the pair-flip dynamics discussed in Sec.~\ref{sec:1D-pair-flip}. Hence, we refer to such updates as \emph{quad-flip} (QF) dynamics. 
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.28\linewidth,valign=c]{img/m=3_bethe.pdf}%
+    \hspace{1cm}%
+    \includegraphics[width=0.36\linewidth,valign=c]{img/dyck_path.pdf}%
+    \caption[Bethe lattice and height model]{Left: Bethe lattice that can be used to define a height profile for the $m=3$ loop model. Right: mapping of a one-dimensional cut of the square lattice to a colored Dyck path, where the height is determined by the depth of the corresponding position on the Bethe lattice. The corresponding edges have been highlighted on the Bethe lattice.}
+    \label{fig:Bethe}
+\end{figure}
+
+QF dynamics can also change the color of any contractible loop.
+In fact, any two source-free states that differ from each other inside a contractible loop of a single color can be connected via a sequence of quad flips~\eqref{eqn:minimal-vertex-update}. 
+ To justify this statement, we map a given loop configuration to a height profile via the following mapping. We begin on a reference vertex of the square lattice, which corresponds to the root node of a Bethe lattice with coordination number $m$ (see Fig.~\ref{fig:Bethe} for an illustration). Then consider moving along an (arbitrary) real space path. Moving to a neighboring vertex on the square lattice implies traversing an edge of a particular color; on the Bethe lattice, this corresponds to hopping along an edge of the same color. Any sequence of colors encountered as we move along the real space path thus maps onto a particular sequence of moves on the Bethe lattice (e.g., if we encounter two red edges in succession in real space, then we hop along the red bond on the Bethe lattice and then back along that same red bond). Moreover, the local constraint~\eqref{eqn:allowed-faces} implies that the position on the Bethe lattice is independent of local deformations of the real space path.\footnote{This statement is only true in general for paths that differ by a closed, contractible path. If the height field  is not single-valued upon winding around the system, this indicates the presence of nonlocal conserved quantities, as we will discuss.} A height profile can then be obtained using the (Hamming) distance to the root note on the Bethe lattice. This process is illustrated along a one-dimensional cut in Fig.~\ref{fig:Bethe}. At a local maximum of the height field (depth $d>1$), the height field must, by definition, decrease across all edges. Hence, at each such point, there exists a closed loop of a single color surrounding the local maximum. This loop can be flipped to be the same color as the loop at depth $d-1$. This process can be repeated to connect \emph{any} closed, noncrossing loop configuration contained within a contractible contour to a region of uniform color, so that the entire region becomes active. This also tells us that any local dynamics compatible with the 1-form symmetries can be reproduced by QF dynamics.
+
+Once an active region wraps the system, it is surrounded by two noncontractible loops. There is no requirement that they are of the same color. See Fig.~\ref{fig:spanning-loops} for examples. If their colors differ, the colors of these winding loops cannot be modified via the previously described procedure. Instead, it may be necessary to simultaneously flip at least $2L$ spins to change the color of a noncontractible loop while remaining in the  constrained subspace. Any noncontractible loop can still be deformed through the active regions arbitrarily, subject to the constraint~\eqref{eqn:allowed-faces}.
+
+Thus, QF dynamics naturally decomposes a 2D state into a collection of fluctuating closed loops that do not intersect, both contractible and noncontractible. The contractible loops can change color while the noncontractible loops cannot change color but can fluctuate past the contractible loops. Recall that in 1D the active pairs can change color while the unpaired spins cannot change color but can hop past the active pairs. This motivates a labeling procedure for QF dynamics similar to the procedure in 1D. First, choose a path that wraps the system once in the horizontal direction. Treat the pattern of spins along this path as a 1D system and use the procedure described in Sec.~\ref{sec:1D-pair-flip} to extract a label. This is the horizontal label, and there are $\mathcal{O}[(m-1)^L]$ such labels, as in 1D. Fig.~\ref{fig:spanning-loops} illustrates this procedure (with the lattice not drawn). Furthermore, deforming the path only inserts or removes matching pairs into the spin pattern, which are removed when the pattern is converted into a label. This means that topologically equivalent paths will result in the same label. Now, choose a path that wraps the system once in the vertical direction and extract a vertical label. The vertical and horizontal labels must satisfy some compatibility, discussed in Sec.~\ref{sub:fragmentation}, but the fact that the number of Krylov sectors grows exponentially in $L$ diagnoses fragmentation in the QF model.\footnote{Reference~\cite{Moudgalya2022Commutant} defines fragmentation in 2D as the existence of $\exp(L^2)$ Krylov sectors and classifies $\exp(L)$ Krylov sectors as a subsystem symmetry. The QF model does not posses a subsystem symmetry but still has $\exp(L)$ Krylov sectors in each symmetry sector. The presence of nonlocal conserved quantities in the QF model justifies our use of the term fragmentation.}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=.8\linewidth]{img/winding_loop_x3.pdf}
+    \caption[Schematic illustration of a valid configuration of noncrossing loops]{Schematic illustration of a valid configuration of noncrossing, contractible loops, and system-spanning loops (thick lines). Observe that a noncrossing dimer configuration is automatically created on the one-dimensional slice (black line) for contractible loops. Two adjacent noncontractible loops of the same color can be made contractible since loops of the same color are not forbidden from intersecting. In all configurations, only the red noncontractible loop contributes to the irreducible label.}
+    \label{fig:spanning-loops}
+\end{figure}
+
+Finally, we can see that this fragmentation is \emph{topologically robust}. The (exponentially numerous) irreducible labels for the Krylov sectors depend only on the sequence of \emph{noncontractible} loops (of nonrepeating color), and noncontractible loops can neither change color nor fluctuate past noncontractible loops of a different color, unless we act on $\cal{O}(L)$ degrees of freedom. Thus, any $k$-local dynamics, with $k/L \rightarrow 0$, cannot change the Krylov sector label. 
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+\subsection{Boundary conditions} \label{sub:boundary}
+
+Our discussion here will focus on open boundary conditions; discussion of periodic boundaries is relegated to Appendix~\ref{app:enumeration}. It will be helpful to have two types of open boundaries: one type on which the symmetry operators may end and one on which they may not, similar in spirit to surface codes~\cite{Bravyi1998Quantum}.
+In addition to being more physically realizable, this will allow us to avoid the constraints between horizontal and vertical labels, so that the labeling system is more like the 1D version. The first boundary is the ``smooth'' boundary, with no edges sticking out. On this boundary we continue to define the symmetry to act on closed paths on the lattice that do not end. A source-free configuration of such a boundary may look like:
+%
+%
+\begin{equation}
+    \begin{tikzpicture}[baseline={(0,0.12)}]%
+        \draw [semithick, RoyalBlue, rounded corners=0.65ex] (-3.6ex, 2.4ex)--++(0, -1.2ex)--++(2.4ex, 0)--++(0, 1.2ex);
+        \draw [semithick, ForestGreen, rounded corners=0.65ex] (-6ex, 1.2ex)--++(2.4ex, 0)--++(0, -2.4ex);
+        \draw [semithick, ForestGreen, rounded corners=0.65ex] (1.2ex, 2.4ex)--++(0, -1.2ex)--++(2.4ex, 0)--++(0, -2.4ex);
+        \draw [semithick, BrickRed, rounded corners=0.65ex] (-1.2ex, -1.2ex)--++(0, 2.4ex)--++(2.4ex, 0)--++(0, -2.4ex);
+        \draw [semithick, BrickRed, rounded corners=0.65ex] (3.6ex, 2.4ex)--++(0, -1.2ex)--++(2.4ex, 0);
+        \draw [semithick] (-4.8ex, 2.4ex) rectangle (4.8ex, 0);%
+        \fadeleft{4.8ex}{2.4ex}{6.ex}{2.4ex};\fadeleft{4.8ex}{0}{6.ex}{0};
+        \faderight{-4.8ex}{2.4ex}{-6.ex}{2.4ex};\faderight{-4.8ex}{0}{-6.ex}{0};
+        \foreach \x in {0, 1, ..., 4}{\fadedown{-4.8ex + 2.4*\x ex}{0}{-4.8ex + 2.4*\x ex}{-1.2ex};}
+        \draw [semithick] (0, 2.4ex) to (0, 0);%
+        \draw [semithick] (2.4ex, 2.4ex) to (2.4ex, 0);%
+        \draw [semithick] (-2.4ex, 2.4ex) to (-2.4ex, 0);%
+        \fill [BrickRed] (0, 1.2ex) circle(0.5ex);%
+        \fill [BrickRed] (-1.2ex, 0ex) circle(0.5ex);%
+        \fill [BrickRed] (1.2ex, 0ex) circle(0.5ex);%
+        \fill [BrickRed] (4.8ex, 1.2ex) circle(0.5ex);%
+        \fill [RoyalBlue] (-3.6ex, 2.4ex) circle(0.5ex);%
+        \fill [RoyalBlue] (-1.2ex, 2.4ex) circle(0.5ex);%
+        \fill [ForestGreen] (1.2ex, 2.4ex) circle(0.5ex);%
+        \fill [RoyalBlue] (-2.4ex, 1.2ex) circle(0.5ex);%
+        \fill [ForestGreen] (-4.8ex, 1.2ex) circle(0.5ex);%
+        \fill [ForestGreen] (-3.6ex, 0ex) circle(0.5ex);%
+        \fill [ForestGreen] (2.4ex, 1.2ex) circle(0.5ex);%
+        \fill [ForestGreen] (3.6ex, 0ex) circle(0.5ex);%
+        \fill [BrickRed] (3.6ex, 2.4ex) circle(0.5ex);%
+    \end{tikzpicture}
+    \, , \label{eqn:smooth-boundary}
+\end{equation}
+%
+%
+where all boundary faces are source free. Observe that loops are allowed to end on this boundary. 
+
+To obtain a system with nontrivial 1-form symmetry charges, we must find a boundary on which the symmetry operators can terminate. Ordinarily, this type of boundary, the ``rough" boundary, has boundary edges sticking out of it. We find it more natural to define the rough boundary in the QF model to have every other boundary edge sticking out, so that all symmetry operators act on an even number of legs. Then, we define symmetry operators on paths $\cal{C}$ that terminate on the boundary edges. Source-free configurations, with $\hat{N}_\cal{C}^\alpha=0$, are
+%
+%
+\begin{equation}
+    \begin{tikzpicture}[baseline={(0,-0.12)},rotate=90]%
+        \fadevertical{left}{right}{-2.4ex}{-1.2ex}{-2.4 ex}{-2.4ex};
+        \fadevertical{left}{right}{0 ex}{-1.2ex}{0 ex}{-2.4ex};
+        \fadevertical{left}{right}{2.4ex}{-1.2ex}{2.4 ex}{-2.4ex};
+        \fadehorizontal{bottom}{top}{2.4ex}{-1.2 ex}{3.6ex}{-1.2 ex};
+        \fadehorizontal{top}{bottom}{-3.6ex}{-1.2 ex}{-2.4ex}{-1.2 ex};
+        \draw [semithick, BrickRed, rounded corners=0.65ex] (-3.6ex, 0)--++(7.2ex, 0);
+        \draw [semithick, BrickRed, rounded corners=0.65ex] (1.2ex, -2.4 ex)--++(0, 3.6 ex)--++(-2.4ex, 0)--++(0, -3.6ex);
+        \draw [semithick] (-2.4ex, 1.2ex) -- (-2.4ex, -1.2ex) -- (2.4ex, -1.2ex) -- (2.4ex, 1.2ex);%
+        \fill [BrickRed] (-2.4ex, 0) circle(0.5ex);%
+        \fill [BrickRed] (-1.2ex, -1.2ex) circle(0.5ex);%
+        \fill [BrickRed] (1.2ex, -1.2ex) circle(0.5ex);%
+        \fill [BrickRed] (2.4ex, 0) circle(0.5ex);%
+    \end{tikzpicture}
+    \, ,
+    \quad
+    \begin{tikzpicture}[baseline={(0,-0.12)},rotate=90]%
+        \fadevertical{left}{right}{-2.4ex}{-1.2ex}{-2.4 ex}{-2.4ex};
+        \fadevertical{left}{right}{0 ex}{-1.2ex}{0 ex}{-2.4ex};
+        \fadevertical{left}{right}{2.4ex}{-1.2ex}{2.4 ex}{-2.4ex};
+        \fadehorizontal{bottom}{top}{2.4ex}{-1.2 ex}{3.6ex}{-1.2 ex};
+        \fadehorizontal{top}{bottom}{-3.6ex}{-1.2 ex}{-2.4ex}{-1.2 ex};
+        \draw [semithick, RoyalBlue, rounded corners=0.65ex] (-3.6ex, 0)--++(2.4ex, 0)--++(0, -2.4ex);
+        \draw [semithick, BrickRed, rounded corners=0.65ex] (3.6ex, 0)--++(-2.4ex, 0)--++(0, -2.4ex);
+        \draw [semithick] (-2.4ex, 1.2ex) -- (-2.4ex, -1.2ex) -- (2.4ex, -1.2ex) -- (2.4ex, 1.2ex);%
+        \fill [RoyalBlue] (-2.4ex, 0) circle(0.5ex);%
+        \fill [RoyalBlue] (-1.2ex, -1.2ex) circle(0.5ex);%
+        \fill [BrickRed] (1.2ex, -1.2ex) circle(0.5ex);%
+        \fill [BrickRed] (2.4ex, 0) circle(0.5ex);%
+    \end{tikzpicture}
+    \, ,
+    \quad
+    \begin{tikzpicture}[baseline={(0,-0.12)},rotate=90]%
+        \fadevertical{left}{right}{-2.4ex}{-1.2ex}{-2.4 ex}{-2.4ex};
+        \fadevertical{left}{right}{0 ex}{-1.2ex}{0 ex}{-2.4ex};
+        \fadevertical{left}{right}{2.4ex}{-1.2ex}{2.4 ex}{-2.4ex};
+        \fadehorizontal{bottom}{top}{2.4ex}{-1.2 ex}{3.6ex}{-1.2 ex};
+        \fadehorizontal{top}{bottom}{-3.6ex}{-1.2 ex}{-2.4ex}{-1.2 ex};
+        \draw [semithick, ForestGreen, rounded corners=0.65ex] (-3.6ex, 0)--++(2.4ex, 0)--++(0 ex, 1.2 ex)--++(2.4 ex, 0)--++(0 ex, -1.2 ex)--++(2.4ex, 0);
+        \draw [semithick, BrickRed, rounded corners=0.65ex] (1.2ex, -2.4ex)--++(0, 2.4ex)--++(-2.4ex, 0)--++(0, -2.4ex);
+        \draw [semithick] (-2.4ex, 1.2ex) -- (-2.4ex, -1.2ex) -- (2.4ex, -1.2ex) -- (2.4ex, 1.2ex);%
+        \fill [ForestGreen] (-2.4ex, 0) circle(0.5ex);%
+        \fill [BrickRed] (-1.2ex, -1.2ex) circle(0.5ex);%
+        \fill [BrickRed] (1.2ex, -1.2ex) circle(0.5ex);%
+        \fill [ForestGreen] (2.4ex, 0) circle(0.5ex);%
+    \end{tikzpicture}
+    \, ,
+    \label{eqn:BCs}
+\end{equation}
+%
+%
+and configurations related to these by interchanging colors, as in~\eqref{eqn:allowed-faces}. This preserves the graphical constraint that loops of different colors may not intersect. An example configuration is
+%
+%
+\begin{equation}
+    \begin{tikzpicture}[baseline={(0,0.12)},rotate=90]%
+        \foreach \x in {0, 1, ..., 4}{\fadevertical{left}{right}{-4.8ex + 2.4*\x ex}{0}{-4.8ex + 2.4*\x ex}{-1.2ex};}
+        \foreach \x in {0, 1}{\fadehorizontal{bottom}{top}{4.8ex}{2.4*\x ex}{6ex}{2.4*\x ex};}
+        \foreach \x in {0, 1}{\fadehorizontal{top}{bottom}{-6ex}{2.4*\x ex}{-4.8ex}{2.4*\x ex};}
+        \foreach \x in {0, 1, ..., 4}{\fadevertical{left}{right}{-4.8ex + 2.4*\x ex}{0}{-4.8ex + 2.4*\x ex}{-1.2ex};}
+        \draw [semithick] (-4.8ex, 2.4ex) rectangle (4.8ex, 0);%
+        \draw [semithick] (0, 2.4ex) to (0, 0);%
+        \draw [semithick] (2.4ex, 2.4ex) to (2.4ex, 0);%
+        \draw [semithick] (-2.4ex, 2.4ex) to (-2.4ex, 0);%
+        \draw [semithick] (-4.8ex, 2.4ex) to (-4.8ex, 4.8ex);%
+        \draw [semithick] (0, 2.4ex) to (0, 4.8ex);%
+        \draw [semithick] (4.8ex, 2.4ex) to (4.8ex, 4.8ex);%
+        %\draw [semithick] (-2.4ex, 2.4ex) to (-2.4ex, 0);%
+        %
+        \draw [semithick, ForestGreen, rounded corners=0.65ex] (-6ex, 3.6ex)--++(2.4ex,0)--++(0, 1.2ex)--++(2.4ex,0)--++(0, -1.2ex)--++(2.4ex,0)--++(0, -2.4ex)--++(2.4ex, 0)--++(0, -2.4ex);
+        \draw [semithick, BrickRed, rounded corners=0.65ex] (-2.4ex, 1.2ex)--++(-1.2ex, 0)--++(0, 2.4ex)--++(2.4ex, 0)--++(0, -2.4ex)--++(-1.2ex, 0);
+        \draw [semithick, RoyalBlue, rounded corners=0.65ex] (6ex, 3.6ex)--++(-2.4ex,0)--++(0, -2.4ex)--++(2.4ex, 0);
+        \draw [semithick, RoyalBlue, rounded corners=0.65ex] (-1.2ex, -1.2ex)--++(0, 2.4ex)--++(2.4ex, 0)--++(0, -2.4ex);
+        \draw [semithick, RoyalBlue, rounded corners=0.65ex] (-6ex, 1.2ex)--++(2.4ex, 0)--++(0, -2.4ex);
+        %
+        \fill [RoyalBlue] (0ex, 1.2ex) circle(0.5ex);%
+        \fill [RoyalBlue] (1.2ex, 0ex) circle(0.5ex);%
+        \fill [RoyalBlue] (-1.2ex, 0ex) circle(0.5ex);%
+        \fill [RoyalBlue] (-4.8ex, 1.2ex) circle(0.5ex);%
+        \fill [RoyalBlue] (-3.6ex, 0ex) circle(0.5ex);%
+        \fill [BrickRed] (-3.6ex, 2.4ex) circle(0.5ex);%
+        \fill [BrickRed] (-1.2ex, 2.4ex) circle(0.5ex);%
+        \fill [ForestGreen] (1.2ex, 2.4ex) circle(0.5ex);%
+        \fill [BrickRed] (-2.4ex, 1.2ex) circle(0.5ex);%
+        \fill [ForestGreen] (2.4ex, 1.2ex) circle(0.5ex);%
+        \fill [RoyalBlue] (3.6ex, 2.4ex) circle(0.5ex);%
+        %
+        \fill [ForestGreen] (-4.8ex, 3.6ex) circle(0.5ex);%
+        \fill [ForestGreen] (0, 3.6ex) circle(0.5ex);%
+        \fill [ForestGreen] (3.6ex, 0) circle(0.5ex);%
+        \fill [RoyalBlue] (4.8ex, 3.6ex) circle(0.5ex);%
+        \fill [RoyalBlue] (4.8ex, 1.2ex) circle(0.5ex);%
+    \end{tikzpicture}
+    \, \label{eqn:rough-boundary}
+\end{equation}
+%
+%
+Note that loops cannot terminate on the rough boundary. Just as in the bulk, two symmetry operators that differ across a source-free region agree, so that the endpoints of a symmetry operator may be moved without changing its value:
+%
+%
+\begin{equation*}
+    \begin{tikzpicture}[baseline={(0,-0.1)}, scale=0.75]%
+        \foreach \y in {-2, 0, 2} {
+            \draw [semithick] (-7.2ex, {\y*2.4 ex}) to (7.2ex, {\y*2.4 ex});
+        }
+        \foreach \y in {-1, 1} {
+            \draw [semithick] (-4.8ex, {\y*2.4 ex}) to (4.8ex, {\y*2.4 ex});
+        }
+        \foreach \x in {-2, -1, ..., 2} {
+            \draw [semithick] ({\x*2.4 ex}, {-2*2.4 ex}) to ({\x*2.4 ex}, {2*2.4 ex});
+        }
+        \fill (-6ex, 0) circle(0.5ex);\fill (-1.2ex, 0) circle(0.5ex);\fill (3.6ex, 0) circle(0.5ex);
+        \draw [semithick, fill=white] (-3.6ex, 0) circle(0.5ex);\draw [semithick, fill=white] (1.2ex, 0) circle(0.5ex);\draw [semithick, fill=white] (6ex, 0) circle(0.5ex);
+    \end{tikzpicture}
+    \quad \equiv \quad
+    \begin{tikzpicture}[baseline={(0,-0.1)}, scale=0.75]%
+        \foreach \y in {-2, 0, 2} {
+            \draw [semithick] (-7.2ex, {\y*2.4 ex}) to (7.2ex, {\y*2.4 ex});
+        }
+        \foreach \y in {-1, 1} {
+            \draw [semithick] (-4.8ex, {\y*2.4 ex}) to (4.8ex, {\y*2.4 ex});
+        }
+        \foreach \x in {-2, -1, ..., 2} {
+            \draw [semithick] ({\x*2.4 ex}, {-2*2.4 ex}) to ({\x*2.4 ex}, {2*2.4 ex});
+        }
+        \fill (-6ex, 4.8ex) circle(0.5ex);\fill (-4.8ex, 1.2ex) circle(0.5ex);
+        \fill (-1.2ex, 0) circle(0.5ex);\fill (3.6ex, 0) circle(0.5ex);
+        \fill (1.2ex, 2.4ex) circle(0.5ex);
+        \draw [semithick, fill=white] (-4.8ex, 3.6ex) circle(0.5ex);\draw [semithick, fill=white] (-3.6ex, 0) circle(0.5ex);
+        \draw [semithick, fill=white] (0, 1.2ex) circle(0.5ex);\draw [semithick, fill=white] (2.4ex, 1.2ex) circle(0.5ex);
+        \draw [semithick, fill=white] (6ex, 0) circle(0.5ex);
+    \end{tikzpicture} 
+    \, ,
+\end{equation*}
+%
+%
+where closed and open circles distinguish between the two sublattices.
+If, however, we tried to define symmetry operators that end on the smooth boundary there is no reason they should give the same symmetry charges, so symmetry operators that stretch from the left to the right boundary are noncontractible.
+
+Having defined the operators that measure the symmetry charge in~\eqref{eqn:2d-charges}, we should also define the operators charged under the symmetry. These are operators that locally commute with the constraint but may fail to commute with the nontrivial symmetry operators. To write such operators we must first choose a closed path $\cal{C}'$ on the dual lattice formed by placing vertices on the plaquette centers of the primary lattice. This path is required to turn at every vertex of the dual lattice. 
+Then, the charged operators are 
+\begin{align}
+\hat{\cal{O}}_{\cal{C}'}^{\alpha\beta} &= \prod_{i \in \cal{C}'} \ketbra{\alpha}{\beta}_i, \quad \alpha, \beta = 0,\dots,m-1, \quad \alpha \ne \beta\, ,
+\end{align}
+which simultaneously projects onto dual paths where all edges are in the state $\ket{\beta}$ and then flips them all to $\ket{\alpha}$. These operators always commute with the constraint but act trivially if the edges in the chosen dual path are not all in the initial state $\ket{\beta}$. If $\cal{C}'$ wraps the system in the vertical (horizontal) direction, it may change the value of $\hat{N}^\alpha_\cal{C}$ if $\cal{C}$ wraps the system in the horizontal (vertical) direction.
+
+In the bulk, the smallest possible charged operators correspond precisely to the quad flip~\eqref{eqn:minimal-vertex-update}. As discussed in Sec.~\ref{sub:summary}, any contractible charged operator can be decomposed into a series of quad flips.
+The charged operators are allowed to end on the smooth boundary, in the sense that this can be consistent with the symmetry. In particular, a charged operator that acts on the three edges around a vertex may flip those three edges if they match. For example, the three blue edges in~\eqref{eqn:smooth-boundary} may be flipped to either green or red.
+
+Near the rough boundary, vertices have either three or four edges sticking out from them. The four-edge vertices behave like bulk vertices and support QF moves. The three-vertex edges behave like those on the smooth boundary and support triple flips. For example, the three red edges in~\eqref{eqn:rough-boundary} may be flipped to either green or blue. Both of these scenarios correspond to closed loops that do not end on this boundary. In fact, no charged operators may end on the rough boundary.
+
+A system with smooth boundaries on the top and bottom and rough boundaries on the left and right will have a nontrivial 1-form symmetry evaluated on horizontal system-spanning paths. The symmetry counts the number of nontrivial vertical system-spanning loops, whose endpoints can be shifted along the smooth top and bottom boundaries by the three-site flips at the smooth boundaries. Remember that loops cannot end on the rough (left and right) boundaries. Thus, our symmetry sectors for an $L\times L$ system are precisely those of the PF model on a length-$L$ system, but with a 2D 1-form symmetry instead of a 1D 0-form symmetry.
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+\subsection{Quad-flip model and robustness}
+\label{sec:QF-Hamiltonian}
+
+We are now ready to write down a family of Hamiltonians that realize QF dynamics in a full tensor-product Hilbert space, where the hard constraint is made soft, i.e., it is enforced energetically.
+To this end, we introduce a natural ``parent'' Hamiltonian,
+%
+%
+\begin{equation}
+    \hat{H} = J \sum_{f} \sum_{\alpha=0}^{m-1} \left( \hat{N}^\alpha_{\partial f} \right)^2 - g \sum_e \sum_{\alpha=0}^{m-1}\sum_{\beta=0}^{m-1} \xi_{e}^{\alpha\beta} \ketbra{\alpha}{\beta}_e
+    \, , \label{eqn:QF-parent}
+\end{equation}
+%
+%
+where $J>0$, $\hat{N}^\alpha_{\partial f}$ is defined in Eq.~\eqref{eqn:2d-charges}, the first sum is over the elementary faces $f$ of the square lattice, and the second sum runs over all edges $e$. The dimensionless coefficients $\xi_e^{\alpha\beta}$ are of order one and serve to break all discrete symmetries. We will proceed by treating the second term perturbatively within the groundspace of the first.
+
+The first term is positive semidefinite and is minimized by spin configurations satisfying $N^{\alpha}_{\partial f} = 0$ on all faces $f$ (source-free configurations). As previously discussed, the source-free space has a $\text{U}(1)^{m-1}$ one form symmetry and grows as $W_m^{L^2}$. 
+A Pauling estimate for $W_m$ may be obtained as follows. The total Hilbert space has size $m^{2L^2}$, since spins live on edges of a square lattice. If we pick a reference plaquette and go around clockwise, we have $m$ choices for the value of the first spin. The second spin can either match (one choice) in which case we have $m$ choices for the remaining two spins ($m^2$ total), or it can be different ($m-1$ choices), in which case the remaining two spins are fixed [so $m(m-1)$ choices total]. Altogether this gives $2m^2 - m$ satisfying assignments out of $m^4$, so a fraction $(2m-1)/m^3$ of each plaquette Hilbert space satisfies the constraint. There are $L^2$ plaquettes in all, so (treating plaquettes as independent) a fraction $[(2m-1)/m^3]^{L^2}$ of the total Hilbert space satisfies the constraints, yielding a constrained Hilbert space of size $[(2m-1)/m^3]^{L^2} \times m^{2L^2} \sim [(2m-1)/m]^{L^2}$. This yields an estimate $W_m \approx \frac{2m-1}{m}$. For $m=2$, this estimate is within $3\%$ of the exact value of
+$W_2 = (4/3)^{3/2} \simeq 1.54$, derived in Sec~\ref{sub:square-ice} from a mapping to square ice. On the other hand, for large $m$, this estimate undercounts the number of source-free states. Placing elementary length-four loops around every other vertex gives $W_m = \sqrt{m}$ in the large-$m$ limit.\footnote{We thank Ethan Lake for this observation.} The important point is that the subspace is exponential in system volume so there is room for a nonzero entropy density, and it makes sense to talk about thermalization or lack thereof.
+
+The second term is the most general single-site Hamiltonian, and will generate generic longer-range terms within perturbation theory.\footnote{{Since the basic structure of our dynamics follows purely from 1-form symmetries (which are emergent within the groundspace of the first term), it follows that the basic results will be robust to inclusion of arbitrary $k$-body perturbations, without requirement of spatial locality, as long as $k/L \rightarrow 0$ in the thermodynamic limit.}} Hermiticity requires that the matrix elements satisfy $\xi_e^{\alpha\beta} = \bar{\xi}_e^{\beta\alpha}$. We can view the matrix elements as creation and annihilation operators for sources/sinks, breaking the 1-form symmetry and leading to nontrivial mixing of the classical ground states in the eigenstates of Eq.~\eqref{eqn:QF-parent}.
+However, we will now show that, even in the presence of the off-diagonal matrix elements, QF dynamics are preserved up to order system size in perturbation theory.
+
+Let us consider the lowest-order dynamics produced by the off-diagonal matrix elements within the constrained space. This is given by the term
+%
+%
+\begin{equation}
+    \hat{H}_{\text{QF}} = - \frac{g^4}{J^3}\sum_{v} \sum_{\alpha \ne \beta} \sum_{\beta=0}^{m-1} \xi_v^{\alpha\beta}  \hat{A}_v^{\alpha \beta} 
+    \, ,
+    \qquad
+    \xi_v^{\alpha \beta} = \frac{5}{16} \prod_{e \in v} \xi_e^{\alpha \beta}
+    \label{eqn:four-spin-flip}
+\end{equation}
+%
+%
+where $\hat{A}_v^{\alpha \beta} = \prod_{e\in v} \ketbra{\alpha}{\beta}_e $ flips the four spins around vertex $v$ to state $|\alpha \rangle$ if they are all initially in state $|\beta\rangle$. We have omitted diagonal transitions, which lead to a trivial energy shift. Thus we recover QF dynamics, so we call~\eqref{eqn:four-spin-flip} the QF Hamiltonian. The $5/16$ prefactor comes from summing all $4!$ ways of flipping the spins around a vertex at fourth order in perturbation theory. 
+
+For vertices $v_0$ on the smooth boundary, the lowest-order terms come at third order in perturbation theory. They have the form 
+\begin{align}
+    \hat{H}_{\text{QF}} = - \frac{g^3}{J^2}\sum_{v_0} \sum_{\alpha \ne \beta} \sum_{\beta=0}^{m-1}\xi_{v_0}^{\alpha\beta}  \hat{A}_{v_0}^{\alpha \beta} 
+    \, ,
+    \qquad
+    \xi_{v_0}^{\alpha \beta} = \prod_{e \in v_0} \xi_e^{\alpha \beta}
+\end{align}
+and $\hat{A}_{v_0}^{\alpha \beta}$ now acts on only three spins. On the rough boundary, perturbation theory generates $\hat{A}_v^{\alpha \beta}$ terms on three-edge vertices at third order and on four-edge vertices at fourth order.
+
+We should recognize the bulk and boundary terms as the minimal charged operators around every vertex. Thus, we have entirely recovered the dynamics we considered in Sec.~\ref{sub:summary}. If we consider higher orders in perturbation theory, we will generate new terms, but they will be decomposable into series of quad flips, as shown in Sec.~\ref{sub:summary}. The result is that the fragmentation remains exact at \emph{any} order in perturbation theory, up to order system size. At $\cal{O}(L)$ in perturbation theory, however, we can flip the color of a noncontractible loop, changing the one-form symmetry charge and removing the Krylov structure associated with the irreducible labels. 
+
+Although perturbative dynamics will not melt the Krylov sectors, there may be nonperturbative effects that do. At times exponentially long in $J/g$ the system is able to violate the source-free constraint and leave the groundspace of the classical Hamiltonian. Then, a noncontractible loop may break apart and retract. This exponentially long timescale is the prethermal timescale up to which the parent Hamiltonian realizes dynamics with an emergent one-form symmetry, and may be bounded using now standard techniques~\cite{Abanin2017Rigorous}. Imposing the source-free constraint exactly (instead of softly) amounts to setting the prethermal timescale for $k$-local dynamics to infinity, in the thermodynamic limit.  
+
+\subsection{Fragmentation} \label{sub:fragmentation}
+We are now prepared to describe the fragmentation of the QF Hamiltonian in full detail. First, let us use the boundary conditions from Sec.~\ref{sub:boundary}, with smooth boundaries on the top and bottom and rough boundaries on the left and right. The groundspace has an emergent $\text{U}(1)^{m-1}$ one-form symmetry, defined on horizontal system-spanning paths. There are $\cal{O}(L)$ possible symmetry charges for each independent one-form symmetry, so overall there are $\cal{O}(L^{m-1})$ symmetry sectors taking the emergent one-form symmetry into account. The dynamics must, at minimum, be block diagonal by one-form symmetry sector. However, as we shall now show, each symmetry sector will further be fragmented into $\exp(L)$ dynamically disconnected subblocks. 
+
+The basic argument follows the discussion in Sec.~\ref{sec:1D-pair-flip} for the one-dimensional pair-flip model. Namely, we can take any horizontal system-spanning path on the lattice and consider the sequence of colors encountered along this effective one-dimensional system. We can then sequentially delete same-color neighbors until we are left with an irreducible one-dimensional sequence or `label' of length $0 \leq \ell \leq L$ in which no two adjacent entries are the same color. It is straightforward to see that local deformations of the real-space path within the source-free subspace do not alter this irreducible label. For example, any system-spanning path terminating on the left and right boundaries of Fig.~\ref{subfig:dynamical-open-BCs} returns the length $\ell = 2$ label
+$\left\lvert\kern1pt%
+\begin{tikzpicture}[baseline={(0,-0.12)},x=2.4ex, y=2.4ex]
+        \dualGcirc{0}{0};
+        \dualRcirc{1}{0};
+\end{tikzpicture}\kern1pt\right\rangle$. This irreducible label essentially enumerates the sequence of distinct vertical system-spanning loops of nonrepeating color. We do not count adjacent loops of the same (i.e., repeating) color since these can locally reconnect and flip. In contrast to the one-dimensional PF model, in the two-dimensional QF model this irreducible label exhibits topological stability -- the only way to change the irreducible label is to flip an entire system-spanning vertical loop, which requires acting on $\cal{O}(L)$ degrees of freedom. Thus, this irreducible label is conserved under any $k$-local dynamics (with $k/L \rightarrow 0)$, and thus defines a topologically robust Krylov subsector. 
+
+The total number of symmetry sectors is $\cal{O}(L^{m-1}$), but, as discussed in Sec.~\ref{sec:1D-pair-flip}, the total number of Krylov subsectors (now topologically robust) is $\cal{O}[(m-1)^L]$. This follows because labels can have length up to $L$ [see Fig.~\ref{subfig:frozen-open-BCs} for an example of a state with a label of length $\ell = L$], and once the first entry in the label is fixed each subsequent entry has $(m-1)$ choices. Thus, there are only polynomially many distinct symmetry sectors, but there are exponentially many dynamically distinct Krylov subsectors. It follows that the dynamics must exhibit fragmentation, and cannot be fully ergodic. It further follows that for $m \ge 3$ fragmentation arises in {\it every} symmetry sector. This follows by analogy to Sec.~\ref{sec:1D-pair-flip} because for any given value of the symmetry charge, there is a minimal system size $L_\text{min}$ required to realize it. There exist `charge-neutral' motifs with irreducible labels that can be `glued' on, e.g., for $m=3$ we can consider a sequence of vertical system-spanning loops of the form 
+$\left\lvert\kern1pt%
+\begin{tikzpicture}[baseline={(0,-0.12)},x=2.4ex, y=2.4ex]
+        \dualRcirc{0}{0};
+        \dualGcirc{1}{0};
+        \dualBcirc{2}{0};
+        \dualRcirc{3}{0};
+        \dualGcirc{4}{0};
+        \dualBcirc{5}{0};
+\end{tikzpicture}\kern1pt\right\rangle$, or five other patterns obtained from this one by permuting colors. Of the six motifs, four have a first spin that does not match the last spin of our chosen pattern. Gluing such a motif onto the system of size $L_\text{min}$ does not change the symmetry charge but does multiply the number of Krylov subsectors by four. Such a process can then be iterated (bearing in mind that for $m=3$ only four of the `charge-neutral, gluable motifs' will have the property that the first loop of the motif does not have the same color as the last loop of the previous motif), giving a number of Krylov sectors that scales as at least $\sim 4^{(L-L_\text{min})/6}$, for $m \ge 3$. Thus, the QF Hamiltonian (with $m\ge 3$) exhibits fragmentation in generic symmetry sectors, with the fragmentation furthermore exhibiting topological stability, being robust to arbitrary $k$-local perturbations as long as $k/L \rightarrow 0$ in the thermodynamic limit. 
+
+
+\begin{figure}[th!]
+    \centering
+    \subfloat[\label{subfig:dynamical-open-BCs}]{\includegraphics[height=0.25\linewidth]{img/GR_open_BCs.pdf}}%
+    \hspace{2cm}%
+    \subfloat[\label{subfig:frozen-open-BCs}]{\includegraphics[height=0.25\linewidth]{img/frozen_edge_generic.pdf}}%
+    \caption[States in the quad-flip model]{(a) A state belonging belonging to the Krylov sector specified by the label $\lvert\kern1pt%
+    \begin{tikzpicture}[baseline={(0,-0.12)},x=2.4ex, y=2.4ex]%
+        \dualGcirc{0}{0};%
+        \dualRcirc{1}{0};%
+    \end{tikzpicture}\kern1pt\rangle$, which captures the presence of the green and red system-spanning loops (thick green and red lines, respectively). (b) A close-packed configuration of system-spanning loops that remains frozen under local dynamics. Note that the offset of the rough boundary differs on the left and right edges to accommodate a dense packing of loops.}
+    \label{fig:2d-fragmentation}
+\end{figure}
+
+A special role is played by densely packed configurations, which generate labels of length $L$. 
+As long as we stagger the rough boundary edges, as in Fig.~\ref{fig:2d-fragmentation},
+these configurations correspond to dense packings of noncontractible loops of nonrepeating color, and generate frozen states that have no dynamics under arbitrary $k$-local perturbations. For an example of a frozen state, see Fig.~\ref{subfig:frozen-open-BCs}. The number of such configurations depends strongly on both the local Hilbert space dimension $m$ and on whether (and, if so, how) the lattice is terminated. With periodic boundary conditions, the pattern in Fig.~\ref{subfig:frozen-open-BCs} appearing in the top row can be shifted either left or right in each subsequent row, subject to the constraint that the pattern joins up around the periodic boundaries. With open boundary conditions, this freedom is not present, since the packing would cease to be dense at the left and right boundaries. For $m=2$ there are an $\cal{O}(L^0)$ number of frozen configuration with open boundaries, although there are an $\exp(L)$ number of frozen configurations with periodic boundaries~\cite{Stephen2022Robust}. For $m\ge3$, the number of frozen configurations grows exponentially with $L$ even for open boundaries; there are $m$ choices for color of the boundary loop, and $m-1$ choices for each of the other loops. Hence, the number of frozen configurations is $\propto(m-1)^L$. Exact (asymptotic) countings of the number of Krylov sectors and the number of frozen states are derived in  Appendix~\ref{app:enumeration}, for both open and periodic boundary conditions. With open boundaries we have $\cal{O}[(m-1)^L]$ frozen states and $\cal{O}[(m-1)^L]$ nonfrozen Krylov sectors for $m\ge 3$. With periodic boundaries we have $\cal{O}[(m-1)^L]$ frozen states but only $\cal{O}[(m-1)^L/L]$ nonfrozen Krylov sectors for $m\ge 3$. 
+
+We can also define the commutant algebra~\cite{Moudgalya2022Commutant} for the QF model. The operators in the algebra generalize the symmetry operators~\eqref{eqn:2d-charges} and are entirely analogous to those in the PF model, which were found in Ref.~\cite{Moudgalya2022Commutant}. With our choice of open boundary conditions, choose a horizontal system-spanning path $\cal{C} = \{e_0,e_1,\dots, e_K\}$ on the lattice, where $K\ge L$ is the length of the path. The nonlocal integrals of motion (IoMs) are
+\begin{align*}
+\hat{N}^{\alpha_1\alpha_2} = \sum_{j_1<j_2}(-1)^{j_1+j_2} \hat{\cal{P}}_{j_1}^{\alpha_1} \hat{\cal{P}}_{j_2}^{\alpha_2}, \quad \alpha_1 \ne \alpha_2, \quad 0\le \alpha_1,\alpha_2 \le m-1
+\end{align*}
+and the larger operators
+\begin{align}
+\hat{N}^{\alpha_1\alpha_2\cdots \alpha_k} = \sum_{j_1<j_2<\cdots<j_k}(-1)^{\sum_l j_l} \hat{\cal{P}}_{j_1}^{\alpha_1} \hat{\cal{P}}_{j_2}^{\alpha_2} \cdots \hat{\cal{P}}_{j_k}^{\alpha_k},
+\end{align}
+with\footnote{We could define similar operators for $k\le K$, but these longer operators would contain redundant information.} $0\le k \le L$ and $\alpha_j \ne \alpha_{j+1}$. Within the source-free subspace the value of these operators does not depend on smooth variations of the choice of $\cal{C}$. As described in Ref.~\cite{Moudgalya2022Commutant}, in a system with $L$ even (odd), the IoMs with $k$ even (odd) are all linearly independent but the IoMs with $k$ odd (even) can be written in terms of the former. Just as we can view the symmetry operators as distinguishing symmetry sectors which consist of collections of Krylov sectors, we can view the IoMs as distinguishing successively more fine-grained sectors.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Generalized no-crossing models} \label{sec:generalized}
+
+
+Having introduced the symmetries that give rise to QF dynamics and its numerous conserved patterns, we move to discussing related models that exhibit analogous phenomena.
+These include models to which the QF Hamiltonian reduces in certain limits, as well as various dualities of the model, and its extension to higher dimensions. This section is not `load bearing' for our basic story, and may be safely skipped by readers uninterested in connections to known models or dualities thereof. 
+
+To facilitate the presentation of the various dualities we discuss,
+it will be useful to define the following clock operators on each edge $e$, which act on the $m$-dimensional Hilbert space introduced in Eq.~\eqref{eqn:PF-Hilbert-space}
+%
+%
+\begin{align}
+    \hat{\cal{Z}} \ket{\alpha} = e^{2\pi i \alpha/m}\ket{\alpha} \, ,
+    \quad
+    \hat{\cal{X}} \ket{\alpha} = \ket{\alpha+1} \, ,
+    \label{eqn:generalized-pauli-defs}
+\end{align}
+%
+%
+so that $\hat{\cal{X}}$ and $\hat{\cal{Z}}$ are unitary and obey $\hat{\cal{Z}}\hat{\cal{X}} = e^{2\pi i /m} \hat{\cal{X}}\hat{\cal{Z}}$, which generalizes the anticommutation of Pauli matrices ($m=2$). Since we identify $\ket{\alpha+m} \equiv \ket{\alpha}$, we also have $\hat{\cal{Z}}^m = \hat{\cal{X}}^m = \mathds{1}$.
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+\subsection{Square ice} \label{sub:square-ice}
+
+For spin-$1/2$ degrees of freedom (i.e., $m=2$), the parent Hamiltonian for the QF model that we present in Eq.~\eqref{eqn:QF-parent} is unitarily equivalent to square ice~\cite{Lieb1967Ice, Moessner2004Planar,Shannon2004SquareIce} in a magnetic field, allowing us to make exact statements about the number of constraint-satisfying states.
+To see this, consider the unitary transformation that flips the sign of $\hat{\cal{Z}}$ operators on vertically oriented edges:
+%
+%
+\begin{equation}
+    \hat{U} = \prod_{e \, : \, \text{vertical}} \hat{\cal{X}}_e
+    \, .
+    \label{eqn:square-ice-unitary}
+\end{equation}
+%
+%
+Under this transformation, the constraint on faces that selects local ground state configurations becomes
+%
+%
+\begin{align}
+    \hat{N}^\uparrow_{\partial f} = \sum_{e_j \in \partial f}(-1)^j \hat{\mathcal{P}}^\uparrow_{e_j} 
+    \stackrel{\hat{U}}{\longmapsto}
+    \sum_{e_j \in \partial f} \hat{\cal{Z}}_{e_j} = 0
+    \, ,
+\end{align}
+%
+%
+with the same expression for $\hat{N}^\downarrow_{\partial f}$, up to a sign.
+Hence, the constraint in this rotated basis corresponds to requiring that there exist two up spins and two down spins around every face of the square lattice, which (up to a sublattice-dependent sign) is equivalent to the two-in-two-out ``ice rule''~\cite{BernalFowler1933, Gingras2011SpinIce}. For consistency with established conventions for square ice, we will interchange the vertices and faces of the square lattice, such that the constraints are on vertices. On one sublattice the six constraint-satisfying spin configurations take the form
+%
+%
+\begin{equation}
+    \RRsite \mapsto \SIstraight \equiv \SIstraightArrow, \quad \RBsite \mapsto \SIbend \equiv \SIbendArrow ,
+    \label{eqn:square-ice-states}
+\end{equation}
+%
+%
+with the sign convention for the arrows reversed for vertices belonging to the other sublattice.
+The correspondence in~\eqref{eqn:square-ice-states} means that we can deduce the size of the constrained Hilbert space for the $m=2$ QF model,
+since the number of two-in-two-out configurations is known to scale as $W_2^{L^2}$ with $W_2 = (4/3)^{3/2}$~\cite{Lieb1967Ice,Lieb1967Residual}.
+
+The QF dynamics described in Sec.~\ref{sec:QF} -- in which closed loops of a single color passing through four spins are simultaneously flipped to a different color -- can now viewed as ``ring-exchange'' dynamics.
+In particular, in the rotated basis, spins around a face can be flipped between clockwise and anticlockwise orientations:
+%
+%
+\begin{equation}
+    \clockwiseface \leftrightarrow \anticlockwiseface
+    \, .
+\end{equation}
+%
+%
+Since the states in Eq.~\eqref{eqn:square-ice-states} are in one-to-one correspondence with one another, ring-exchange dynamics acting within the manifold of two-in-two-out states will exhibit conservation laws identical to those in the $m=2$ QF model.
+However, in the QF model with just two colors, fragmentation is confined to symmetry sectors of maximal one-form charge~\cite{Stephen2022Robust}; in all other sectors each symmetry sectors hosts just a single label.
+This is in stark contrast to the $m>2$ generalizations discussed in Sec.~\ref{sec:QF}, which exhibit fragmentation in \emph{generic} symmetry sectors.
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+\subsection{Dualities and generalized PXP models}
+
+%------------------------------------------------------------------------------%
+
+\subsubsection{From pair-flip to constrained spin flips}
+
+We now show how the pair-flip model in one dimension is dual to a parity-sensitive PXP-type model. We will work with $m=3$ for simplicity, with the generalization to $m>3$ straightforward.
+Let us define a Kramers-Wannier duality transformation for clock variables\footnote{This transformation differs slightly from the ``standard'' Kramers-Wannier transformation for clock variables, which takes the form $ \hat{\cal{X}}_e = \hat{Z}_v^\dagger \hat{Z}^{\phantom{\dagger}}_{v+1}$.} $\hat{Z}_v\hat{Z}_{v+1} = \hat{\cal{Z}}_e$, which relates the degrees of freedom on the edge $e$ and the two adjacent vertices $v$ and $v+1$.
+As in the edge picture, we define the following states on vertices: $\ket{0} \equiv \redket , \, \ket{1} \equiv \greenket , \, \ket{2} \equiv \blueket $.
+With open boundary conditions we must add an extra spin in the vertex picture that can be chosen arbitrarily (making the mapping one-to-three). Setting the boundary spin to $\blueket$, the duality acts as
+%
+%
+\begin{equation}
+    \big\lvert\kern1pt%
+    \begin{tikzpicture}[baseline={(0,-0.12)},x=1ex, y=1ex]%
+        \pgfmathsetmacro{\dx}{2.4};
+        \pgfmathsetmacro{\r}{0.6};
+        \coordinate (A) at (0, 0);
+        \coordinate (B) at ({\dx ex}, 0);
+        \coordinate (C) at ({2*\dx ex}, 0);
+        \coordinate (D) at ({3*\dx ex}, 0);
+        \coordinate (E) at ({4*\dx ex}, 0);
+        \coordinate (F) at ({5*\dx ex}, 0);
+        \coordinate (G) at ({6*\dx ex}, 0);
+        \coordinate (H) at ({7*\dx ex}, 0);
+        \draw[BrickRed, thick] ($ (A) + (0,1.2) $) -- ($ (A) + (0,-1.2) $);  
+        \draw[RoyalBlue, thick] ($ (B) + (0,1.2) $) -- ($ (B) + (0,-1.2) $);  
+        \draw[ForestGreen, thick] ($ (C) + (0,1.2) $) -- ($ (C) + (0,-1.2) $);  
+        \draw[ForestGreen, thick] ($ (D) + (0,1.2) $) -- ($ (D) + (0,-1.2) $);  
+        \draw[RoyalBlue, thick] ($ (E) + (0,1.2) $) -- ($ (E) + (0,-1.2) $); 
+        \draw[ForestGreen, thick] ($ (F) + (0,1.2) $) -- ($ (F) + (0,-1.2) $); 
+        \draw[BrickRed, thick] ($ (G) + (0,1.2) $) -- ($ (G) + (0,-1.2) $); 
+        \draw[BrickRed, thick] ($ (H) + (0,1.2) $) -- ($ (H) + (0,-1.2) $);  
+        \fill[BrickRed] (A) circle(\r ex);%
+        \fill[RoyalBlue] (B) circle(\r ex);%
+        \fill[ForestGreen] (C) circle(\r ex);%
+        \fill[ForestGreen] (D) circle(\r ex);%
+        \fill[RoyalBlue] (E) circle(\r ex);%
+        \fill[ForestGreen] (F) circle(\r ex);%
+        \fill[BrickRed] (G) circle(\r ex);%
+        \fill[BrickRed] (H) circle(\r ex);%
+    \end{tikzpicture}\kern1pt\big\rangle
+    \mapsto
+    \left\lvert\kern1pt%
+    \begin{tikzpicture}%
+    \bluesquare{0.0}{0};%
+    \greensquare{2.4}{0};%
+    \greensquare{2*2.4}{0};%
+    \redsquare{3*2.4}{0};%
+    \greensquare{4*2.4}{0};%
+    \greensquare{5*2.4}{0};%
+    \redsquare{6*2.4}{0};%
+    \redsquare{7*2.4}{0};%
+    \redsquare{8*2.4}{0};%
+    \end{tikzpicture}\kern1pt\right\rangle
+    \, . 
+    \label{eqn:1D-duality-example}
+\end{equation}
+%
+%
+The flippable pairs in the edge picture have been replaced by motifs of the form $|\kern1pt \begin{tikzpicture} \greensquare{2*2.4}{0}; \redsquare{3*2.4}{0}; \greensquare{4*2.4}{0}; \end{tikzpicture}\kern1pt\rangle$ or $|\kern1pt \begin{tikzpicture} \bluesquare{2*2.4}{0}; \bluesquare{3*2.4}{0}; \bluesquare{4*2.4}{0}; \end{tikzpicture}\kern1pt\rangle$, i.e., a central spin surrounded by two spins of equal value. If the pair from which this motif is derived is permuted, $00 \to 11 \to 22 \to 00$, then, in the dual picture, this has the effect of permuting the central spin only, $0 \to 1 \to 2 \to 0$, leaving its neighbors unchanged. Hence, in the dual language, the generic pair-flip model from Sec.~\ref{sec:1D-pair-flip} may be written
+%
+%
+\begin{equation}
+    \hat{H}_\text{PF} = g \sum_{v=1}^{L-1} \sum_{\alpha, \beta, \gamma =0}^{m-1} \xi_v^{\alpha+\gamma, \beta+\gamma} \, \hat{P}_{v-1}^\gamma \hat{X}_v^{\alpha-\beta} \hat{P}_{v}^\beta \hat{P}_{v+1}^\gamma + \text{h.c.}
+    \, .
+    \label{eqn:dual-PF-generic}
+\end{equation}
+%
+%
+Note that the central projector does not affect the possible transitions; it merely ensures that the appropriate matrix element $\xi_{v}^{\alpha\beta}$ is selected.
+In the above equations $\hat{X} \ket{\alpha} = \ket{\alpha+1}$ permutes the dual $m$-level systems, while $\hat{P}_v^\alpha = \ketbra{\alpha}{\alpha}_v$ projects onto color $\alpha$ on vertex $v$. 
+
+As stated above, in the dual language~\eqref{eqn:dual-PF-generic}, spins are only dynamical if their neighbors are equal to one another. This model strongly resembles the PXP model~\cite{Lesanovsky2012PXP, Turner2018Weak, Turner2018Scarred, Michailidis2020PXP, Lin2020PXP}, for spin-$1/2$ degrees of freedom, where spins may only flip if both neighbors are in the `0' (ground) state due to the Rydberg blockade constraint. Equation~\eqref{eqn:dual-PF-generic}, on the other hand, also permits the central spin to flip if both neighbors are in the `1' (excited) state.
+The dual model~\eqref{eqn:dual-PF-generic} therefore generalizes the Rydberg constraint to a \emph{parity}-sensitive constraint in which only the parity of neighboring 1's determines whether a given spin can flip.
+
+The model in the vertex language appears to have an extra discrete symmetry 
+\begin{equation*}
+    \prod_v \hat{X}_v^{(-1)^v} = \hat{X}_0^{\phantom{\dagger}}\hat{X}_1^\dagger\hat{X}_2^{\phantom{\dagger}}\hat{X}_3^\dagger\cdots,
+\end{equation*}
+due to the choice of initial spin state.
+This symmetry can be retained in the edge picture by keeping track of an extra degree of freedom in the edge picture as a noninteracting spin on which the symmetry acts. Then, both pictures enjoy a $\mathbb{Z}_m$ symmetry, although it is local in the edge picture and global in the vertex picture. This is a generic feature of nonlocal dualities~\cite{DeWolfe2023Entropy}.
+
+In the parity-sensitive PXP picture, we can also create Krylov sector labels via
+%
+%
+\begin{enumerate*}[(i)]
+    \item working from left to right, identify motifs of the form $\RGRket$ (including three identically colored sites),
+    \item for each motif identified, replace the pattern by the majority color, e.g., $\RGRket \mapsto \redket$,
+    \item repeat the previous two steps until there are no such motifs remaining.
+\end{enumerate*}
+%
+%
+This prescription leads to a dual conserved pattern. As an example, all of the following configurations [which are connected by local dynamics generated by the dual Hamiltonian~\eqref{eqn:dual-PF-generic}] map to the same conserved pattern:
+%
+%
+\begin{equation}
+    \big[  \BGRGket \leftrightarrow \BGBGket \leftrightarrow \BBBGket \big] \mapsto \BGket
+    \, .
+\end{equation}
+%
+%
+In general it is not necessary to start with the left-most motif; all choices lead to the same label.
+Note that the patterns on the left-hand side are dual to the patterns in~\eqref{eqn:dot-past-dimer} and the label on the right-hand side is dual to the label $\dualRket$ that would be found from removing paired spins from~\eqref{eqn:dot-past-dimer}.
+
+%------------------------------------------------------------------------------%
+
+\subsubsection{Two-dimensional generalization}
+
+As for the one-dimensional model, we may introduce dual variables living on vertices via a similar Kramers-Wannier duality. These variables satisfy $\hat{Z}_v\hat{Z}_{v'} = \hat{\cal{Z}}_e$ for the two neighboring vertices $\langle v v' \rangle$ at either end of the edge $e$.  
+Note that, for $i$, $j$, $k$, $l$ labeling the edges clockwise around a face $f$, we must have $\hat{\cal{Z}}_i\hat{\cal{Z}}_j^\dagger \hat{\cal{Z}}_k\hat{\cal{Z}}_l^\dagger = \mathds{1}$ for $\hat{Z}_v$ to be independent of the path used to define it. This constraint is automatically satisfied within the source-free subspace.
+
+We can therefore find (via a one-to-$m$ map) the spin configuration on vertices that corresponds to a given ``domain wall'' configuration on edges. For example,
+%
+%
+\begin{equation}
+    \begin{tikzpicture}[baseline={(0,-0.12)}]%
+        \draw [semithick, RoyalBlue, rounded corners=0.65ex] (-2.4ex, 1.2ex)--++(1.2ex, 0)--++(0, 1.2ex);
+        \draw [semithick, RoyalBlue, rounded corners=0.65ex] (2.4ex, -1.2ex)--++(-1.2ex, 0)--++(0, -1.2ex);
+        \draw [semithick, ForestGreen, rounded corners=0.65ex] (-2.4ex, -1.2ex)--++(1.2ex, 0)--++(0, -1.2ex);
+        \draw [semithick, ForestGreen, rounded corners=0.65ex] (2.4ex, 1.2ex)--++(-1.2ex, 0)--++(0, 1.2ex);
+        \draw [semithick, BrickRed, rounded corners=0.65ex] (-1.2ex, 0)--++(0, 1.2ex)--++(2.4ex, 0)--++(0, -2.4ex)--++(-2.4ex, 0)--(-1.2ex, 0);
+        \draw [semithick] (-2.4ex, -2.4ex) rectangle (2.4ex, 2.4ex);%
+        \draw [semithick] (0, -2.4ex) rectangle (0, 2.4ex);%
+        \draw [semithick] (-2.4ex, 0) rectangle (2.4ex, 0);%
+        %
+        \fill [BrickRed] (-1.2ex, 0) circle(0.5ex);%
+        \fill [BrickRed] (1.2ex, 0) circle(0.5ex);%
+        \fill [BrickRed] (0, -1.2ex) circle(0.5ex);%
+        \fill [BrickRed] (0, 1.2ex) circle(0.5ex);%
+        \fill [RoyalBlue] (-1.2ex, 2.4ex) circle(0.5ex);%
+        \fill [ForestGreen] (1.2ex, 2.4ex) circle(0.5ex);%
+        \fill [RoyalBlue] (-2.4ex, 1.2ex) circle(0.5ex);%
+        \fill [ForestGreen] (2.4ex, 1.2ex) circle(0.5ex);%
+        \fill [ForestGreen] (-1.2ex, -2.4ex) circle(0.5ex);%
+        \fill [RoyalBlue] (1.2ex, -2.4ex) circle(0.5ex);%
+        \fill [ForestGreen] (-2.4ex, -1.2ex) circle(0.5ex);%
+        \fill [RoyalBlue] (2.4ex, -1.2ex) circle(0.5ex);%
+    \end{tikzpicture}
+    \,
+    \rightarrow
+    \,
+    \begin{tikzpicture}[baseline={(0,-0.12)}, x=1ex, y=1ex]%
+        \draw [semithick] (-2.4ex, -2.4ex) rectangle (2.4ex, 2.4ex);%
+        \draw [semithick] (0, -2.4ex) rectangle (0, 2.4ex);%
+        \draw [semithick] (-2.4ex, 0) rectangle (2.4ex, 0);%
+        %
+        \redsquare{-2.4}{-2.4};%\fill [BrickRed] (-2.4ex, -2.4ex) circle(0.5ex);%
+        \greensquare{0}{-2.4};%\fill [ForestGreen] (0, -2.4ex) circle(0.5ex);%
+        \greensquare{2.4}{-2.4};%\fill [ForestGreen] (2.4ex, -2.4ex) circle(0.5ex);%
+        \greensquare{-2.4}{0};%\fill [ForestGreen] (-2.4ex, 0) circle(0.5ex);%
+        \bluesquare{0}{0};%\fill [RoyalBlue] (0, 0) circle(0.5ex);%
+        \greensquare{2.4}{0};%\fill [ForestGreen] (2.4ex, 0) circle(0.5ex);%
+        \greensquare{-2.4}{2.4};%\fill [ForestGreen] (-2.4ex, 2.4ex) circle(0.5ex);%
+        \greensquare{0}{2.4};%\fill [ForestGreen] (0, 2.4ex) circle(0.5ex);%
+        \redsquare{2.4}{2.4};%\fill [BrickRed] (2.4ex, 2.4ex) circle(0.5ex);%
+    \end{tikzpicture}
+    \, , \quad
+    \begin{tikzpicture}[baseline={(0,-0.12)}, x=1ex, y=1ex]%
+        \draw [semithick] (-2.4ex, -2.4ex) rectangle (2.4ex, 2.4ex);%
+        \draw [semithick] (0, -2.4ex) rectangle (0, 2.4ex);%
+        \draw [semithick] (-2.4ex, 0) rectangle (2.4ex, 0);%
+        %
+        \greensquare{-2.4}{-2.4};%\fill [BrickRed] (-2.4ex, -2.4ex) circle(0.5ex);%
+        \redsquare{0}{-2.4};%\fill [ForestGreen] (0, -2.4ex) circle(0.5ex);%
+        \bluesquare{2.4}{-2.4};%\fill [ForestGreen] (2.4ex, -2.4ex) circle(0.5ex);%
+        \redsquare{-2.4}{0};%\fill [ForestGreen] (-2.4ex, 0) circle(0.5ex);%
+        \redsquare{0}{0};%\fill [RoyalBlue] (0, 0) circle(0.5ex);%
+        \redsquare{2.4}{0};%\fill [ForestGreen] (2.4ex, 0) circle(0.5ex);%
+        \bluesquare{-2.4}{2.4};%\fill [ForestGreen] (-2.4ex, 2.4ex) circle(0.5ex);%
+        \redsquare{0}{2.4};%\fill [ForestGreen] (0, 2.4ex) circle(0.5ex);%
+        \greensquare{2.4}{2.4};%\fill [BrickRed] (2.4ex, 2.4ex) circle(0.5ex);%
+    \end{tikzpicture}
+    \, , \quad 
+    \begin{tikzpicture}[baseline={(0,-0.12)}, x=1ex, y=1ex]%
+        \draw [semithick] (-2.4ex, -2.4ex) rectangle (2.4ex, 2.4ex);%
+        \draw [semithick] (0, -2.4ex) rectangle (0, 2.4ex);%
+        \draw [semithick] (-2.4ex, 0) rectangle (2.4ex, 0);%
+        %
+        \bluesquare{-2.4}{-2.4};%\fill [BrickRed] (-2.4ex, -2.4ex) circle(0.5ex);%
+        \bluesquare{0}{-2.4};%\fill [ForestGreen] (0, -2.4ex) circle(0.5ex);%
+        \redsquare{2.4}{-2.4};%\fill [ForestGreen] (2.4ex, -2.4ex) circle(0.5ex);%
+        \bluesquare{-2.4}{0};%\fill [ForestGreen] (-2.4ex, 0) circle(0.5ex);%
+        \greensquare{0}{0};%\fill [RoyalBlue] (0, 0) circle(0.5ex);%
+        \bluesquare{2.4}{0};%\fill [ForestGreen] (2.4ex, 0) circle(0.5ex);%
+        \redsquare{-2.4}{2.4};%\fill [ForestGreen] (-2.4ex, 2.4ex) circle(0.5ex);%
+        \bluesquare{0}{2.4};%\fill [ForestGreen] (0, 2.4ex) circle(0.5ex);%
+        \bluesquare{2.4}{2.4};%\fill [BrickRed] (2.4ex, 2.4ex) circle(0.5ex);%
+    \end{tikzpicture}
+    \, ,
+\end{equation}
+%
+%
+where we have shown the three possible states on the right-hand side, and spins on vertices have been represented using colored squares. The allowed configurations~\eqref{eqn:allowed-faces} become
+%
+%
+\begin{equation}
+    \begin{tikzpicture}[baseline={(0,-0.12)}, scale=0.7]
+        \draw [semithick] (-4ex, -4ex) rectangle (4ex, 4ex);
+        \begin{scope}[every node/.style={circle,draw,black,semithick,fill=white,minimum size=4.5mm}]
+            \node [label=center:{\scriptsize $\alpha$},scale=0.85] (A) at (0, 4ex) {};
+            \node [label=center:{\scriptsize $\alpha$},scale=0.85] (B) at (-4ex, 0) {};
+            \node [label=center:{\scriptsize $\beta$},scale=0.85] (C) at (0, -4ex) {};
+            \node [label=center:{\scriptsize $\beta$},scale=0.85] (C) at (4ex, 0) {};
+        \end{scope}
+        \begin{scope}[every node/.style={rectangle,draw,black,fill=black,minimum size=0mm, inner sep=2.5pt}]
+            \node (A) at (-4ex, -4ex) {};
+            \node (B) at (-4ex, 4ex) {};
+            \node (C) at (4ex, 4ex) {};
+            \node (C) at (4ex, -4ex) {};
+        \end{scope} 
+    \end{tikzpicture}
+    \longleftrightarrow
+    \begin{tikzpicture}[baseline={(0,-0.12)}, scale=0.7]
+        \draw [semithick] (-4ex, -4ex) rectangle (4ex, 4ex);
+        \begin{scope}[every node/.style={rectangle,draw,black,semithick,fill=white,minimum size=4mm}]
+            \node [label=center:{\scriptsize $a$},scale=0.85] (A) at (-4ex, -4ex) {};
+            \node [label=center:{\scriptsize $b$},scale=0.85] (B) at (-4ex, 4ex) {};
+            \node [label=center:{\scriptsize $a$},scale=0.85] (C) at (4ex, 4ex) {};
+            \node [label=center:{\scriptsize $c$},scale=0.85] (C) at (4ex, -4ex) {};
+        \end{scope}
+        \begin{scope}[every node/.style={circle,draw,black,fill=black,minimum size=0mm, inner sep=2pt}]
+            \node (A) at (0, 4ex) {};
+            \node (B) at (-4ex, 0) {};
+            \node (C) at (0, -4ex) {};
+            \node (C) at (4ex, 0) {};
+        \end{scope}
+    \end{tikzpicture}
+    \label{eqn:vertex-constraint-graphical}
+\end{equation}
+%
+%
+where $a + b = \alpha \mod m$ and $a + c = \beta \mod m$.
+More generally, if $i$, $j$, $k$, $l$ label spins on vertices clockwise around the face $f$, then the operator $\hat{N}_{\partial f}^{\alpha}$ that measures violations of the constraint, written in terms of the operators on vertices, is
+%
+%
+\begin{equation}
+    \hat{N}_{\partial f}^{\alpha} = \frac{1}{m} \sum_{\beta=0}^{m-1} e^{-2\pi i \alpha \beta / m} (\hat{Z}_{i}^\beta - \hat{Z}_{k}^\beta)(\hat{Z}_{j}^\beta - \hat{Z}_{l}^\beta)
+    \, ,
+    \label{eqn:vertex-constraint-operator}
+\end{equation}
+%
+%
+and the ground space is still given by the requirement that $\hat{N}_{\partial f}^{\alpha} = 0$ for every face and color $\alpha$. 
+From~\eqref{eqn:vertex-constraint-graphical} or~\eqref{eqn:vertex-constraint-operator} it is clear that, in the vertex language, every face must have at least one identically colored diagonal pair in the source-free subspace. This suggests a further dual description of the system in terms of domain wall variables between such diagonal pairs~\cite{Stephen2022Robust}. More precisely, we introduce two degrees of freedom for every elementary face of the form $\hat{Z}^\dagger_i\hat{Z}_k^{\phantom{\dagger}}$ and $\hat{Z}_{j}^\dagger \hat{Z}_{l}^{\phantom{\dagger}}$, which correspond to domain wall variables between spins belonging to the same sublattice (i.e., even or odd). In this picture, the constraint implies that domain walls (defined by $\bar{Z}_{v_1} {Z}_{v_2} \neq 1$) between the even and odd sublattices cannot intersect, as illustrated in Fig.~\ref{subfig:random-face}. A discussion of this final dual description is presented in Appendix~\ref{app:face-DWs}.
+
+In the vertex language, the ``parent'' Hamiltonian is
+\begin{equation}
+    \hat{H} =  \tilde{J} \sum_f \sum_{\alpha} (N^{\alpha}_{\partial f})^2 - g \sum_v \sum_{\alpha=0}^{m-1}\sum_{\beta=0}^{m-1} \tilde{\xi}_v^{\alpha\beta} \ketbra{ \alpha}{ \beta}_e
+    \, , \label{eqn:dual-parent}
+\end{equation}
+where $\tilde{J}>0$, and the second term is the most general single-site term, which is assumed to be weaker than the first term. We can play the same game of projecting the dynamics into the constrained subspace, the groundspace of the first term. In this basis we only need to go to first order in perturbation theory, finding
+%
+%
+\begin{equation}
+    \hat{H}_{\text{QF}} = -g \sum_v \sum_{\alpha=0}^{m-1}\sum_{\beta=0}^{m-1} \tilde{\xi}_v^{\alpha\beta} \ketbra{ \alpha}{ \beta}_e \hat{\Pi}_v^\gamma,
+    \label{eqn:QF-dual}
+\end{equation}
+%
+%
+where $\hat{\Pi}_v^\gamma = \prod_{v' : \langle vv' \rangle} \hat{P}^\gamma_{v'}$ projects all vertices $v'$ that neighbor $v$ into the state $\gamma$.
+We can compare to Eq.~\eqref{eqn:four-spin-flip} to see that  $\tilde{\xi}_v^{\alpha\beta} \sim \xi_v^{\alpha+\gamma, \beta+\gamma}$. The QF Hamiltonian~\eqref{eqn:four-spin-flip} is therefore dual to a Hamiltonian in which a spin is only dynamical if all four spins on its neighboring vertices are equal to one another.
+This correspondence is illustrated in Fig.~\ref{fig:all-dualities}, where flippable closed loops of length four in \subref{subfig:random-edge} map to vertices whose neighbors are all equal in \subref{subfig:random-vertex}.
+The model~\eqref{eqn:QF-dual} is equivalent (for $m=2$) to the first-order term that arises when projecting a transverse field into the ground space of the ``$\mathsf{CZ}_p$'' Ising model introduced in Ref.~\cite{Stephen2022Robust}.
+As in 1D, one can view Eq.~\eqref{eqn:QF-dual} for $m=2$ as arising from a parity-sensitive Rydberg blockade constraint. Namely, as shown in Ref.~\cite{Stephen2022Robust}, Eq.~\eqref{eqn:QF-dual} arises at first order in a model where an odd number of neighboring 1's are forbidden around every face.
+
+\begin{figure}[t]
+    \centering
+    \subfloat[\label{subfig:random-edge}]{\includegraphics[height=0.25\linewidth]{img/edge_loops.pdf}}%
+    \hspace{0.6cm}%
+    \subfloat[\label{subfig:random-vertex}]{\includegraphics[height=0.25\linewidth]{img/vertex_dof.pdf}}%
+    \hspace{0.6cm}%
+    \subfloat[\label{subfig:random-face}]{\includegraphics[height=0.25\linewidth]{img/face_dof.pdf}}%
+    \caption[Three dual descriptions of the same state]{Three dual descriptions of the same state obeying the source-free constraint in models exhibiting topologically robust fragmentation. (a) The QF model~\eqref{eqn:four-spin-flip}, with degrees of freedom on edges. The four spins around a vertex are able to flip only if they match. (b) The parity-sensitive PXP model~\eqref{eqn:QF-dual}, with degrees of freedom on vertices. A given spin is able to flip only if its four neighbors are equal to one another. (c) The dual description introduced in Appendix~\ref{app:face-DWs}, where a domain wall is drawn if two adjacent spins belonging to the same sublattice do not match.}
+    \label{fig:all-dualities}
+\end{figure}
+
+In fact, the $m=2$ case of the 2D parity-sensitive PXP model with periodic boundary conditions is precisely the $\CZp$ model of Ref.~\cite{Stephen2022Robust}. The $\CZp$ model exhibits topologically robust ergodicity breaking, but only in maximal one-form charge sectors and with those sectors being fully frozen. Maximal charge sectors shatter into $\cal{O}(2^L)$ frozen states, while nonmaximal sectors are fully ergodic. Meanwhile, with open boundary conditions, the maximal charge sectors of the $\CZp$ model have only a single state and there is no ergodicity breaking to be had. In contrast, with $m>2$ the parity-sensitive PXP model (like the QF model) exhibits ergodicity breaking with both periodic and open boundary conditions, there is fragmentation in generic symmetry sectors (not just sectors of maximal charge), and the fragmentation is not `all or nothing,' i.e., there exist Krylov subsectors with a distribution of sizes between one (frozen states) and exponentially large in system size.
+the size of the full symmetry sector. 
+As with the $\CZp$ model, this basic phenomenology is topologically robust. 
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+\subsection{Three-dimensional models}
+\label{sec:3D}
+
+The natural generalization of the PF and QF models to 3D is a model on a cubic lattice with a 2-form symmetry. To define the model, let us put $m$-level degrees of freedom~\eqref{eqn:PF-Hilbert-space} on the edges of a cubic lattice.
+The symmetry operators take the same form as in Eq.~\eqref{eqn:2d-charges}, now defined on one-dimensional paths embedded in three-dimensional space. The 2-form symmetry once again breaks the constrained Hilbert space into $\cal{O}(L^{m-1})$ symmetry sectors.
+
+Requiring $\hat{N}^\alpha_{\partial f} = 0$ on all faces $f$ allows the same configurations as shown in Eq.~\eqref{eqn:allowed-faces}, now on faces in any orientation. Graphically, these constraints require that the 3D state decomposes into a collection of closed membranes that do not intersect, both contractible and noncontractible.
+
+The allowed dynamics involve flipping all the spins around a vertex, of which there are now six. We will call the whole family of models the vertex-flip (VF) models. When viewed on a 2D slice of the system, the allowed moves look the same as those in~\eqref{eqn:minimal-vertex-update}. The VF move changes the color of the smallest contractible membrane:
+%
+%
+\begin{equation*}
+    \includegraphics[width=0.16\linewidth,valign=c]{img/VF.pdf}
+    \, ,
+\end{equation*}
+%
+%
+where the red spheres live on the edges of the primary cubic lattice and the shaded faces connect vertices of the dual cubic lattice.
+As in 2D, any contractible membrane may be flipped by a series of VF moves. Flipping a noncontractible membrane without violating the constraint now requires simultaneously flipping $\cal{O}(L^2)$ spins. 
+
+
+Operators charged under the 2-form symmetry are membranes on the dual lattice. As in 2D, they have nontrivial microscopic geometric requirements. They are required to turn at every edge of the dual lattice. For example, the operator
+\begin{equation*}
+    \includegraphics[width = .3\linewidth]{img/3dmembrane.pdf}
+\end{equation*}
+is a section of a valid charged operator, drawn on the dual lattice.
+For clarity of illustration, we have omitted the spins and the edges of the underlying lattice.
+
+We can once again define rough and smooth boundary conditions. The smooth boundary conditions are simple: just truncate the lattice so that no edges stick out. Charged operators may end on this boundary but symmetry operators may not. The rough boundaries must again be defined on a staggered lattice truncation. In a cubic lattice, the edges sticking out from a ordinary rough boundary form a square lattice. Now, remove the outward-pointing edges from one sublattice. This leaves behind doubled boundary faces, on which we permit configurations as in~\eqref{eqn:BCs}. Finally, we put the rough boundary conditions on two opposite boundaries and smooth boundary conditions on the other four boundaries.
+With this choice of boundary conditions, the counting of sectors works the same way as in the PF and QF models. There are $\cal{O}(L^{m-1})$ symmetry sectors and $\cal{O}[(m-1)^L]$ Krylov sectors, some frozen and some nonfrozen. 
+
+
+Sectors are labeled by a pattern of system-spanning membranes of nonrepeating color. One key difference to the two-dimensional case is that, if all source-free states have equal energy, there is a macroscopic energy barrier between states from any two different Krylov sectors. If, instead, source-free states are separated by an extensive energy $\propto g$, there can exist energetic competition between the constraint violations (scaling as $J \abs{\partial R}$) and this extensive energy (scaling as $g \abs{R}$), leading to an energy barrier $\sim J^2/g$ that diverges as $g\to 0$. This timescale is analogous to magnetization reversal in a 2D Ising model at finite temperature in the presence of a longitudinal field. This energy barrier could make the fragmentation in the 3D VF model even more robust than the fragmentation in the QF model. This possibility remains to be fully explored. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusions} \label{sec:conclusion}
+
+We have constructed a family of quantum loop based models exhibiting ergodicity breaking with topological robustness. These models simultaneously generalize the $\CZp$ model of Ref.~\cite{Stephen2022Robust} to local Hilbert space dimensions $m > 2$ (in a dual representation), and the pair-flip model~\cite{Caha2018PairFlip, Moudgalya2022Commutant} to higher dimensions, with the extra dimension(s) endowing the system with a topological stability that the pair-flip model lacks. The ergodicity breaking derives from $(d-1)$-form symmetries in $d>1$ spatial dimensions, which can emerge (in a prethermal sense) from simple parent Hamiltonians that softly (i.e., energetically) implement a `source-free' constraint. The simplest $m=2$ version of this physics---the $\CZp$ model---exhibits exponential fragmentation of Hilbert space, but only with periodic boundary conditions, and only in sectors of extremal symmetry charge. Moreover, the fragmentation is `all or nothing,' i.e., either a given symmetry sector is fully frozen, or it is not fragmented at all. Once we generalize to $m>2$, fragmentation is no longer limited to sectors of extremal charge, survives (suitable) open boundary conditions, and is not `all or nothing.' That is, there arise Krylov subsectors of size intermediate between one (frozen states) and exponentially large in system size.
+All of this phenomenology is topologically stable, i.e., it is robust to arbitrary $k$-local perturbations, as long as $k/L \rightarrow 0$ as we take system size $L\rightarrow \infty$.
+The results are exact if the constraint is imposed exactly (exact one-form symmetry), and valid up to an exponentially long prethermal timescale if the constraint is imposed energetically (emergent one-form symmetry). 
+
+This work opens up a new direction for exploration of ergodicity-breaking quantum dynamics. The models we have constructed provide proof of principle that qualitatively new phenomena in many-body quantum dynamics can arise protected by higher-form symmetries (which can emerge from simple local Hamiltonians). The exploration of emergent higher-form symmetries and their consequences, however, has only just begun. Particularly fruitful in this regard is the extension of such constructions to three spatial dimensions -- we have sketched some considerations in Sec.~\ref{sec:3D}, but a detailed exploration remains to be performed. We look forward to further exploration of these ideas. 
+
+It is also interesting to note that our results are exact when the higher-form symmetries are exact, and it has been shown that emergent higher-form symmetries can in fact be exact in the low-energy subspace~\cite{McGreevy2022Generalized, Pace2023Exact}. Might results analogous to ours therefore continue to hold even beyond the exponentially long `prethermal' timescale that we estimate? This too presents a fruitful topic for future investigation.
+
+Finally, while our discussion has focused on the quantum \emph{dynamics}, the equilibrium properties of generalized loop model could also be of interest. During the preparation of this manuscript, we became aware of parallel work by Shankar Balasubramanian, Ethan Lake, and Soonwon Choi~\cite{Lake2023NoCrossing} on the ground state properties of no-crossing models, and this too presents an interesting direction for future work. 
+
+%\subsubsection*{Acknowledgements}
+%RN and OH would like to thank David T.~Stephen for a prior collaboration on the $\CZp$ model. This work is supported by the Air Force Office of Scientific Research under award number FA9550-20-1-0222.
+
+
+

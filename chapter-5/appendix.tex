@@ -1,0 +1,92 @@
+% !TEX root = ../thesis.tex
+
+\chapter{Appendices to Hydrodynamics}
+
+\section{Quasihydrodynamics}
+
+To study the quiasihydrodynamics mentioned in the main text, we need to choose a parameter to tune to be small. For the transition from the charge condensate into the dipole condensate,  we will reintroduce the coefficients $\kappa^\phi_1$ and $\kappa^{\phi\psi}$ ($\kappa^\phi_2$, $g_2$, and $g_3$ will all be subleading). This gives a longitudinal continuity equation,
+\begin{align}
+0 = \omega^2 + i\frac{\kappa^{\psi}}{\kappa^\phi_1-i\omega \sigma}\omega^2 k^2 - \frac{\kappa^{\phi\psi}+\kappa^\psi}{\chi}k^4, \label{eqn:CCtoDC}
+\end{align}
+with $\kappa^{\psi}=\kappa^\psi_1+\kappa^\psi_2$ as before. This dispersion defines a time scale $\tau = \sigma/\kappa^\phi_1$. After this time, the dispersion is $\omega^2 = (\kappa^{\phi\psi}+\kappa^\psi) k^4 / \chi$, reproducing the charge condensate. This shows that we are truly in the charge condensate. Before this scale, the dispersion looks like the dipole condensate (compare to~\eqref{eqn:DCdisp}). There is no transverse mode in the charge condensate, even near the dipole condensate transition.
+
+We can better understand~\eqref{eqn:CCtoDC} by looking at plots of the dispersion. In Fig.~\ref{fig:CCtoDC} we can see the dispersion with $\kappa^{\psi}\chi/\sigma^2=25$ chosen to place us firmly within the diffusive regime.  At small $k$ (true hydrodynamics) the dispersion looks like the charge condensate with $\omega^2 \sim k^4$, with an additional gapped mode.
+At large $k$ (quasihydrodynamics) it looks like the diffusive regime of the dipole condensate $(\omega\sim -ik^2)$.  One of the diffusive modes becomes gapped at small $k$, while the other diffusive mode collides with the large-$k$ gapped mode to give the propagating modes. 
+
+Fig.~\ref{fig:CCtoDC} also shows the dispersions at a value of $\kappa^{\psi}\chi/\sigma^2=1$ (recall the critical value is 4). The propagating modes at small $k$ become the propagating modes at large $k$, with no collision. There is an extra mode that is gapped at large and small $k$. This mode is not a hydrodynamic or quasihydrodynamic mode, but it cannot be removed from the analysis because it is the same mode that goes from diffusive to gapped in the other regime.
+
+
+
+To study the small-$T$ regime of the dipole condensate, let us revisit~\eqref{eqn:dc-currents} in the small-$\sigma$ limit. This allows us to retain $\rho_i$ in the continuity equations, with the important contribution being $\rho_i = \chi^\psi \partial_t\psi_i$. The transverse part of the dipole continuity equation reads
+\begin{align}
+0 = \chi^\psi \partial_t^2 \psi_i^t + \sigma \partial_t \psi_i^t - (\kappa^\psi_2-g_2) \grad^2 \psi_i^t,
+\end{align}
+with solution
+\begin{align}
+\omega = \frac{-i\sigma}{2\chi^\psi} \pm \sqrt{\frac{-\sigma^2}{2(\chi^\psi)^2} + \frac{(\kappa_2^\psi - g_2)k^2}{\chi^\psi}},
+\end{align}
+introducing a timescale $\tau = \chi^\psi/\sigma$. The new timescale $\tau$ is large in the small-$\sigma$ limit. On timescales smaller than $\tau$ the quasihydrodynamics consists of a linear propagating mode,
+\begin{align}
+\omega = \pm \sqrt{\frac{(\kappa_2^\psi - g_2)k^2}{\chi^\psi}},
+\end{align}
+matching the $T=0$ expectation. At timescales larger than $\tau$ the propagating mode splits into a gapped mode and a diffusive mode with diffusion constant $(\kappa_2^\psi - g_2)/\sigma$, as in~\eqref{eqn:dctran}.
+
+With the introduction of $\chi^\psi$, the analog of~\ref{eqn:dcmatrix} is 
+\begin{align}
+0 = 
+\begin{bmatrix} \chi \partial_t - \sigma \grad^2 & \sigma \partial_t  \\
+-\sigma \grad^2  & \chi^\psi \partial_t + \sigma\partial_t - \kappa^\psi \grad^2
+\end{bmatrix} \begin{pmatrix} \partial_t \phi \\ \grad_j\psi_j \end{pmatrix},
+\end{align}
+with the same timescale $\tau = \chi^\psi/\sigma$. In the small-$\sigma$ limit, the solutions are 
+\begin{align}
+\omega = -i\frac{\sigma}{\chi}k^2,\qquad \omega  = \frac{-i\sigma}{2\chi^\psi} \pm \sqrt{\frac{-\sigma^2}{2(\chi^\psi)^2} + \frac{\kappa^\psi\,k^2}{\chi^\psi}}.
+\end{align}
+The first solution matches one of the diffusion modes from the dipole condensate phase, with a diffusion constant that vanishes in the small-$\sigma$ limit. The other mode behaves like the transverse mode, transitioning from linear propagation in quasihydrodynamics to a gapped mode and a diffusive mode in the late-time hydrodynamics. These modes are shown in Fig.~\ref{fig:NoDiss}.
+
+The above analysis shows that the dissipative coefficient $\sigma$ is crucial in that it completely changes the nature of the dispersion relation from $T=0$ to finite $T$, going from a ballistic to a quadratic scaling. While we determined the presence of this transport coefficient in terms of simple symmetry arguments, we note that this term can be argued to be finite based on microscopic reasoning. Consider a lattice model described by a complex boson $b_{\bm x}$ and with dipole symmetry $b_{\bm x}\to b_{\bm x} e^{i {\bm \alpha}\cdot {\bm x}}$. In the condensed dipole phase, hopping of a single boson is allowed through the term $b_{\bm x}b_{\bm x+\bm e_j}e^{i\psi_j}+\text{ h.c.}$, where $\bm e_j$ denotes a unit vector in the $j$-direction \cite{Lake2022Dipolar}. Note that $\psi_i$ can exactly be viewed as a spatial gauge field $A_i=\psi_i$. Treating $\psi_i$ as a backround non-dynamical field, at finite temperature, this coupling will generically lead to a finite conductivity term in the current $J_i=\sigma E_i=\sigma\partial_t \psi_i$, which is precisely the last term in the third line of~\eqref{eqn:dc-currents}. This argument not only confirms that $\sigma$ \emph{must} generically be finite, it also shows that, given a $U(1)$-invariant system without dipole symmetry, this can be straightforwardly extended to a dipole symmetric system in the dipole condensed phase.
+
+\section{Derivation of the effective action}
+
+The effective actions we consider must obey the KMS symmetry in~\eqref{eqn:KMS}. Ref.~\cite{Kapustin2022Hohenberg} shows that we can construct KMS-invariant terms in two distinct ways, which correspond to dissipative and nondissipative terms in the effective action. The nondissipative terms are
+\begin{align}
+\L_\text{nd} &= \left( \Phi \frac{\delta}{\delta \phi} + \Psi_i \frac{\delta}{\delta \psi_i} \right) \int d^3x\, dt\, \Omega,
+\end{align}
+where $\Omega$ is a Lagrangian that depends on $\phi$ and $\psi_i$ but not on $\Phi$ or $\Psi_i$. Thermodynamic stability of the effective action requires that $\Omega$ is negative when Wick-rotated. The dissipative terms are
+\begin{align}
+\L_\text{d} &= \frac{1}{2} \left( X(\phi,\psi_i,\Phi,\Psi_i) + X_\text{KMS}(\phi,\psi_i,\Phi,\Psi_i) - X(\phi,\psi_i,0,0) - X_\text{KMS}(\phi,\psi_i,0,0) \right),
+\end{align}
+where $X$ is quadratic in $\Phi$ and $\Psi_i$ and is even under time-reversal. The function $X_\text{KMS}$ is the result of the transformation in~\eqref{eqn:KMS} applied to $X$.
+
+For the nondissipative part, we will consider terms of order $\omega^2$, $\omega^2k^2$, $k^2$, and $k^4$. This is not a strictly valid gradient expansion at any value of $z$, but will give us all the terms we need for our analysis. Then, we have
+\begin{align}
+2\Omega &= \chi (\partial_t \phi)^2 + \chi_2^\phi (\partial_t\grad_i\phi)^2 + 2g_1 \partial_t\grad_i\phi \partial_t \psi_i +\chi^\psi (\partial_t\psi_i)^2 - \kappa^\phi_1(\grad_i\phi-\psi_i)^2 \nonumber\\
+&\quad - \kappa^\phi_2(\grad_i\grad_j\phi)^2 - 2g_2 \grad_i\grad_j \phi \grad_i\psi_j - 2g_3 \grad^2\phi \grad_i\psi_i - \tilde{\kappa}_2^\psi( \grad_i\psi_j)^2 - \tilde{\kappa}_1^\psi(\grad_i\psi_i)^2,
+\end{align}
+where we have included various factors of 2 for convenience. All $\chi$ and $\kappa$ coefficients must be nonnegative. The $g$ coefficients may be positive or negative, but must obey the stability conditions $|g_1| \le \min(\chi_2^\phi,\chi^\psi)$, $|g_2| \le \min(\kappa^\phi_2,\tilde{\kappa}_2^\psi)$, $|g_3| \le \min(\kappa^\phi_2,\tilde{\kappa}_1^\psi)$, and $|g_2+g_3| \le \kappa^\phi_2$. The Lagrangian becomes
+\begin{align}
+\L_\text{nd} &= \left[\chi \partial_t\phi - \chi_2^\phi\partial_t\grad^2\phi - g_1\partial_t\grad_i\psi_i \right] \partial_t\Phi \nonumber\\
+&\quad + \left[ g_1\partial_t\grad_i\phi + \chi^\psi\partial_t\psi_i \right] \partial_t \Psi_i \nonumber\\
+&\quad + \left[ -\kappa^\phi_1(\grad_i\phi-\psi_i) \right] (\grad_i\Phi - \Psi_i)\nonumber\\
+&\quad + \left[ -\kappa^\phi_2\grad_i\grad_j\phi - g_2\grad_i\psi_j  - g_3\delta_{ij}\grad_k\psi_k\right] \grad_i\grad_j\Phi \nonumber\\
+&\quad + \left[ - g_2\grad_i\grad_j\phi - g_3 \delta_{ij}\grad^2\phi - \tilde{\kappa}_2^\psi \grad_i\psi_j - \tilde{\kappa}_1^\psi\delta_{ij} \grad_k\psi_k \right] \grad_i\Psi_j \nonumber\\
+&= \left[\chi \partial_t\phi - \chi_2^\phi\partial_t\grad^2\phi - g_1\partial_t\grad_i\psi_i \right] \partial_t\Phi \nonumber\\
+&\quad + \left[ g_1\partial_t\grad_i\phi + \chi^\psi\partial_t\psi_i \right] \partial_t \Psi_i \nonumber\\
+&\quad + \left[ -\kappa^\phi_1(\grad_i\phi-\psi_i) + \kappa^\phi_2 \grad^2\grad_i\phi + g_2\grad^2\psi_i + g_3\grad_i\grad_j\psi_j \right] (\grad_i\Phi - \Psi_i)\nonumber\\
+&\quad - \left[ (\kappa^\phi_2+g_2+g_3) \grad_i\grad_j\phi + (\tilde{\kappa}_1^\psi+g_3) \grad_i\psi_j + (\tilde{\kappa}_2^\psi+g_2)\grad_j\psi_i \right] \grad_j\Psi_i,
+\end{align}
+where we used $\grad_i\grad_j\Phi = \grad_i(\grad_j\Phi - \Psi_j)+\grad_i\Psi_j$ and integration by parts. Note the sign and order of indices in the last line, chosen to match the convention in~\eqref{eqn:hydro}. We can identify the new coefficients   $\kappa^{\phi\psi} = \kappa^\phi_2+g_2+g_3$, $\kappa_1^\psi = \tilde{\kappa}_1^\psi+g_3$, and $\kappa^\psi_2 = \tilde{\kappa}_2^\psi+g_2$, all of which are nonnegative.
+
+The dissipative terms we need for our analysis descend from the expression
+\begin{align}
+2\beta X = i b_0(\grad_i\Phi - \Psi)^2 + i b_1(\grad_i\grad_j\Phi)^2 + 2i\xi \grad_i\grad_j\Phi \grad_i\Psi_j + 2i\xi_2 \grad^2\Phi \grad_i\Psi_i + ib_2 (\grad_i\Psi_j)^2 + ib_3(\grad_i\Psi_i)^2,
+\end{align}
+where the $b$ coefficients must be positive and $|\xi_1| \le \min(b_1,b_2)$, $|\xi_2| \le \min(b_1,b_3)$, and $|\xi_1+\xi_2| \le b_1$ by~\eqref{eqn:eftsym}. Then,
+\begin{align}
+\L_\text{d} &= X - b_0\partial_t(\grad_i\phi - \psi_i)(\grad_i\Phi - \Psi_i) \nonumber\\
+&\quad - \left[ b_1 \partial_t \grad_i\grad_j\phi + \xi_1\partial_t \grad_i\psi_j + \xi_2 \delta_{ij}\partial_t\grad_k\psi_k \right] \grad_i\grad_j \Phi \nonumber\\
+&\quad -\left[ \xi_1\partial_t\grad_i\grad_j\phi + \xi_2\delta_{ij} \partial_t \grad^2\phi + b_2\partial_t\grad_i\psi_j + b_3\delta_{ij} \partial_t\grad_k\psi_k \right] \grad_i\Psi_j\nonumber\\
+&= X + \left[ - b_0\partial_t(\grad_i\phi - \psi_i) + b_1\partial_t\grad^2\grad_i\phi + \xi_1\partial_t\grad^2\psi_i + \xi_2\partial_t\grad_i\grad_j\psi_j \right](\grad_i\Phi - \Psi_i) \nonumber\\
+&\quad -\left[ (b_1+\xi_1+\xi_2) \partial_t\grad_i\grad_j\phi + (b_2+\xi_1) \partial_t\grad_i\psi_j + (b_3+\xi_2) \delta_{ij} \partial_t\grad_k\psi_k \right] \grad_i\Psi_j,
+\end{align}
+from which we can identify $\sigma=b_0$, $B_1 = b_1+\xi_1+\xi_2$, $B_2 = b_2+\xi_1$, and $B_3 = b_3+\xi_2$. The other terms end up being sub-leading so we may drop them. The terms in $X$ itself are quadratic in $\Phi$ and $\Psi_i$, so they contribute to the fluctuating hydrodynamics but can be ignored for the purpose of computing the dispersion relations.

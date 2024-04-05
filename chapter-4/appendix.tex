@@ -1,0 +1,26 @@
+% !TEX root = ../thesis.tex
+
+\chapter{More boundary conditions for the intertwined toric code}
+\label{chp:ITCboundaries}
+
+As promised, we here define the $e$-condensed and $m$-condensed boundary conditions so that the ITC can be defined with a single logical qubit on a cubic lattice that is itself a cube (with no periodic boundary conditions). 
+
+We put the $e$-condensed boundary on the top and bottom of the cube. To do so, start with the previously-defined trivial boundary and remove qubits from the boundary edges. We are left with the same $B_e$ check operators but some $B_f$ check operators are truncated to 3-body operators, which we leave in the check group. Now there are no boundary $A_v$ stabilizers, but we keep the 5-body $A_c$ stabilizers. On this boundary, the bare logical membrane operator $\barelogical{Z}$ and the dressed logical stringlike operator $\barelogical{Z}'$ may both terminate,
+\begin{align}
+\inlinegraphic{cube-Z},
+\end{align}
+but the $X$-type logical operators may not.
+
+To construct the $m$-condensed boundary on the front and back of the cube, once again start with the trivial boundary. Now, add qubits to every boundary face. For every boundary edge we can now define a 3-body $B_e$ operator. We also define single-body $Z_f$ operators on these new face qubits. The resulting stabilizers are the 5-body $A_v$ operators we already had and new 6-body $A_c=\prod_{f\in \partial c} Z_f$ operators. The bare logical membrane operator $\barelogical{X}$ and the dressed logical stringlike operator $\barelogical{X}'$ may both end on this boundary,
+\begin{align}
+\inlinegraphic{cube-X},
+\end{align}
+but the $Z$-type logical operators may not.
+
+These boundaries result in a cleaner code because they only encode a single logical qubit. There are $3L^3+2L^2-L$ edges and $3L^3-L^2$ faces for a total of $6L^3+L^2-L$ physical qubits. On these qubits we enforce $3L^3 - 3L$ single-site $X_e$ check operators, $2L^2 + 2L$ of the $K_e$ check operators (only counting those on the intertwined boundary), and $3L^3-L^2$ single-site $Z_f$ check operators. Between $3L^3 + L^2$ total $B_f$ check operators we have $L^3$ relations and therefore $2L^3+L^2$ independent $B_f$ operators. There are $3L^3-2L^2-L$ total $B_e$ check operators with $L^3-L^2-L+1$ relations between them, giving $2L^3-L^2-1$ independent $B_e$ operators. Along with $L^3+L^2-L-1$ of the $A_v$ stabilizers and $L^3$ of the $A_c$, we have 
+\begin{align}
+K = N - \frac{1}{2} \left( \log_2 |\G| + \log_2 |\S| \right) = 1
+\end{align} 
+logical qubit.
+
+We should think of this as the minimal intertwined toric code because it only encodes a single logical qubit and has no need for periodic boundary conditions. We can go through the analysis of Sec.~\ref{sec:phase} to see what these boundaries become in the different phases. For example, the $e$-condensed boundary becomes the rough boundary conditions for the 2d toric code in the paramagnetic phase and for the 3d toric code in the TCE phase.

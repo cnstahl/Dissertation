@@ -1,0 +1,50 @@
+% !TEX root = ../thesis.tex
+
+\chapter{Introduction}
+\label{chp:intro}
+
+\begin{quotation}
+	\noindent 'Twas brillig, and the slithy toves \par
+	Did gyre and gimble in the wabe:\\
+	All mimsy were the borogoves,\par
+	And the mome raths outgrabe. 
+\end{quotation}
+
+Central question: What is the steady state of quantum dynamics? Think of quantum dynamics as evolution of a state throughout Hilbert space.
+
+The least interesting steady state of quantum dynamics is the maximally mixed state, $\rho \sim \mathds{1}$.
+
+\section{Quantum dynamics and symmetry}
+
+If we want to look for interesting steady states we might want to say what we mean by ``interesting." Instead, we will do the opposite.
+The least interesting steady state of quantum dynamics is the thermal state, $\rho \sim \exp (-\beta H)$, which is a mixture of all states, weighted by their energies. Names for evolution toward this state include thermalization and relaxation, and betray the interpretation of this state as boring. 
+
+The simplest way to avoid evolving to this state is by imposing constraints on the evolution, most naturally through a symmetry. In this case, Hilbert space splits up into symmetry sectors, labeled by eigenvalues of the symmetry operators. A particularly common symmetry to enforce is energy conservation. .... Averaging over all states with a particular set of symmetry numbers is called the microcanonical ensemble. In some cases, especially when considering energy conservation, it is natural to instead average over all of Hilbert space, but weight different states by their symmetry numbers. This is called the canonical or grand canonical ensemble. The thermal state
+\begin{align}
+\rho \sim e^{-\beta H} = \sum_a e^{-\beta E_a} \ket{\psi_a} \bra{\psi_a},
+\end{align}
+where $\beta = 1/T$ is the inverse temperature, 
+
+Talk about classical information storage here.
+
+\section{Topological order and higher-form symmetry}
+
+Landau's paradigm was certainly powerful, and for a time people believed that any violations of ergodicity beyond enforced symmetries came from spontaneous symmetry breaking. This belief began to crumble, however, with the discoveries of the integer quantum hall effect in 19-something and the fractional quantum hall effect in 19-something-else. 
+
+\section{Hilbert-space shattering and multipole symmetry}
+
+\section{Outline of Dissertation}
+
+In what remains of this thesis, we will explore a small sample of exotic symmetries and how they lead to interesting quantum dynamics.
+
+In Chapter~\ref{chp:WalkerWang}, we build a quantum memory inspired by Ref.~\cite{RobertsBartlett2020}. This chapter generalizes the Roberts and Bartlett construction in three important ways: First, we confirm the prediction of Ref.~\cite{RobertsBartlett2020} that their construction works for any so-called Walker-Wang model. Then, we show that the symmetry only needs to be enforced within some region of the model rather than the entire bulk, Finally, we construct a model consisting of a trivial paramagnet that is nevertheless self-correcting with a judicious choice of symmetry.
+
+In Chapter~\ref{chp:boundary}, we continue to expand on the work of the previous chapter by constructing a symmetry-protected quantum memory where the symmetry is only enforced on the 2d boundary. The new ingredient is a topologically ordered bulk, which possesses an emergent symmetry. Thus, a symmetry exists throughout the entire model but only needs to be enforced on the boundary. 
+
+In Chapter~\ref{chp:single-shot}, we use the results of Ch.~\ref{chp:WalkerWang} to build a single-shot quantum memory. The advantages of this construction are the physical interpretability of the construction itself and of the resulting single-shot code. We study the physical properties of the code and interpret it as a many-body quantum system with a nontrivial phase diagram.
+
+In Chapter~\ref{chp:superfluids}, we change gears to discuss multipole symmetries. Whereas the original motivation for these symmetries was the Hilbert-space shattering that occurs at early times, here we instead study the quantum dynamics at late times using the formalism of fluctuating hydrodynamics. We look at various hydrodynamic phases corresponding to different patterns of spontaneous symmetry breaking and how they appear in hydrodynamic dispersion relations. 
+
+In Chapter~\ref{chp:loops}, we apply higher-form symmetries to the concept of Hilbert-space shattering in order to come up with models of topologically robust shattering. The shattering is robust in the sense that any dynamics compatible with the symmetry display shattering as long as they act on a finite number of spins. This is new because most existing models only display shattering for dynamics up to some finite size. We explore connections between our new model and existing models, and conjecture some other models that might display a stronger form of shattering.
+
+Finally, in Chapter~\ref{chp:conclusion}, we wrap up the discussions of this thesis with some connections between the chapters, some open questions, and some directions for future research.

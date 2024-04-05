@@ -1,0 +1,146 @@
+% !TEX root = ./thesis.tex
+
+% A file for your own custom LaTeX commands.  The following were included in the
+% original thesis template.
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\diff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\diffr}[1]{\diff{#1}{r}}
+\newcommand{\diffth}[1]{\diff{#1}{\theta}}
+\newcommand{\diffz}[1]{\diff{#1}{z}}
+
+\newcommand{\vth}{V_{\theta}}
+
+\newcommand{\twochoices}[2]{\left\{ \begin{array}{lcc}
+  \displaystyle #1 \\ \vspace{-10pt} \\
+  \displaystyle #2 \end{array} \right. }
+
+\newcommand{\threechoices}[3]{\left\{ \begin{array}{lcc}
+  #1 \\ #2 \\ #3 \end{array} \right. }
+
+\newcommand{\fourchoices}[4]{\left\{ \begin{array}{lcc}
+  #1 \\ #2 \\ #3 \\ #4 \end{array} \right. }
+
+\newcommand{\twovec}[2]{\left(\begin{array}{c} #1 \\ #2 \end{array}\right)}
+\newcommand{\threevec}[3]{\left(\begin{array}{c} #1 \\ #2 \\ #3 \end{array}\right)}
+\newcommand{\twomatrix}[4]{\left(\begin{array}{cc} #1 & #2 \\ #3 & #4 \end{array}\right)}
+
+
+% From 1-form Walker Wang paper
+\renewcommand{\l}{\ell}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\TC}{\text{TC}}
+\newcommand{\CZ}{\text{CZ}}
+\newcommand{\nn}{\nonumber\\}
+\newcommand{\RBH}{\text{RBH}}
+\newcommand{\cond}{\text{cond}}
+\newcommand{\tdtf}{\text{3d3f}}
+\newcommand{\dres}{\text{dres}}
+\newcommand{\para}{\text{para}}
+\renewcommand{\vert}{\text{vert}}
+\newcommand{\horiz}{\text{horiz}}
+\newcommand{\bound}{\text{bound}}
+\newcommand{\up}{\uparrow}
+\newcommand{\down}{\downarrow}
+\newcommand{\pardag}{\partial^\dagger\!}
+%\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\note}[1]{\textcolor{red}{#1}}
+\newcommand{\outline}[1]{\textcolor{Plum}{#1}}
+
+
+% From Boundary symmetry
+\newcommand{\op}[1]{\mathcal{O}^{(#1)}}
+%\newcommand{\nn}{\nonumber\\}
+\newcommand{\goesto}{\rightarrow}
+\renewcommand{\max}{\text{max}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\q}{\text{q}}
+%\newcommand{\pardag}{\partial^\dagger\!}
+\renewcommand{\cal}{\mathcal}
+\newcommand{\sys}{\text{sys}}
+\newcommand{\bath}{\text{bath}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+
+% From single-shot
+
+\makeatletter
+\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
+\newcommand*\widebar[1]{%
+  \begingroup
+  \def\mathaccent##1##2{%
+    \rel@kern{0.8}%
+    \overline{\rel@kern{-0.8}\macc@nucleus\rel@kern{0.2}}%
+    \rel@kern{-0.2}%
+  }%
+  \macc@depth\@ne
+  \let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+  \mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
+  \macc@set@skewchar\relax
+  \let\mathaccentV\macc@nested@a
+  \macc@nested@a\relax111{#1}%
+  \endgroup
+}
+\makeatother
+
+\renewcommand{\cal}[1]{\mathcal{#1}}
+\renewcommand{\S}{\cal{S}}
+\newcommand{\G}{\cal{G}}
+\newcommand{\Z}{\cal{Z}}
+%\newcommand{\pardag}{\partial^\dagger\!}
+\newcommand{\inlinegraphic}[1]{\vcenter{\hbox{\includegraphics{#1}}}}
+\newcommand{\Para}{\text{Para}}
+%\newcommand{\RBH}{\text{RBH}}
+\newcommand{\TCE}{\text{TCE}}
+\newcommand{\TCF}{\text{TCF}}
+\newcommand{\TTC}{\text{2TC}}
+\newcommand{\ITC}{\text{ITC}}
+\newcommand{\U}{U_{CX}}
+\renewcommand{\hat}{\widehat}
+\newcommand{\barelogical}[1]{\widebar{#1}}
+\newcommand{\dressedlogical}[1]{\widetilde{#1}}
+
+
+
+
+% From multipoleSuperfluids
+
+\newcommand{\grad}{\nabla}
+%\newcommand{\goesto}{\rightarrow}
+\newcommand{\eff}{\text{eff}}
+\renewcommand{\L}{\mathcal{L}}
+%\newcommand{\note}[1]{\textcolor{red}{#1}}
+%\newcommand{\MQ}[1]{\textcolor{blue}{#1}}
+%\newcommand{\CS}[1]{\textcolor{ForestGreen}{CS:#1}}
+%\newcommand{\andy}[1]{\textcolor{violet}{andy:#1}}
+%\newcommand{\PG}[1]{\textcolor{magenta}{PG: #1}}
+\newcommand\invisiblesection[1]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  \sectionmark{#1}}
+  
+% From quad-flip model
+%\def\U#1{\text{U}(#1)}
+%\def\Z#1{\mathbb{Z}_{#1}}
+%\newcommand{\1}{\mathds{1}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\renewcommand{\cal}{\mathcal}
+\renewcommand{\L}{\mathcal{L}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\poly}{poly}
+\newcommand{\ketbra}[2]{\ket{#1}\!\bra{#2}}
+%\newcommand{\CZ}{\mathsf{CZ}}
+\newcommand{\CZp}{\mathsf{CZ}_p}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\newcommand{\cmark}{\text{\ding{51}}}%
+\newcommand{\xmark}{\text{\ding{55}}}%
