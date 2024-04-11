@@ -1,76 +1,10 @@
 % !TEX root = ../thesis.tex
 
-%\documentclass[prb, twocolumn, longbibliography, nofootinbib]{revtex4-2}
-%
-%\usepackage{graphicx} 
-%\usepackage{amsmath}
-%\usepackage{amsfonts}
-%\usepackage{amssymb}
-%\usepackage[dvipsnames]{xcolor}
-%\usepackage[colorlinks=true]{hyperref}
-%\usepackage{graphicx}
-%\graphicspath{{doodles}}
-%\usepackage{tikz-cd}
-%\usepackage{subfigure}
-%\usepackage{bbold}
-%
-%\hypersetup{linkcolor = BrickRed, citecolor= ForestGreen, urlcolor= RoyalBlue}
-%
-%\makeatletter
-%\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
-%\newcommand*\widebar[1]{%
-%  \begingroup
-%  \def\mathaccent##1##2{%
-%    \rel@kern{0.8}%
-%    \overline{\rel@kern{-0.8}\macc@nucleus\rel@kern{0.2}}%
-%    \rel@kern{-0.2}%
-%  }%
-%  \macc@depth\@ne
-%  \let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
-%  \mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
-%  \macc@set@skewchar\relax
-%  \let\mathaccentV\macc@nested@a
-%  \macc@nested@a\relax111{#1}%
-%  \endgroup
-%}
-%\makeatother
-%
-%\renewcommand{\cal}[1]{\mathcal{#1}}
-%\newcommand{\todo}[1]{\textcolor{Red}{#1}}
-%\newcommand{\note}[1]{\textcolor{RoyalBlue}{#1}}
-%\renewcommand{\S}{\cal{S}}
-%\newcommand{\G}{\cal{G}}
-%\newcommand{\C}{\cal{C}}
-%\newcommand{\Z}{\cal{Z}}
-%\newcommand{\pardag}{\partial^\dagger\!}
-%\newcommand{\inlinegraphic}[1]{\vcenter{\hbox{\includegraphics{#1}}}}
-%\newcommand{\Para}{\text{Para}}
-%\newcommand{\RBH}{\text{RBH}}
-%\newcommand{\TCE}{\text{TCE}}
-%\newcommand{\TCF}{\text{TCF}}
-%\newcommand{\TTC}{\text{2TC}}
-%\newcommand{\ITC}{\text{ITC}}
-%\newcommand{\U}{U_{CX}}
-%\renewcommand{\hat}{\widehat}
-%\newcommand{\barelogical}[1]{\widebar{#1}}
-%\newcommand{\dressedlogical}[1]{\widetilde{#1}}
-%
-%\begin{document}
-%
-%\title{Single-Shot Quantum Error Correction in Intertwined Toric Codes}
-%\author{Charles Stahl}
-%\affiliation{Department of Physics, University of Colorado, Boulder, CO 80309, USA}
-%\date{July 16, 2023}
-
-%\begin{abstract}
-
 \chapter{Single-shot quantum memory}\label{chp:single-shot}
 
 We construct a new subsystem code in three dimensions that exhibits single-shot error correction in a user-friendly and transparent way. As this code is a subsystem version of coupled toric codes, we call it the intertwined toric code (ITC). Although previous codes share the property of single-shot error correction, the ITC is distinguished by its physically motivated origin, geometrically straightforward logical operators and errors, and a simple phase diagram. The code arises from 3d stabilizer toric codes in a way that emphasizes the physical origin of the single-shot property. In particular, starting with two copies of the 3d toric code, we add check operators that provide for the confinement of pointlike excitations without condensing the loop excitations. Geometrically, the bare and dressed logical operators in the ITC derive from logical operators in the underlying toric codes, creating a clear relationship between errors and measurement outcomes. The syndromes of the ITC resemble the syndromes of the single-shot code by Kubica and Vasmer, allowing us to use their decoding schemes. We also extract the phase diagram corresponding to ITC and show that it contains the phases found in the Kubica-Vasmer code. Finally, we suggest various connections to Walker-Wang models and measurement-based quantum computation.
 
-%\end{abstract}
-%
-%\maketitle
+A version of this chapter first appeared as~\cite{Stahl2023Single} under the title ``Single-shot quantum error correction in intertwined toric codes."
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction} \label{sec:intro}
@@ -107,7 +41,7 @@ The remainder of this paper is organized as follows. In Sec.~\ref{sec:build} we 
 \section{Intertwining toric codes} \label{sec:build}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-To provide readers with some background, we start with a brief review of subsystem codes in Sec.~\ref{sub:subsystem}. Then, to define the ITC, we define the check group and stabilizer group on a cubic lattice with periodic boundary conditions in Sec.~\ref{sub:bulk}. Like the GCC and the KVC, the ITC does not encode any logical qubits on closed manifolds. To encode logical qubits we define boundary conditions in Sec.~\ref{sub:boundary}. The boundary conditions furnish the ITC with logical qubits, and we describe the logical operators on those qubits in Sec.~\ref{sub:logicals}.
+To provide readers with some background, we start with a brief review of subsystem codes in Sec.~\ref{sub:subsystem}. Then, to define the ITC, we define the check group and stabilizer group on a cubic lattice with periodic boundary conditions in Sec.~\ref{sub:bulk}. Like the GCC and the KVC, the ITC does not encode any logical qubits on closed manifolds. To encode logical qubits we define boundary conditions in Sec.~\ref{sub:boundaries}. The boundary conditions furnish the ITC with logical qubits, and we describe the logical operators on those qubits in Sec.~\ref{sub:logicals}.
 
 %---------------------------------------------------------------------------------%
 \subsection{Brief review of subsystem codes} \label{sub:subsystem}
@@ -187,11 +121,11 @@ K = N - \frac{1}{2} \left( \log_2|\G| + \log_2|\S| \right) = 0
 logical qubits on the three-torus. We can create logical qubits by defining suitable boundary conditions.
 
 %---------------------------------------------------------------------------------%
-\subsection{Constructing boundaries} \label{sub:boundary}
+\subsection{Constructing boundaries} \label{sub:boundaries}
 %---------------------------------------------------------------------------------%
 
 To define a logical qubit, let our cubic lattice have the topology $T^2\times I$, a cube with periodic boundary conditions in two directions. Suppose that the lattice is periodic in the front/back direction and the top/bottom direction. The boundary consists of two disjoint tori; on the right torus we impose the intertwined boundary conditions and on the left torus the trivial boundary conditions.  
-In the \hyperref[sec:appendix]{Appendix} we construct the $e$- and $m$-condensed boundaries, giving rise to the ITC on a cube with no periodic boundary conditions.
+In Appendix~\ref{chp:ITCboundaries} we construct the $e$- and $m$-condensed boundaries, giving rise to the ITC on a cube with no periodic boundary conditions.
 
 The trivial (left) boundary follows simply from truncating our lattice in such a way that the boundary edges host qubits and boundary faces do not. We keep all the single-body $X_e$ and $Z_f$ check operators, along with any $B_e$ and $B_f$ check operators that remain four-body.
 For a vertex $v$ and a boundary cube $c$ on the trivial boundary, this results in the stabilizers
@@ -241,7 +175,7 @@ However, the naive termination of $\barelogical{Z}$ anticommutes with the check 
 \end{align} 
 which satisfies all the $K_e$ check operators. It is straightforward to verify that $\barelogical{X}$ and $\barelogical{Z}$ anticommute, showing that they are the bare logical operators for one of the two logical qubits.
 
-The logical operators for the other logical qubit locally look like $\barelogical{X}$ and $\barelogical{Z}$, but are stretched in the opposite directions. If we name the new logical operators $\barelogical{X}_2$ and $\barelogical{Z}_2$, then $\barelogical{X}_2$ is now periodic in the top/bottom direction and $\barelogical{Z}_2$ is periodic in the front/back direction. This confirms that the ITC with periodic boundary conditions in the top/bottom direction and the front/back direction encodes two logical qubits. In the \hyperref[sec:appendix]{Appendix} we define the $e$-condensed ($m$-condensed) boundary, where only the logical $Z$ operator (logical $X$ operator) can terminate. We use these to define the ITC with only a single logical qubit.
+The logical operators for the other logical qubit locally look like $\barelogical{X}$ and $\barelogical{Z}$, but are stretched in the opposite directions. If we name the new logical operators $\barelogical{X}_2$ and $\barelogical{Z}_2$, then $\barelogical{X}_2$ is now periodic in the top/bottom direction and $\barelogical{Z}_2$ is periodic in the front/back direction. This confirms that the ITC with periodic boundary conditions in the top/bottom direction and the front/back direction encodes two logical qubits. In Appendix~\ref{chp:ITCboundaries} we define the $e$-condensed ($m$-condensed) boundary, where only the logical $Z$ operator (logical $X$ operator) can terminate. We use these to define the ITC with only a single logical qubit.
 
 The dressed logical operators are stringlike operators $\dressedlogical{Z} = \prod_{e \in \cal{C}} Z_e$ and $\dressedlogical{X} = \prod_{f \in \cal{C}^*} X_f$, where $\cal{C}$ and $\cal{C}^*$ are a noncontractible curve in the top/bottom direction and a noncontractible \emph{dual} curve in the front/back direction, respectively. These operators anticommute with the bare logical operators $\widebar{X}$ and $\barelogical{Z}$, but commute with each other. This is possible because they act on the logical qubits \emph{and} the nonlocal ``check qubits," as described previously.
 
@@ -572,7 +506,7 @@ H_\RBH = - J_{Ke} \sum_e K_e - J_{Kf} \sum_f K_f, \label{eqn:H-RBH}
 whose ground state is the 3d cluster state~\cite{Raussendorf2005LongRange}. This Hamiltonian is in the trivial phase, but in a nontrivial SPT phase under the 1-form symmetry generated by $A_v$ and $A_c$.
 Altogether, we find five phases in $H_\ITC$, represented by the five named Hamiltonians above.
 
-Some of the exactly-solvable Hamiltonians have previously been shown to lead to symmetry-protected self correction. These are $H_\RBH$~\cite{RobertsBartlett2020}, $H_\Para$~\cite{StahlNandkishore2021}, and $H_\TTC$~\cite{Stahl2022Symmetry}. In each case the protecting symmetry is (possibly a subset of) the 1-form symmetry generated by $A_v$ and $A_c$. However, in all three cases the boundary conditions must be chosen differently to lead to symmetry-protected self correction rather than single-shot error correction. It is likely that the TCE and TCF phases would also support self correction with the right choice of boundary and 1-form symmetry. In addition, the RBH phase supports symmetry-protected topological order at nonzero temperatures~\cite{Roberts2017SPTO}, and the other phases likely do as well.
+Some of the exactly-solvable Hamiltonians have previously been shown to lead to symmetry-protected self correction. These are $H_\RBH$~\cite{RobertsBartlett2020}, $H_\Para$~\cite{StahlNandkishore2021}, and $H_\TTC$~\cite{Stahl2023Boundary}. In each case the protecting symmetry is (possibly a subset of) the 1-form symmetry generated by $A_v$ and $A_c$. However, in all three cases the boundary conditions must be chosen differently to lead to symmetry-protected self correction rather than single-shot error correction. It is likely that the TCE and TCF phases would also support self correction with the right choice of boundary and 1-form symmetry. In addition, the RBH phase supports symmetry-protected topological order at nonzero temperatures~\cite{Roberts2017SPTO}, and the other phases likely do as well.
 
 %---------------------------------------------------------------------------------%
 \subsection{Topological order in each phase} \label{sub:topological-order}
@@ -691,7 +625,7 @@ The RBH Hamiltonian also provides for fault-tolerant measurement-based quantum c
 
 One of the advantages of the KVC is that each check operator acts on at most three qubits. Is it possible to rewrite the ITC so that no check operator acts on more than three qubits? The presentation in Sec.~\ref{sec:build} uses smaller check operators. Is it possible to perform single-shot error correction using measurements of these check operators? Heuristically, it seems possible because a single measurement error introduces a geometrically close pair of violated stabilizers, rather than a single isolated violated stabilizer (as in the 2d toric code). However, this claim would have to be checked.
 
-The boundaries of the ITC (and the GCC and the KVC) hold outsized importance. As originally introduced in Sec.~\ref{sub:bulk}, the ITC with no boundaries encodes no logical qubits. However, the analysis of Sec.~\ref{sec:errors} shows that we can reliably detect syndromes and correct errors even without a boundary. Taken together, these statements show that reliable error correction, which follows from confinement in the ITC, is insufficient for single-shot error correction of a logical qubit. What, then, is the physical interpretation of the boundary? Furthermore, the bare logical operators commute in the bulk and only anticommute on the boundary. In the phase diagrams of Sec.~\ref{sec:phase}, the boundaries ``host" the topological order when there is no topological order in the bulk (in the paramagnetic and RBH phases). The boundaries also ruin self-correction in the sense that models exist that are self-correcting in the presence of generic perturbations in the bulk but only with symmetry-allowed perturbations on the boundary~\cite{Stahl2022Symmetry}. Clearly, the relationship between the bulk and the boundary contains interesting unanswered questions.
+The boundaries of the ITC (and the GCC and the KVC) hold outsized importance. As originally introduced in Sec.~\ref{sub:bulk}, the ITC with no boundaries encodes no logical qubits. However, the analysis of Sec.~\ref{sec:errors} shows that we can reliably detect syndromes and correct errors even without a boundary. Taken together, these statements show that reliable error correction, which follows from confinement in the ITC, is insufficient for single-shot error correction of a logical qubit. What, then, is the physical interpretation of the boundary? Furthermore, the bare logical operators commute in the bulk and only anticommute on the boundary. In the phase diagrams of Sec.~\ref{sec:phase}, the boundaries ``host" the topological order when there is no topological order in the bulk (in the paramagnetic and RBH phases). The boundaries also ruin self-correction in the sense that models exist that are self-correcting in the presence of generic perturbations in the bulk but only with symmetry-allowed perturbations on the boundary~\cite{Stahl2023Boundary}. Clearly, the relationship between the bulk and the boundary contains interesting unanswered questions.
 
 Lastly, all known single-shot stabilizer codes are self-correcting (but only exist in 4d or higher). None of the phases that we found in the ITC phase diagram are self-correcting. Can the simplified construction of the ITC offer any progress towards a new subsystem code that does include a self-correcting phase in 3d?
 

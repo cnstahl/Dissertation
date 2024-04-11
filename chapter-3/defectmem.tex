@@ -1,47 +1,29 @@
 % !TEX root = ../thesis.tex
 
-%\documentclass[twocolumn, longbibliography, nofootinbib]{revtex4-2}
-%
-%\usepackage{amsmath}
-%\usepackage{amssymb}
-%\usepackage[dvipsnames]{xcolor}
-%\usepackage{hyperref}
-%\hypersetup{
-%	colorlinks=true,
-%	linkcolor=blue,   
-%	urlcolor=blue,
-%}
-%\usepackage{graphicx}
-%\newcommand{\note}[1]{\textcolor{red}{#1}}
-%\newcommand{\outline}[1]{\textcolor{Plum}{#1}}
-%\newcommand{\todo}[1]{\textcolor{orange}{#1}}
-%\newcommand{\op}[1]{\mathcal{O}^{(#1)}}
-%\newcommand{\nn}{\nonumber\\}
-%\newcommand{\goesto}{\rightarrow}
-%\renewcommand{\max}{\text{max}}
-%\newcommand{\cl}{\text{cl}}
-%\newcommand{\q}{\text{q}}
-%\newcommand{\pardag}{\partial^\dagger\!}
-%\renewcommand{\cal}{\mathcal}
-%\newcommand{\sys}{\text{sys}}
-%\newcommand{\bath}{\text{bath}}
-%\newcommand{\bbZ}{\mathbb{Z}}
-%
-%\begin{document}
-%	
-%	
-%\title{Self-correction from higher-form symmetry protection on a boundary}
-%\author{Charles Stahl}
-%\affiliation{Department of Physics and Center for Theory of Quantum Matter, University of Colorado, Boulder, CO 80309, USA}
-
 \chapter{Boundary Memory} \label{chp:boundary}
-	
+
+\vspace{-.35in}
+\begin{quotation}
+\begin{multicols}{2}
+	\noindent 'Twas brillig, and the slithy toves \\
+	\makebox{\hspace{.4cm} Did gyre and gimble in the wabe:} \\
+	\noindent All mimsy were the borogoves, \\
+	\makebox{\hspace{.4cm} And the mome raths outgrabe.}
+	 
+
+\raggedleft 
+	\reflectbox{\noindent 'Twas brillig, and the slithy toves}\\
+	\reflectbox{\hspace{.4cm} Did gyre and gimble in the wabe:}\\
+	\reflectbox{All mimsy were the borogoves,}\\
+	\reflectbox{\hspace{.4cm} And the mome raths outgrabe. }
+\end{multicols}
+\end{quotation}
 	
 Recent work has shown that a self-correcting memory can exist in 3 spatial dimensions, provided it is protected by a 1-form symmetry. Requiring that a system's dynamics obey this type of symmetry is equivalent to enforcing a macroscopic number of symmetry terms throughout the bulk. In this paper, we show how to replace the explicit 1-form symmetry in the bulk with an emergent 1-form symmetry. Although the symmetry still has to be explicitly enforced on the boundary, this only requires $\cal{O}(L^2)$ terms instead of $\cal{O}(L^3)$ terms. We then reinterpret this boundary as a symmetry-protected topological defect in a bulk topological order. Defects can have interesting memory properties even in the absence of symmetry.
 
+A version of this chapter first appeared as~\cite{Stahl2023Boundary} under the title ``Self-correction from higher-form symmetry protection on a boundary."
 
-
-\section{Introduction} \label{sec:intro}
+\section{Introduction} \label{sec:bdyintro}
 
 Systems that can store quantum information for an extended period of time while interacting with a noisy environment will be integral components in any scalable implementation of quantum computation. Two important classes of such systems are \emph{fault-tolerant} quantum memories and \emph{self-correcting} quantum memories. From the perspective of condensed matter physics, fault-tolerant quantum memories can store quantum information indefinitely while evolving at zero temperature in the thermodynamic limit, even in the presence of small perturbations. The paradigmatic example is the two-space-dimensional (2d) toric code~\cite{Kitaev2003Fault}, which is \emph{topologically ordered}. Topologically ordered systems~\cite{Wen1990Topological} can generically provide fault tolerance by storing quantum information in their space of degenerate ground states. On the other hand, self-correcting quantum memories must be able to store quantum information indefinitely even at some nonzero temperatures, again in the thermodynamic limit. While the 4d toric code~\cite{Dennis2002Topological} is self-correcting, there are no known examples in three dimensions. The 4d toric code remains topologically ordered in the temperature range in which it is self-correcting~\cite{Hastings2011Topological}, but there is no general mathematical  result on the connection between self-correction and finite-temperature topological order~\cite{RobertsBartlett2020}. The existence of robust self-correction in 3d remains an open question.
 
@@ -247,13 +229,13 @@ The last ingredient is the 1-form symmetry that we will choose to enforce. The s
 \begin{align}
 \cal{A}_v = A_v^{(b)} A_{e^{(0)}}^{(f)}, \qquad \cal{B}_f = B_f^{(b)}B_f^{(e)}, \label{eqn:sym}
 \end{align}
-are products of stabilizers in Hamiltonians. The edge $e^{(0)}$ is the unique non-boundary edge such that $v\in\partial e^{(0)}$.  The terms are illustrated in Fig.~\ref{fig:enforce}. The generators of the topological part of the symmetry are products of logical operators, such as $\bar{Z}^{(e)}\bar{Z}^{(b)}$. The local and topological generators locally look the same.
+are products of stabilizers in Hamiltonians. The edge $e^{(0)}$ is the unique non-boundary edge such that $v\in\partial e^{(0)}$.  The terms are illustrated in Fig.~\ref{fig:enforced}. The generators of the topological part of the symmetry are products of logical operators, such as $\bar{Z}^{(e)}\bar{Z}^{(b)}$. The local and topological generators locally look the same.
 
 \begin{figure}
 \centering
 \includegraphics[width=.3\linewidth]{enforced}
 \caption[The terms we enforce]{The terms we enforce are $\cal{A}_v = A_v^{(b)} A_{e^{(0)}}^{(f)}$ (left) and $\cal{B}_f = B_f^{(e)} B_f^{(b)}$ (right). Since the symmetry operators are products of stabilizers, the ground space is not affected. Instead, some excitations are forbidden, so that boundary logical operators can only be applied in tandem with bulk membrane operators.}
-\label{fig:enforce}
+\label{fig:enforced}
 \end{figure}
 
 When the symmetry is enforced, $e^{(b)}$ anyons are required to coincide with endpoints of $e^{(f)}$ flux and $m^{(b)}$ anyons are required to coincide with endpoints of $m^{(e)}$ flux, all of which occur only on the lattice boundary. This means that the operators $\bar{Z}^{(b)}$, $\bar{Z}^{(f)}$, $\bar{X}^{(b)}$, and $\bar{X}^{(e)}$ all can no longer be applied transversally.  For the boundary operators this is because the boundary anyons are prohibited. This is demonstrated for $\bar{Z}^{(e)}$ in Fig.~\ref{fig:forbidden}. For the two membrane operators, open membranes (incomplete logical operators) are permitted in the bulk but  are not allowed to intersect the boundary. The bulk line operators $\bar{Z}^{(e)}$ and $\bar{X}^{(f)}$ can still be applied transversally because they need not intersect the boundary. 
