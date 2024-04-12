@@ -1,51 +1,5 @@
 % !TEX root = ../thesis.tex
 
-%\documentclass[aps,prx,twocolumn,superscriptaddress,export,longbibliography]{revtex4-2}
-%
-%\usepackage{amsmath}
-%\usepackage{bm}
-%\usepackage[dvipsnames]{xcolor}
-%\usepackage{hyperref}
-%\hypersetup{
-%	colorlinks=true,
-%	linkcolor=blue,
-%        citecolor=blue,
-%	urlcolor=blue,}
-% \usepackage{graphicx}
-% \usepackage{tikz}
-%
-%\newcommand{\grad}{\nabla}
-%\newcommand{\goesto}{\rightarrow}
-%\newcommand{\eff}{\text{eff}}
-%\renewcommand{\L}{\mathcal{L}}
-%\newcommand{\note}[1]{\textcolor{red}{#1}}
-%\newcommand{\MQ}[1]{\textcolor{blue}{#1}}
-%\newcommand{\CS}[1]{\textcolor{ForestGreen}{CS:#1}}
-%\newcommand{\andy}[1]{\textcolor{violet}{andy:#1}}
-%\newcommand{\PG}[1]{\textcolor{magenta}{PG: #1}}
-%\newcommand\invisiblesection[1]{%
-%  \refstepcounter{section}%
-%  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
-%  \sectionmark{#1}}
-%
-% \begin{document}
-%	
-%	
-%\title{Fracton superfluid hydrodynamics}
-%\author{Charles Stahl}
-%\affiliation{Department of Physics and Center for Theory of Quantum Matter, University of Colorado, Boulder, CO 80309, USA}
-%\author{Marvin Qi}
-%\affiliation{Department of Physics and Center for Theory of Quantum Matter, University of Colorado, Boulder, CO 80309, USA}
-%\author{Paolo Glorioso}
-%\affiliation{Department of Physics, Stanford University, Stanford CA 94305, USA}
-%\author{Andrew Lucas}
-%\affiliation{Department of Physics and Center for Theory of Quantum Matter, University of Colorado, Boulder, CO 80309, USA}
-%\author{Rahul Nandkishore}
-%\affiliation{Department of Physics and Center for Theory of Quantum Matter, University of Colorado, Boulder, CO 80309, USA}
-%
-%	
-%\begin{abstract}
-
 \chapter{Multipole Superfluids}\label{chp:superfluids}
 
 We examine the hydrodynamics of systems with spontaneously broken multipolar symmetries using a systematic effective field theory. We focus on the simplest non-trivial setting: a system with charge and dipole symmetry, but without momentum conservation. When no symmetries are broken, our formalism reproduces the quartic subdiffusion ($\omega \sim -i k^4$) characteristic of `fracton hydrodynamics' with conserved dipole moment. Our formalism also captures spontaneous breaking of charge and/or dipole symmetry. When charge symmetry is spontaneously broken, the hydrodynamic modes are quadratically propagating and quartically relaxing ($\omega \sim \pm k^2 - ik^4$). When the dipole symmetry is spontaneously broken but the charge symmetry is preserved, then we find quadratically relaxing (diffusive) transverse modes, plus another mode which depending on parameters may be either purely diffusive ($\omega \sim -i k^2$) or quadratically propagating and quadratically relaxing ($\omega \sim \pm k^2 -i k^2$). Our work provides concrete predictions that may be tested in near-term cold atom experiments, and also lays out a general framework that may be applied to study systems with spontaneously broken multipolar symmetries. 
@@ -56,7 +10,7 @@ A version of this chapter first appeared as~\cite{Stahl2023Fracton} under the ti
 
 \section{Introduction}
 
-Multipolar symmetries are exciting widespread interest in modern condensed matter physics, quantum information, and quantum dynamics. They connect to exotic `fracton' phases of quantum matter \cite{Pretko2017Subdimensional, Gromov2019Multipole} and can provide a new route to ergodicity breaking \cite{Pai2019Localization, Khemani2020Localization, Sala2020Fragmentation}. Multipolar symmetries can display partial or complete spontaneous symmetry breaking (SSB), through which they can stabilize new kinds of phases \cite{Lake2022Dipolar}. Of particular interest, the approach to equilibrium in systems with multipolar symmetries is described by hydrodynamics in an infinite family of non-standard universality classes \cite{NandkishoreHermele2019, Iaconis2019Subdiffusion}, collectively termed `fracton hydrodynamics.' This `fracton hydrodynamics'---which has been realized in ultracold atoms \cite{GuardadoSanchez2020}---provides an exciting new frontier, the exploration of which has become an important topic of research in its own right \cite{Glorioso2022Breakdown, RichterPal2022, Iaconis2021Multipole, Glorioso2021Nonabelian, Grosvenor2021Hydrodynamics, Osborne2021FractonFluids, Feldmeier2020Anomalous, Sala2022Modulated, Hart2022Quasiconservation, Qi2023FractonMHD, Guo2022Fracton, Glorioso2023Goldstone}. 
+Multipolar symmetries are exciting widespread interest in modern condensed matter physics, quantum information, and quantum dynamics. They connect to exotic `fracton' phases of quantum matter \cite{Pretko2017Subdimensional, Gromov2019Multipole} and can provide a new route to ergodicity breaking \cite{Pai2019Localization, Khemani2020Localization, Sala2020Fragmentation}. Multipolar symmetries can display partial or complete spontaneous symmetry breaking (SSB), through which they can stabilize new kinds of phases \cite{Lake2022Dipolar}. Of particular interest, the approach to equilibrium in systems with multipolar symmetries is described by hydrodynamics in an infinite family of non-standard universality classes~\cite{Gromov2020Fracton, Iaconis2019Subdiffusion}, collectively termed `fracton hydrodynamics.' This `fracton hydrodynamics'---which has been realized in ultracold atoms \cite{GuardadoSanchez2020}---provides an exciting new frontier, the exploration of which has become an important topic of research in its own right \cite{Glorioso2022Breakdown, RichterPal2022, Iaconis2021Multipole, Glorioso2021Nonabelian, Grosvenor2021Hydrodynamics, Osborne2021FractonFluids, Feldmeier2020Anomalous, Sala2022Modulated, Hart2022Quasiconservation, Qi2023FractonMHD, Guo2022Fracton, Glorioso2023Goldstone}. 
 
 The {\it thermodynamics} of SSB of multipolar symmetries has been discussed in \cite{Stahl2022Spontaneous, Kapustin2022Hohenberg}, where analogs of the Mermin-Wagner and Imry-Ma theorems were established. Different patterns of SSB, either of the entire multipole group or of its subgroups, correspond to condensing either monopole charges or higher multipole charges. We will call such SSB phases `fracton superfluids.'
 The hydrodynamics of conventional superfluids is a well studied subject \cite{Putterman1974SF}---here, the Goldstone boson of the broken symmetry becomes a hydrodynamic mode. However, given the surprises attendant in the  hydrodynamics of systems with unbroken multipolar symmetries, one might anticipate new features in hydrodynamics of fracton superfluids. By analogy, we may term the hydrodynamics of such generalized superfluids `fracton superfluid hydrodynamics.' Previous literature has studied fracton superfluids at zero temperature~\cite{Yuan2020Fractonic, Lake2022Dipolar}. 

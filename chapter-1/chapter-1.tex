@@ -16,7 +16,6 @@ As a result, any dynamics that have different steady states must be nongeneric i
 
 When quantum dynamics have multiple steady states, they can become useful for information storage. If the system starts in one steady state or another, it will remain there, so information can be stored in this choice. Thus, the problems of finding quantum dynamics with nontrivial steady states, or especially multiple steady states, are central problems in the theory of condensed matter systems.
 
-
 \section{Quantum dynamics and symmetry}
 
 The simplest and most common way to arrive at nontrivial steady states is to impose a symmetry on the dynamics. This symmetry, which might be discrete or continuous, breaks Hilbert space into symmetry sectors labeled by quantum numbers that correspond to the symmetry. An illuminating example of a discrete symmetry is the Ising symmetry, $S = \prod_i X_i$, which flips all the spins~\cite{Ising1925Contribution}. This is a $\mathbb{Z}_2$ symmetry, and the two resulting symmetry sectors are symmetric sector $\mathcal{H}_\text{sym}$ and antisymmetric sector $\mathcal{H}_\text{anti}$. A state $\ket{\psi}$ is in the symmetric sector if $S\ket{\psi} = \ket{\psi}$, or in the antisymmetric sector if $S\ket{\psi} = -\ket{\psi}$. Any state can be written as $\ket{\psi} = \ket{\psi_\text{s}} + \ket{\psi_\text{a}}$, with $\ket{\psi_\text{s}}$ a symmetric state and $\ket{\psi_\text{a}}$ an antisymmetric state. The symmetry enforces that symmetric states only evolve into symmetric states, and antisymmetric states only evolve into antisymmetric states.
@@ -40,81 +39,60 @@ So far, we have been discussing systems with symmetries imposed directly on the 
 \begin{equation}
 \rho_\text{thermal} = \frac{1}{Z} \sum_i e^{-\beta E_i} \ket{\psi_i} \bra{\psi_i} = \frac{1}{Z} \sum_i e^{-\beta H} \ket{\psi_i} \bra{\psi_i},
 \end{equation}
-where $H\ket{\psi_i} = E_i \ket{\psi_i}$ and $Z = \text{tr}(\exp -\beta H)$. This steady state is called the canonical ensemble, whereas the previous steady state is called the microcanonical ensemble. When a system is allowed to exchange some other conserved quantity with a bath, the resulting steady state is called the grand canonical ensemble. 
+where $H\ket{\psi_i} = E_i \ket{\psi_i}$ and $Z = \text{tr}(\exp -\beta H)$. Note that at $\beta=\infty$ this state reduces to just the ground state, so that ground state dynamics corresponds to zero temperature dynamics.
+This steady state is called the canonical ensemble, whereas the previous steady state is called the microcanonical ensemble. When a system is allowed to exchange some other conserved quantity with a bath, the resulting steady state is called the grand canonical ensemble. 
 
-While the examples we have discussed have had multiple steady states, they are not useful for information storage because of the practical problem of determining which symmetry sector the system is in. For the simplest example of the Ising symmetry, the problem of determining the symmetry sector reduces to measuring the horribly nonlocal Ising operator $S = \prod_I X_i$. Fortunately, an alternative exists, called spontaneous symmetry breaking. Consider the example of the time-independent Hamiltonian with Ising symmetry, commonly called the Ising model. In one space dimension (1d), there is a range of Hamiltonian parameters where the ground states of the two symmetry sectors are degenerate in the thermodynamic limit, with an energy gap exponentially small in system size $L$. Within this regime the symmetric ground state is $\ket{\bar{0}}+\ket{\bar{1}}$ and the antisymmetric ground state is $\ket{\bar{0}}-\ket{\bar{1}}$, where $\ket{\bar{0}}$ is the all-up state and $\ket{\bar{1}}$ is the all-down state. The degeneracy of these two states means that the individual states $\ket{\bar{0}}$ and $\ket{\bar{1}}$ also become ground states as $L\to \infty$, even though they do not belong to either symmetry sector. Furthermore, the mixing time between $\ket{\bar{0}}$ and $\ket{\bar{1}}$ vanishes in the thermodynamic limit.
+While the examples we have discussed have had multiple steady states, they are not useful for information storage because of the practical problem of determining which symmetry sector the system is in. For the simplest example of the Ising symmetry, the problem of determining the symmetry sector reduces to measuring the horribly nonlocal Ising operator $S = \prod_I X_i$. Fortunately, an alternative exists, called spontaneous symmetry breaking. Consider the example of the time-independent Hamiltonian with Ising symmetry, commonly called the Ising model. In one space dimension (1d), there is a range of Hamiltonian parameters where the ground states of the two symmetry sectors are degenerate in the thermodynamic limit, with an energy gap exponentially small in system size $L$. Within this regime the symmetric ground state is $\ket{\bar{0}}+\ket{\bar{1}}$ and the antisymmetric ground state is $\ket{\bar{0}}-\ket{\bar{1}}$, where $\ket{\bar{0}}$ is the all-up state and $\ket{\bar{1}}$ is the all-down state. The degeneracy of these two states means that the individual states $\ket{\bar{0}}$ and $\ket{\bar{1}}$ also become ground states as $L\to \infty$, even though they do not belong to either symmetry sector. Furthermore, the mixing time between $\ket{\bar{0}}$ and $\ket{\bar{1}}$ vanishes in the thermodynamic limit. In the 1d Ising model this behavior only happens in the microcanonical ensemble in the ground state, but in higher dimensions it happens for a range of energies, and even happens in the canonical ensemble for a range of temperatures. 
 
-Spontaneous symmetry breaking
+Spontaneous symmetry breaking thus gives us a new type of nontrivial steady state, one that is not labeled by symmetry numbers but rather by a pattern of spontaneous symmetry breaking. Furthermore, the two symmetry-broken steady states are locally distinguishable by a single-site $Z$ operator, making them useful for information storage. In fact, the Ising model is a simple model for ferromagnetism, the behavior underlying many forms of classical information storage, such as magnetic tapes and hard drives~\cite{Brown2016Finite}. When the system can act as a memory at nonzero temperature we call it self-correcting.
+The onset of spontaneous symmetry breaking is a phase transition in the dynamics. This phase transition also corresponds to a phase transition in the partition function, but for the present discussion that is beside the point.
 
+The importance of spontaneous symmetry breaking is most familiar from the Landau classification of phases, in which all phases of matter are labeled by their pattern of spontaneous symmetry breaking~\cite{Landau1980Statistical}. This means that two systems are in the same phase if and only if they have the same pattern of spontaneous symmetry breaking. For example, any system with Ising symmetry can have two phases, one in which the symmetry is spontaneously broken and one in which it is not.
 
+The Landau classification can also be weaponized to determine when different symmetry-breaking patterns are possible. The various Mermin-Wagner theorems tell use that discrete symmetries can only be broken when $d\ge 1$ at zero temperature and $d\ge 2$ at nonzero temperature, and that continuous symmetries can only be broken when $d \ge 2$ at zero temperature and $d \ge 3$ at nonzero temperature. This in turn tells us that if we are relying on spontaneous symmetry breaking for a classical memory, classical memories can only exist at nonzero temperature when $d \ge 2$.
 
-
-
-
-
-
-Steady state degeneracy and phases
-
-
-
-
-
-
-
-
-
-
-Fine tuning and sufficient genericness
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The importance of spontaneous symmetry breaking is most obvious in the Landau classification of phases, in which all phases of matter are labeled by their pattern of spontaneous symmetry breaking~\cite{Landau1980Statistical}. This means that two systems are in the same phase if and only if they have the same pattern of spontaneous symmetry breaking. For example, any system with Ising symmetry has two phases, one in which the symmetry is spontaneously broken and one in which it is not.
-
-
-The systems we have described so far all have steady states that are completely described by
+To recap, the systems we have described all have steady states that are completely described by
 \begin{itemize}
 \item A symmetry
 \item An ensemble, which may be either microcanonical or canonical with respect to each symmetry
 \item A symmetry breaking pattern.
 \end{itemize}
 We will refer to such systems as ergodic or thermal, and to the process of reaching such steady states as ergodicity or thermalization.
-
-
-
-
+The Landau paradigm, translated into the language of steady states, claims that all quantum dynamics are ergodic in this sense.
+Whereas the Landau paradigm is usually phrased as a description of phases of matter, here we are instead interpreting it as a description of phases of dynamics. 
 
 \section{Topological order and higher-form symmetry}
 
-Landau's paradigm was certainly powerful, and for a time people believed that any nontrivial steady states beyond enforced symmetries came from spontaneous symmetry breaking. This belief began to crumble, however, with the discoveries of the integer quantum hall effect~\cite{Klitzing1980Quantized} and the fractional quantum hall effect~\cite{Tsui1982Extreme}.  These new phases of matter had no local order parameters and could not be described by ordinary spontaneous symmetry breaking. Instead, they motivated a new type of order, called topological order~\cite{Wen1990Topological}.
+Landau's paradigm is certainly powerful, and for a time people believed that any nontrivial steady states beyond enforced symmetries came from spontaneous symmetry breaking. This belief began to crumble, however, with the discoveries of the integer quantum Hall effect~\cite{Klitzing1980Quantized} and the fractional quantum Hall effect~\cite{Tsui1982Extreme}.  These new phases of matter had no local order parameters and could not be described by ordinary spontaneous symmetry breaking. Instead, they motivated a new type of order, called topological order~\cite{Wen1990Topological}.
 
 The toric code provides a very simple theoretical model of a topologically ordered system~\cite{Kitaev2003Fault}. The toric code generalizes earlier models of $\mathbb{Z}_2$ gauge theory~\cite{Wegner1971Duality} to create a quantum Hamiltonian with a nontrivial ground state degeneracy that depends on the topology of the system. To further emphasize the novelty of this model and its independence of the earlier symmetry-based approach, the ground state degeneracy does not rely on any symmetry and is robust to arbitrary perturbations. This seems new! Indeed, for a long time topological order was thought to be a source of nontrivial steady states beyond the Landau paradigm.
 
-In order to rein topologically ordered system back into the 
+The other new feature of the toric code is that its steady states provide a quantum memory, instead of just a classical one. This is because the degeneracy of its symmetry-breaking ground states is robust to arbitrary perturbations, rather than just symmetry-preserving ones. In other words, in addition to the ground states $\ket{\bar{0}}$ and $\ket{\bar{1}}$, there are also ground states $\ket{\bar{+}} = \ket{\bar{0}} + \ket{\bar{1}}$ and $\ket{\bar{-}} = \ket{\bar{0}} - \ket{\bar{1}}$. While this superficially looks like the discussion of the Ising model, the difference is that a single $Z$ operator is sufficient to transition from the symmetric ground state of the Ising model to its antisymmetric ground state. Instead, for the toric code, any logical operator (operator that is able to transition the system between ground states) is stringlike and must act on at least $L$ sites for linear system size $L$.
 
-Toric code
+While the 2d toric code only provides a quantum memory at zero temperature, the 4d toric code~\cite{Dennis2002Topological} does so even at nonzero temperatures. This means that there is a critical temperature or energy density below which there is a logical qubit's worth of steady states. Said another way, the 4d toric code is self-correcting. The question of the possibility of self-correction in 3d remains open.
 
-Fractons
-
-
+It turns out that it is possible to reinterpret topological order as living comfortably within the Landau paradigm by considering higher-form symmetries~\cite{Nussinov2009Symmetry, Gaiotto2015Generalized, Lake2018Higher, McGreevy2022Generalized, Cordova2022Generalized}. In the language of higher-form symmetries, ordinary symmetries are 0-form symmetries and any $p$-form symmetry acts on codimension-$p$ submanifolds of space. The toric code has two 1-form symmetries, each of which consists of stringlike symmetry operators. Furthermore, $p$-form symmetries have $p$-dimensional order parameters, so the 2d toric code has stringlike order parameters. It turns out that the symmetry operators and the order parameters of the toric code are just its logical operators. In this language, topological order is just spontaneous symmetry breaking of higher-form symmetries.
 
 
+But wait a minute! We said that the toric code remains a good quantum memory even in the presence of arbitrary perturbations, without any symmetry constraints. How, then, can topological order correspond to spontaneous breaking of higher-form symmetries? The resolution is that, in topologically ordered phases, the higher-form symmetries are emergent~\cite{Wen2019Higher}. This means that, even if they are explicitly broken at some microscopic length scale, the symmetries are present again at some longer length scale and may be spontaneously broken.
 
-After topological order was tamed back into the Landau paradigm, it was tempting to believe that all quantum systems are thermal on long enough timescales. However, there are a few remaining exceptions.
+Even more recently, systems have been discovered that share some similarities with topological order, but have a richer set of steady states. These are the fracton models~\cite{Chamon2005Glassiness, Bravyi2011Order, Haah2011Code, Vijay2016Fracton,  NandkishoreHermele2019,Pretko2020Fracton}, which all have a number of ground states that diverges with system size. Their ground-state degeneracy, like that of topologically ordered systems, is robust to any small perturbation. As information-storage models, they are able to store a number of qubits proportional to their linear system size.
+
+While there was some hope that fracton models would realize finite-temperature quantum memories, this has proved to not be the case~\cite{PremHaahNandkishore2017, Siva2017Marginally}. In fact, fracton models do not even provide classical memories at nonzero temperatures.
+
+\section{Passive and active dynamics}
+
+Given the previous discussion, it might seem like quantum memories at finite temperature in 3d are a lost hope. However, there is one way to avoid this conclusion, based on error correction. In this paradigm, the quantum system of interest does not just evolve blindly on its own, but rather some experimentalist steers the evolution by measuring and applying feedback. We will refer to these types of dynamics as active dynamics. 
+
+Of course, we should put some restrictions on our active dynamics. First of all, the experimentalist should only be allowed to measure operators that are spatially local. Furthermore, we should require that the experimentalist is only allowed to perform classical operations on the measurement outcomes within some finite time window. This assumption is violated in the usual method of 2d toric code active error correction~\cite{Dennis2002Topological}, but error-correction schemes that do obey this constraint are called single-shot. Finally, we might want to only allow the experimentalist to perform classical computations on a spatially local set of measurement outcomes. We will call dynamics that obey this constraint local active dynamics, but we will mostly be interested in nonlocal active dynamics.
+
+The surprising result of Ref.~\cite{Bombin2015SingleShot} is that single-shot quantum error correction is possible in 3d. Unfortunately, that reference uses a complicated error-correcting code called the gauge color code~\cite{Bombin2015Gauge}. Despite this important result, the gauge color code and the possibility of single-shot quantum error correction remain poorly understood. 
+
+Interesting connections exist between single-shot quantum error correction and higher-form symmetries~\cite{Roberts2017SPTO, Kubica2018Ungauging}. In particular, Ref.~\cite{RobertsBartlett2020} showed that it is possible to use the gauge color code to build a symmetry-protected self-correcting quantum memory. This means that the memory is self correcting as long as a particular (higher-form) symmetry is enforced.
 
 \section{Hilbert-space shattering and multipole symmetry}
 
-Other examples of systems have been found whose dynamics do not thermalize. Integrable systems possess a macroscopic number of symmetries so that the number of symmetry sectors grows exponentially with system volume. However, generic perturbations will pick out a finite number of steady states, so we will leave these systems aside.
+With topological order tamed back into the Landau paradigm, it is once again tempting to believe that all quantum dynamics are thermal on long enough timescales. However, there are a few remaining exceptions. Integrable systems possess a macroscopic number of symmetries so that the number of symmetry sectors grows exponentially with system volume. However, generic perturbations will pick out a finite number of steady states, so we will leave these systems aside.
 
 Many-body localization (MBL) is a fascinating phenomenon wherein strong disorder can trap a many-body system in steady states that are not labeled by obvious symmetry numbers. There have been intriguing arguments for the existence of MBL, and even proofs of the stability of MBL in 1d. However, these proofs have been called into question. Physically, MBL systems may suffer from avalanche instabilities that originate in rare regions where the disorder is not strong enough and travel across the system, thermalizing it. Thus, it remains an open question whether MBL results in infinite-lifetime steady states or merely very long-lived states, so we will not address the phenomenon further in this thesis. 
 
@@ -126,7 +104,7 @@ Multipole symmetries have found many other applications in the literature, parti
 
 In what remains of this thesis, we will explore a small sample of exotic symmetries and how they lead to interesting quantum dynamics.
 
-In Chapter~\ref{chp:WalkerWang}, we build a quantum memory inspired by Ref.~\cite{RobertsBartlett2020}. This chapter generalizes the Roberts and Bartlett construction in three important ways: First, we confirm the prediction of Ref.~\cite{RobertsBartlett2020} that their construction works for any so-called Walker-Wang model. Then, we show that the symmetry only needs to be enforced within some region of the model rather than the entire bulk, Finally, we construct a model consisting of a trivial paramagnet that is nevertheless self-correcting with a judicious choice of symmetry.
+In Chapter~\ref{chp:WalkerWang}, we build a quantum memory inspired by Ref.~\cite{RobertsBartlett2020}. This chapter generalizes the  construction in three important ways: First, we confirm the prediction of Ref.~\cite{RobertsBartlett2020} that their construction works for any so-called Walker-Wang model. Then, we show that the symmetry only needs to be enforced within some region of the model rather than the entire bulk, Finally, we construct a model consisting of a trivial paramagnet that is nevertheless self-correcting with a judicious choice of symmetry.
 
 In Chapter~\ref{chp:boundary}, we continue to expand on the work of the previous chapter by constructing a symmetry-protected quantum memory where the symmetry is only enforced on the 2d boundary. The new ingredient is a topologically ordered bulk, which possesses an emergent symmetry. Thus, a symmetry exists throughout the entire model but only needs to be enforced on the boundary. 
 
