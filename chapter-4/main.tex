@@ -1,6 +1,10 @@
 % !TEX root = ../thesis.tex
 
-\chapter{Single-shot quantum memory}\label{chp:single-shot}
+\chapter{Single-Shot Quantum Error Correction in Intertwined Toric Codes }\label{chp:single-shot}
+
+\begin{quotation}
+	 ``Why, sometimes I've believed as many as six impossible things before breakfast."~[\hyperlink{cite.\therefsection @Carroll2002Alice}{Carroll}]
+\end{quotation}
 
 We construct a new subsystem code in three dimensions that exhibits single-shot error correction in a user-friendly and transparent way. As this code is a subsystem version of coupled toric codes, we call it the intertwined toric code (ITC). Although previous codes share the property of single-shot error correction, the ITC is distinguished by its physically motivated origin, geometrically straightforward logical operators and errors, and a simple phase diagram. The code arises from 3d stabilizer toric codes in a way that emphasizes the physical origin of the single-shot property. In particular, starting with two copies of the 3d toric code, we add check operators that provide for the confinement of pointlike excitations without condensing the loop excitations. Geometrically, the bare and dressed logical operators in the ITC derive from logical operators in the underlying toric codes, creating a clear relationship between errors and measurement outcomes. The syndromes of the ITC resemble the syndromes of the single-shot code by Kubica and Vasmer, allowing us to use their decoding schemes. We also extract the phase diagram corresponding to ITC and show that it contains the phases found in the Kubica-Vasmer code. Finally, we suggest various connections to Walker-Wang models and measurement-based quantum computation.
 
@@ -189,7 +193,7 @@ Whereas one of the logical operators in the 3d stabilizer toric code is inherent
 
 Having defined the check operators, stabilizers, and logical operators, we are prepared to describe the results of both qubit errors and measurement errors. We focus on $Z$-type qubit errors and $X$-type measurement errors, as the description of the other types follows analogously. One option is to describe the measurement outcomes of the $B$ operators and single-site check operators defined previously. This would result in measurement outcomes like those in Fig.~\ref{subfig:syndrome-toric}, with green for violated $X_e$ and orange for violated $B_e$. Instead, here we use a basis of $\G_\ITC$ that more closely mirrors the KVC, allowing us to use their decoder. We are only going to choose a different set of generators for the check group, leaving the check group itself unchanged, along with the lattice, geometric boundary conditions, stabilizers, and logical operators. Thus, we really are analyzing the same ITC, just with a different presentation. 
 
-\begin{figure}[ht!]
+\begin{figure}[th!]
     \centering
     \includegraphics[scale=.5]{bulk-checks-color}
     \caption[Check operators in an alternative presentation of the ITC]{Check operators in an alternative presentation of the ITC. Green and blue represent $X$ and $Z$ operators respectively. Solid bars are edges, and shaded parallelograms are faces. On the top row we have the operators $Z_f$, $X_e$, and $K_f$, while on the bottom row we have the $K_e$ check operators.}

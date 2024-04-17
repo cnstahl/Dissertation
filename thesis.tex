@@ -116,7 +116,7 @@
 %%%%%%%%%%%%%%%       BIBLIOGRAPHY SETUP        %%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% https://mirror.mwt.me/ctan/macros/latex/contrib/biblatex/doc/biblatex.pdf
+% https://mirror.mwt.me/ctan/macros/latex/contrib/x/doc/biblatex.pdf
 % https://mirror.mwt.me/ctan/macros/latex/contrib/biblatex-contrib/biblatex-phys/biblatex-phys.pdf
 \usepackage[
   backend=bibtex,
@@ -195,7 +195,11 @@
 
 \dedication[Dedication]{ % NEVER use \OnePageChapter here.
   % Use \begin{center} ... \end{center} to center this content.
-  For whom it may concern. $\mathcal{E}$
+  \vspace{4cm}
+  For $\mathcal{H}$aley,
+  
+  \vspace{2cm}
+  My best friend, always
 }
 
 \acknowledgements{ \OnePageChapter  % *MUST* BE ONLY ONE PAGE!
@@ -204,7 +208,7 @@
 }
 
 \introductoryPage{
-   `What is the use of a book,' thought Alice, `without pictures or conversations?'
+   \nocite{Carroll2002Alice}`What is the use of a book,' thought Alice, `without pictures or conversations?'
 }
 
 \emptyLoT  % use this if there is no List of Tables

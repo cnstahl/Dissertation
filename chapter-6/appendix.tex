@@ -399,3 +399,43 @@ The asymptotic scaling in Eq.~\eqref{eqn:scar-count} is compared with the exact 
 \end{figure}
 
 
+\section{Weak vs strong shattering}
+\label{app:weak-vs-strong}
+
+To determine the ``strength'' of the shattering in quad-flip (QF) model, we perform a variety of numerical simulations.
+We find evidence in support of weak fragmentation: the largest Krylov sector, which corresponds to the trivial irreducible label in both directions, occupies \emph{almost all} of the corresponding uncharged symmetry sector in the thermodynamic limit. In fact, our numerics support the slightly stronger statement that the largest Krylov sector occupies almost all of the entire constraint-satisfying Hilbert space. Consequently, the effects of the fragmentation are most pronounced starting from ``low-entropy'' initial conditions that correspond to nontrivial irreducible labels.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/weak_ratio.pdf}
+    \caption{Ratio of the size of the Krylov sector corresponding to trivial labels (both horizontal and vertical), $D_\emptyset$, to the total dimension of the constrained Hilbert space, $D_\text{tot}$. For the smallest system sizes, we plot the exact value of the ratio obtained by exact numerical enumeration. For larger systems, we sample at infinite temperature from constraint-satisfying states using the loop Monte Carlo algorithm described in the text. All systems have periodic boundary conditions, even linear system size, and degrees of freedom on edges.}
+    \label{fig:weak-vs-strong}
+\end{figure}
+
+
+The constraint on configurations around faces, illustrated in~\eqref{eqn:allowed-faces}, makes sampling allowed states with uniform probability nontrivial.
+To sample such states at infinite temperature, we design a loop update that is (i) ergodic, in the sense that the update will sample all Krylov sectors and all symmetry sectors, and (ii) satisfies detailed balance, ensuring that the uniform distribution is the stationary state~\cite{newman1999monte,levin2017markov}.
+For $m=2$, the update reduces to the standard loop algorithm for square ice~\cite{BarkemaMonteCarlo}.
+
+The loop update proceeds as follows. For simplicity, we focus on periodic boundary conditions and work with degrees of freedom on edges of the square lattice that host three-level systems. Analogous algorithms can be constructed in the vertex language of Sec.~\ref{sec:2D-vertex-model}, or with models with larger on-site Hilbert spaces.
+%
+%
+\begin{enumerate}
+    \item Pick a spin at random from a uniform distribution over edges,
+    \item choose, with uniform probability, one of the two colors (say $\beta$) complementary to the current color $\alpha$, and a direction,
+    \item interchange $\alpha \leftrightarrow \beta$ on \emph{all} horizontal bonds,
+    \item the path followed on the dual lattice is determined by traversing edges such that their colors form the sequence $\alpha \beta \alpha \beta \cdots \alpha \beta$ until the path returns to the initial site (never choosing the same edge more than once); whenever there is a direction choice, pick which direction to take with uniform probability,  %follow a random path through the directed network (not traversing the same edge twice
+    \item interchange $\alpha \leftrightarrow \beta$ along the path, producing the sequence $\beta \alpha \beta \alpha \cdots \beta \alpha$,
+    \item interchange $\alpha \leftrightarrow \beta$ on \emph{all} horizontal bonds.
+\end{enumerate}
+%
+%
+The choice to exchange $\alpha \leftrightarrow \beta$ on all horizontal before choosing a path bonds merely simplifies the rules according to which the sequence of colors is chosen.
+One may show that interchanging $\alpha \leftrightarrow \beta$ along a closed path in step 5 preserves the constraint. We now show that these updates indeed give rise to an irreducible Markov chain. We already showed in the main text that quad-flip updates are sufficient to connect any two states belonging to the same Krylov sector, and that different Krylov sectors are related by different patterns of noncontractible loops. The minimal loop update effected by steps 1--7 is indeed a quad flip. Furthermore, the loop update is able to change the color of any noncontractible loop, thereby changing Krylov sector. Hence, any two constraint-satisfying states are connected by the nonlocal loop updates described above. The algorithm also satisfies detailed balance using arguments analogous to those presented in Ref.~\cite{BarkemaMonteCarlo}. 
+
+The results are shown in Fig.~\ref{fig:weak-vs-strong}, along with exact numerical results for systems of size $4\times 4$ and $6 \times 6$ (total Hilbert-space dimensions $3^{32}$ and $3^{72}$, respectively), which are the largest systems we were able to access using a transfer-matrix approach. We observe that the ratio of the largest Krylov sector (which corresponds to the empty label in both directions) to the total constrained Hilbert space dimension grows monotonically with linear system size $L$. As a result, we expect that the ratio tends to unity as $L$ becomes thermodynamically large.
+We note, however, that the growth is rather slow; even in systems of size $18432$ spins, the largest sector occupies only $\approx 3/4$ of the total constrained Hilbert space.
+
+
+
