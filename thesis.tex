@@ -4,18 +4,9 @@
 %%%%%%%%%%%%%%%         PACKAGES & CONFIG        %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% I've found it to be good practice to include the babel package;
-% however---don't!  It breaks the appearance of chapter headings.
-% \usepackage[english]{babel}
-
 % Your thesis gets printed in color---you can use colors!  This package has
 % something to do with enabling that?
 \usepackage{color}
-
-% Something about for better accented-word behavior.
-%\usepackage[T1]{fontenc}
-% The original template included this too, but I found it broke things.
-% \usepackage[latin9]{inputenc}
 
 % Improved typography.
 %\usepackage{csquotes}
@@ -50,12 +41,6 @@
 % Introduces \bra{} and \ket{} commands.  Never type \rangle again.
 \usepackage{braket}
 
-% Now you can typeset spin-1/2 properly: "spin-\nicefrac{1}{2}".
-%\usepackage{nicefrac}
-
-% Better unit formatting.  But obviously you don't need units because c = h = 1.
-%\usepackage{units}
-
 % For formatting quotes
 \usepackage{multicol}
 
@@ -87,14 +72,6 @@
   pdftitle={Exotic Dynamics}
 }
 
-% Clever references: stop typing "Equation~\ref{foo}" manually---just type
-% \cref{foo} and let LaTeX figure out what kind of thing you're referencing.
-% NOTE: This must be loaded after hyperref.
-%\usepackage[capitalise,noabbrev]{cleveref}
-
-% Lets you rotate stuff, like full page landscape tables.
-%\usepackage{rotating}
-
 % HACK: Add a tiny bit of space atop all floats (figures and tables) to prevent
 % them from overlapping with page numbers when positioned at the top of the
 % page.  There ought to be a better way...
@@ -102,9 +79,6 @@
 \g@addto@macro\@floatboxreset{\vspace{2pt}}
 \makeatother
 
-% Lets you patch LaTeX commands.
-%\usepackage{etoolbox}
-%\usepackage{xpatch}
 % For example:
 % This makes all the quote environments italicized.
 \AtBeginEnvironment{quote}{\itshape}
@@ -187,29 +161,33 @@
 
 % Your abstract will probably be more than one page.
 \abstract{ \OnePageChapter  % because it is very short
-  Often the abstract will be long enough to require more than one page, in which
-  case the macro \texttt{$\backslash$OnePageChapter} should \emph{not} be used.
+  Symmetries have a long history of importance in physics, especially in the study of dynamics and in quantum many-body systems. From Noether's theorem describing conserved quantities and Landau's program of spontaneous symmetry breaking, to higher-form symmetries in quantum memories and multipole symmetries in Hilbert-space fragmentation, symmetries have provided routes to constraining quantum dynamics. In particular, they can often lead to physical systems being able to store information.
 
-  But this one isn't, so it should.
+  In this thesis we present some ways that exotic and modern notions of symmetry can lead to interesting nontrivial quantum dynamics. In the first half, consisting of three chapters, we present a series of projects on higher-form symmetry-protected self-correctiong quantum memories and single-shot quantum error correction. We generalize symmetry-protected quantum memories to paramagnetic and Walker-Wang bulks, along with topologically ordered bulks. With the topologically ordered bulk, the symmetry need only be enforced on a boundary. We then construct a new presentation of a single-shot quantum memory and highlight its close connection to symmetry-protected quantum memories.
+  
+  The second half of this thesis consists of two chapters, in which we address two problems related to Hilbert-space shattering and exotic symmetries. First, we study the dynamics of dipole-conserving systems in the hydrodynamics regime. The existence of this regime assumes that the shattering does not play a role, but nevertheless the dipole symmetries have a nontrivial affect on the dispersion relations. Second, we construct a model of shattering that is robust to arbitrary local symmetric perturbations, or to generic perturbations within a prethermal timescale. This model relies on a higher-form symmetry for its robustness.
 }
 
-\dedication[Dedication]{ % NEVER use \OnePageChapter here.
+\dedication[]{ % NEVER use \OnePageChapter here.
   % Use \begin{center} ... \end{center} to center this content.
-  \vspace{4cm}
+  \vspace{2cm}
   For $\mathcal{H}$aley,
   
   \vspace{2cm}
   My best friend, always
 }
 
-\acknowledgements{ \OnePageChapter  % *MUST* BE ONLY ONE PAGE!
-  Here's where you acknowledge folks who helped.  But keep it short, i.e., no
-  more than one page, as required by the Grad School Specifications.
+\acknowledgements{ \OnePageChapter 
+  Having Rahul Nandkishore as my advisor has been such a great privilege. From my early days as a grad student through my process of gaining some independence as a researcher, he has always given me exactly the amount of direction that I need, while also giving me the freedom to explore the projects that I want to. His research and career advice has always landed, has always been useful and correct, and has made it clear he wants me to succeed, not just as his student but as my own researcher. I also want to thank Andy Lucas and Mike Hermele for many interesting and encouraging conversations, and, along with Markus Pflaum and Leo Radzihovsky, for serving on my committee and agreeing to read my thesis.
+  
+  I'm grateful for all the entertainment and education I've recieved from the students and postdocs in the CTQM. My officemates Mert Okyay and Matteo Wilczak have always been kind enough to be interested in whatever I've been working on or talking about. The postdocs Ollie Hart, David Stephen, and Aaron Friedman have generously taken me in from wandering the halls looking for someone to bother. And all of the other grad students, especially Marvin Qi, Evan Wickenden, Yifan Hong, Jack Farrell, have been the sources of countless chats, ideas, and explanations.
+  
+  I would not be where I am today without my family. For teaching me, believing in me, and always pushing me to be my best, I am forever grateful.
+  
+  And of course, to Haley, thank you for all of your love and support. For being goofy with me and for being serious with me. For traveling with me and for staying put with me. Thank you for listening to and being interested in my long rants about quantum dynamics and materials and memory. This thesis would not exist without you.
 }
 
-\introductoryPage{
-   \nocite{Carroll2002Alice}`What is the use of a book,' thought Alice, `without pictures or conversations?'
-}
+\introductoryPage{}
 
 \emptyLoT  % use this if there is no List of Tables
 
@@ -253,6 +231,7 @@
 \input chapter-5/multipoleSuperfluids.tex
 \input chapter-6/condensed.tex
 \input chapter-7/conclusion.tex
+\nocite{Carroll2002Alice}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%          BIBLIOGRAPHY           %%%%%%%%%%%%%%%%%

@@ -5,17 +5,17 @@
 \vspace{-.35in}
 \begin{quotation}
 \begin{multicols}{2}
-	\noindent 'Twas brillig, and the slithy toves \\
-	\makebox{\hspace{.4cm} Did gyre and gimble in the wabe:} \\
+	\noindent \textit{'Twas brillig, and the slithy toves \\
+	\makebox{\hspace{.4cm} Did gyre and gimble in the wabe;} \\
 	\noindent All mimsy were the borogoves, \\
-	\makebox{\hspace{.4cm} And the mome raths outgrabe.}
+	\makebox{\hspace{.4cm} And the mome raths outgrabe.}}
 	 
 
 \raggedleft 
-	\reflectbox{\noindent 'Twas brillig, and the slithy toves}\\
-	\reflectbox{\hspace{.4cm} Did gyre and gimble in the wabe:}\\
-	\reflectbox{All mimsy were the borogoves,}\\
-	\reflectbox{\hspace{.4cm} And the mome raths outgrabe. }
+	\reflectbox{\noindent \textit{'Twas brillig, and the slithy toves}}\\
+	\reflectbox{\hspace{.4cm} \textit{Did gyre and gimble in the wabe;}}\\
+	\reflectbox{\textit{All mimsy were the borogoves,}}\\
+	\reflectbox{\hspace{.4cm} \textit{And the mome raths outgrabe.} }
 \end{multicols}
 
 \raggedleft[\hyperlink{cite.\therefsection @Carroll2002Alice}{Carroll}]
@@ -30,7 +30,7 @@ A self correcting quantum memory can robustly store quantum information without 
 
 Roberts and Bartlett (R\&B) have recently shown \cite{RobertsBartlett2020} that a symmetry enriched topological phase on the two dimensional boundary of a three dimensional symmetry protected topological (SPT) bulk can realize a self correcting quantum memory at non-zero temperature, if we enforce a strong constraint---namely that the dynamics respects a {\it 1-form symmetry}. A 1-form symmetry \cite{Gaiotto2015Generalized, Lake2018Higher, Tong2018Gauge, Wen2019Higher, Qi2021Exotic} is a symmetry that acts on manifolds of co-dimension one, and thus represents a very strong constraint. This remarkable breakthrough serves as the inspiration for the present work. 
 
-In this article we show how a self correcting quantum memory may be realized in Walker-Wang models, thereby extending the R\&B construction to a new family of models. Additionally, we point out in this context that it is sufficient for the 1-form symmetry to be enforced in a volume which is measure zero in the thermodynamic limit. This strongly suggests that it is inessential for the bulk to be in an SPT phase. We confirm this by constructing an example whereby enforcement of a 1-form symmetry gives rise to a self correcting quantum memory on the boundary of a {\it trivial} three dimensional bulk. Thus we show that enforcement of a 1-form symmetry in a measure zero sub-volume of a three dimensional system can be sufficient to give rise to self correction. 
+In this chapter we show how a self correcting quantum memory may be realized in Walker-Wang models, thereby extending the R\&B construction to a new family of models. Additionally, we point out in this context that it is sufficient for the 1-form symmetry to be enforced in a volume which is measure zero in the thermodynamic limit. This strongly suggests that it is inessential for the bulk to be in an SPT phase. We confirm this by constructing an example whereby enforcement of a 1-form symmetry gives rise to a self correcting quantum memory on the boundary of a {\it trivial} three dimensional bulk. Thus we show that enforcement of a 1-form symmetry in a measure zero sub-volume of a three dimensional system can be sufficient to give rise to self correction. 
 
 To set the stage for the discussion it is useful to first review the well known physics of toric codes \cite{Kitaev2003Fault}. The ground states of the 2d toric code are loop gasses, in that they can be written as a product of closed loop operators acting on a reference state. The ground states of the 4d toric code are membrane condensates in the same sense. We will refer to these loops and membranes as nonlocal stabilizers, because they are elements of the stabilizer group that have a large support. All elements of the stabilizer group, both local and nonlocal, are closed. One characteristic of topological order is a ground-state degeneracy on manifolds with non-trivial topology. Nontrivial operators on the ground space are non-contractible versions of the nonlocal stabilizers. In the 2d toric code they are non-contractible loops, while in the 4d toric code they are non-contractible membranes. Excitations above the ground state appear at the boundaries of open versions of nonlocal stabilizers. For the 2d toric code these are point-like excitations on the ends of strings, while in the 4d toric code they are flux tube-like excitations on the boundary of open membranes. Finally, the 3d toric code has one sector with stabilizers that look like those of the 2d toric code and one with stabilizers that look like those of the 4d toric code. As such, its ground states can be written as loop gasses or membrane gasses.
 	
@@ -46,7 +46,7 @@ For example, consider the 2d toric code. If the dynamics are restricted to state
 
 The R\&B proposal \cite{RobertsBartlett2020} instead creates a code that, when the symmetry is enforced, behaves like the 4d toric code in that logical operators can be applied transversally but with a large enough energy barrier that the bath applies them with probability 0 in the thermodynamic limit, at sufficiently low but non-zero temperature. This is achieved using a 2d topological order on the boundary of a 3d SPT. 
 	
-In this paper we show how to achieve the same results using the 3d 3-fermion model~\cite{Burnell2014Soluble}, a specific example of a confined Walker-Wang model. We expect that this prescription should work for any confined Walker-Wang model~\cite{WalkerWang2011, vonKeyserlingk2013SurfaceAnyons}. We show that the relevant symmetry need only be enforced ``close" to the boundary, in a sense that we will explain, suggesting that the SPT nature of the bulk may be inessential to the phenomenon. 
+In this chapter we show how to achieve the same results using the 3d 3-fermion model~\cite{Burnell2014Soluble}, a specific example of a confined Walker-Wang model. We expect that this prescription should work for any confined Walker-Wang model~\cite{WalkerWang2011, vonKeyserlingk2013SurfaceAnyons}. We show that the relevant symmetry need only be enforced ``close" to the boundary, in a sense that we will explain, suggesting that the SPT nature of the bulk may be inessential to the phenomenon. 
 We then show that a model with a trivial paramagnetic bulk can display the same phenomena. The 1-form symmetry directly protects the quantum memory by introducing an appropriate coupling between pointlike excitations on the boundary and confined fluxes in the bulk. 
 We conclude with a discussion of 1-form symmetry protection in the topologically ordered 3d toric code and some discussion of possible future work.
 
@@ -109,7 +109,7 @@ The flux that confines the point particles is the same as the flux on the bounda
 
 Confinement means the 3d 3-fermion model contains no topological order in the bulk, because there is no way to transport point particles across the system and return to the ground space. The result is that the 3d 3-fermion model is trivial when defined on manifolds without boundary.
 
-\begin{figure}
+\begin{figure}[th!]
 \centering
 \includegraphics[width=.25\linewidth]{bdyops}
 \caption[Stabilizers on the boundary of the Walker-Wang model]{The stabilizers on the boundary are truncated versions of the ones in the bulk. Red represents $O$ edges and blue represents $U$ edges. The two face operators that reach into the bulk each have a $U$ edge that is not shown (they are not truncated), while the boundary face operator does not have any $O$ edge.}
@@ -322,7 +322,7 @@ We find ourselves in a position similar to the 3d 3-fermion model, where boundar
 
 \section{Discussion}
 
-The  purpose of this paper have been to relate the R\&B construction to other existing models and to determine what aspects of the construction are most important for achieving self-correction. We showed that enforcing the 1-form symmetry in any confined abelian Walker-Wang model results in self-correction. Ref.~\cite{RobertsBartlett2020} conjectured that this might be possible, and indeed it is. In the process we discovered that it suffices to enforce the symmetry in a measure zero sub-volume of the system. This then led us to conjecture that it might be possible to achieve self correction with a paramagnetic bulk, and indeed, we were able to demonstrate this by explicit construction. This strongly suggests that it is the 1-form symmetry that does the heavy lifting, and any `exotic' nature of the bulk is optional. 
+The  purpose of this chapter have been to relate the R\&B construction to other existing models and to determine what aspects of the construction are most important for achieving self-correction. We showed that enforcing the 1-form symmetry in any confined abelian Walker-Wang model results in self-correction. Ref.~\cite{RobertsBartlett2020} conjectured that this might be possible, and indeed it is. In the process we discovered that it suffices to enforce the symmetry in a measure zero sub-volume of the system. This then led us to conjecture that it might be possible to achieve self correction with a paramagnetic bulk, and indeed, we were able to demonstrate this by explicit construction. This strongly suggests that it is the 1-form symmetry that does the heavy lifting, and any `exotic' nature of the bulk is optional. 
 
 The approaches we have discussed achieve self-correction by giving anyons effective long-range interactions, by tying them to confined bulk flux strings. Thus they could be compared to earlier literature that also tried to utilize long-range interactions to achieve self correction ~\cite{Hamma2009Toric, Chesi2010Self, Pedrocchi2011Memory, Hutter2012Self, Wootton2013Topological, Becker2013Dynamic, Pedrocchi2013Thermal, Hutter2014Effective}.
 Those attempts were limited by requirements for unbounded operator strength and/or instability to perturbation~\cite{Brown2016Finite, LandonCardinal2015}. If we enforce the 1-form symmetry by endowing certain terms in the Hamiltonian with infinite coupling constants, then the R\&B proposal (and our extensions thereof) suffer from the same limitations. 
@@ -331,7 +331,7 @@ Since we do not use any exotic bulk properties, we should ask if we can improve 
 A key direction for future work is  whether 1-form symmetry can naturally emerge in the dynamics of some quantum system. In this context, R\&B conjectured that the 3d gauge color code~\cite{Bombin2015Gauge} (gcc) might realize an emergent 1-form symmetry (including at non-zero temperature). However, the proof or disproof of this conjecture remains an open problem \cite{Kubica2018Ungauging}, as does identification of other potential platforms for emergent 1-form symmetry at non-zero temperature. An alternative direction to pursue might be to seek quantum computational architectures where 1-form symmetry may be natively enforced, for instance through single shot error correction \cite{Roberts2017SPTO, Bombin2015SingleShot}. 
 
 The appeal of the 3d gauge color code is that the flux tubes do not end in the bulk.
-The reason for the 1-form symmetry in the bulk in the R\&B proposal and in this paper was to prevent the flux tubes from terminating, so the 3d gcc would not need this constraint.
+The reason for the 1-form symmetry in the bulk in the R\&B proposal and in this chapter was to prevent the flux tubes from terminating, so the 3d gcc would not need this constraint.
 The 3d toric code is a useful point of comparison for the 3d gcc.
 Like the 3d gcc, the 3d toric code has flux tubes that do not terminate in the bulk.
 If it were possible to couple the endpoints of these flux tubes to boundary anyons this may result in some nonzero-temperature stability, even without higher-form symmetry enforcement. The difficulty of understanding emergent higher-form symmetry can also be seen in the 3d toric code, which has an emergent 1-form symmetry at $T=0$ but not at nonzero temperatures. 

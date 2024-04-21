@@ -261,7 +261,7 @@ $\left\lvert\kern1pt%
 The six labels of length $\ell = 8$ are the same six labels as $\ell = 6$ surrounded by the unique color that is not equal to the first or last color in the corresponding $\ell=6$ label.
 Asymptotically, the number of patterns of length $\ell$ within the uncharged symmetry sector scales (up to polynomial corrections) as $\sim 2^\ell$.
 
-\begin{figure}
+\begin{figure}[th!]
     \centering
     \includegraphics[width=0.55\linewidth]{img/exact_distribution.pdf}
     \caption[Exact distribution of Krylov sectors in the pair-flip model]{Exact distribution of Krylov sectors in the uncharged symmetry sector, obtained from the generating functions~\eqref{eqn:GF} and~\eqref{eqn:neutral-labels-exact}. $P(\ell)$ is the probability that a state drawn at random from the uncharged symmetry sector with uniform probability belongs to a Krylov sector corresponding to label length $\ell$. The largest Krylov sector, which corresponds to label length $\ell = 0$, represents a vanishingly small fraction of the symmetry sector.}
@@ -405,15 +405,6 @@ The asymptotic scaling in Eq.~\eqref{eqn:scar-count} is compared with the exact 
 To determine the ``strength'' of the shattering in quad-flip (QF) model, we perform a variety of numerical simulations.
 We find evidence in support of weak fragmentation: the largest Krylov sector, which corresponds to the trivial irreducible label in both directions, occupies \emph{almost all} of the corresponding uncharged symmetry sector in the thermodynamic limit. In fact, our numerics support the slightly stronger statement that the largest Krylov sector occupies almost all of the entire constraint-satisfying Hilbert space. Consequently, the effects of the fragmentation are most pronounced starting from ``low-entropy'' initial conditions that correspond to nontrivial irreducible labels.
 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.6\linewidth]{img/weak_ratio.pdf}
-    \caption{Ratio of the size of the Krylov sector corresponding to trivial labels (both horizontal and vertical), $D_\emptyset$, to the total dimension of the constrained Hilbert space, $D_\text{tot}$. For the smallest system sizes, we plot the exact value of the ratio obtained by exact numerical enumeration. For larger systems, we sample at infinite temperature from constraint-satisfying states using the loop Monte Carlo algorithm described in the text. All systems have periodic boundary conditions, even linear system size, and degrees of freedom on edges.}
-    \label{fig:weak-vs-strong}
-\end{figure}
-
-
 The constraint on configurations around faces, illustrated in~\eqref{eqn:allowed-faces}, makes sampling allowed states with uniform probability nontrivial.
 To sample such states at infinite temperature, we design a loop update that is (i) ergodic, in the sense that the update will sample all Krylov sectors and all symmetry sectors, and (ii) satisfies detailed balance, ensuring that the uniform distribution is the stationary state~\cite{newman1999monte,levin2017markov}.
 For $m=2$, the update reduces to the standard loop algorithm for square ice~\cite{BarkemaMonteCarlo}.
@@ -433,6 +424,13 @@ The loop update proceeds as follows. For simplicity, we focus on periodic bounda
 %
 The choice to exchange $\alpha \leftrightarrow \beta$ on all horizontal before choosing a path bonds merely simplifies the rules according to which the sequence of colors is chosen.
 One may show that interchanging $\alpha \leftrightarrow \beta$ along a closed path in step 5 preserves the constraint. We now show that these updates indeed give rise to an irreducible Markov chain. We already showed in the main text that quad-flip updates are sufficient to connect any two states belonging to the same Krylov sector, and that different Krylov sectors are related by different patterns of noncontractible loops. The minimal loop update effected by steps 1--7 is indeed a quad flip. Furthermore, the loop update is able to change the color of any noncontractible loop, thereby changing Krylov sector. Hence, any two constraint-satisfying states are connected by the nonlocal loop updates described above. The algorithm also satisfies detailed balance using arguments analogous to those presented in Ref.~\cite{BarkemaMonteCarlo}. 
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/weak_ratio.pdf}
+    \caption[Evidence for weak shattering]{Ratio of the size of the Krylov sector corresponding to trivial labels (both horizontal and vertical), $D_\emptyset$, to the total dimension of the constrained Hilbert space, $D_\text{tot}$. For the smallest system sizes, we plot the exact value of the ratio obtained by exact numerical enumeration. For larger systems, we sample at infinite temperature from constraint-satisfying states using the loop Monte Carlo algorithm described in the text. All systems have periodic boundary conditions, even linear system size, and degrees of freedom on edges.}
+    \label{fig:weak-vs-strong}
+\end{figure}
 
 The results are shown in Fig.~\ref{fig:weak-vs-strong}, along with exact numerical results for systems of size $4\times 4$ and $6 \times 6$ (total Hilbert-space dimensions $3^{32}$ and $3^{72}$, respectively), which are the largest systems we were able to access using a transfer-matrix approach. We observe that the ratio of the largest Krylov sector (which corresponds to the empty label in both directions) to the total constrained Hilbert space dimension grows monotonically with linear system size $L$. As a result, we expect that the ratio tends to unity as $L$ becomes thermodynamically large.
 We note, however, that the growth is rather slow; even in systems of size $18432$ spins, the largest sector occupies only $\approx 3/4$ of the total constrained Hilbert space.

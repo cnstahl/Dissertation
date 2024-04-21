@@ -189,6 +189,7 @@
 % Other required LaTeX2e packages: if your computer doesn't already
 % have these, you can copy them to your own directory (URL above):
 
+\RequirePackage{hyperref}
 \RequirePackage{indentfirst}		% indentfirst.sty, 1995/11/23
 \RequirePackage{ifthen}			% ifthen.sty, 1996/08/02
 \RequirePackage[ULforem,normalbf]{ulem}	% ulem.sty, 1995/12/17
@@ -1172,7 +1173,7 @@
 		\hspace{0pt}
 		\vfill
 
-		\th@introductoryPageContent
+		`What is the use of a book,' thought Alice, `without pictures or conversations?'~[\hyperlink{cite.\therefsection @Carroll2002Alice}{Carroll}]
 
 		\vfill
 		\hspace{0pt}
